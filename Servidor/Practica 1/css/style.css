@@ -1,0 +1,25 @@
+div {
+    display: flex;
+    justify-content: center;
+}
+table {
+    border-collapse: collapse;
+    width: 150px;
+    margin: 10px;
+}
+table, th, td {
+    border: 1px solid black;
+    font-size: 20px;
+}
+tbody tr:nth-child(even) {
+    background-color: rgb(143, 192, 221);
+}
+tbody tr:nth-child(2n + 1) {
+    background-color: rgb(213, 224, 235);
+}
+thead tr {
+    background-color: rgb(32, 113, 145);
+}
+caption {
+    caption-side: bottom;
+}
