@@ -174,9 +174,9 @@
                         } else {
                             echo "<h3>Pon numero</h3>";
                         }
+                    } else {
+                        echo "<h3>elige unidad</h3>";
                     }
-                } else {
-                    echo "<h3>elige unidad</h3>";
                 }
             }
             ?>
