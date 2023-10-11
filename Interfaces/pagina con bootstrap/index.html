@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/script.js"></script>
+    <link
+      href="bootstrap.min.css" rel="stylesheet"
+    />
+    <script src="bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Calculadora</h1>
+      <form id="formulario">
+        <div>
+          <label for="operandoA" class="form-label">Operando A</label>
+          <input
+            type="number"
+            placeholder="Escribe el operando A"
+            id="operandoA"
+            class="form-control"
+          />
+        </div>
+        <div>
+          <label for="operandoB" class="form-label">Operando B</label>
+          <input
+            type="number"
+            placeholder="Escribe el operando B"
+            id="operandoB"
+            class="form-control"
+          />
+        </div>
+      </form>
+      <button type="submit" class="btn btn-primary">Sumar</button>
+      <button type="submit" class="btn btn-secondary">Restar</button>
+      <button type="submit" class="btn btn-danger">Multiplicar</button>
+      <button type="submit" class="btn btn-success">Dividir</button>
+      <br /><br />
+      <div id="resultado"></div>
+    </div>
+  </body>
+</html>
