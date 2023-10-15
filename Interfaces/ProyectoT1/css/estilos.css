@@ -1,0 +1,7 @@
+.boton { display: inline-block; padding: 10px; border: 1px solid black; background-color: white; cursor: pointer; }
+
+.boton__rojo { background-color: red; }
+
+.boton__grande { font-size: 20px; }
+
+.boton__desactivado { cursor: not-allowed; opacity: 0.5; }
