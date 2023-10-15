@@ -42,13 +42,13 @@ function asignarMesa() {
         if (cantidad_clientes > 0) {
             let mesaDisponible = buscarMesa(mesas, cantidad_clientes, maximo);
 
-            if (mesaDisponible != -1) {
-                mesas[mesaDisponible] += cantidad_clientes;
-                console.log(`Siente en la mesa ${mesaDisponible + 1}`); // una forma interesante de incluir una variable dentro de un string con comillas graves `
-                console.log(mesas);
-            } else {
+            if (mesaDisponible == -1) {
                 console.log("No queda sitio");
+                continue;
             }
+            mesas[mesaDisponible] += cantidad_clientes;
+            console.log(`Siente en la mesa ${mesaDisponible + 1}`);
+            console.log(mesas);
         }
     } while (cantidad_clientes > 0);
 }
