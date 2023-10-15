@@ -10,15 +10,16 @@ function generarTablero() {
     for (let i = 0; i < tablero.length; i++) {
         tablero[i] = new Array(5);
     }
-    tablero[random(0,tablero.length - 1)][0,tablero[0].length - 1] == tesoro;
+    tablero[random(0, tablero.length - 1)][0, tablero[0].length - 1] == tesoro;
     do {
-        let fila = random(0,tablero.length - 1);
-        let columna = random(0,tablero[0].length - 1);
+        let fila = random(0, tablero.length - 1);
+        let columna = random(0, tablero[0].length - 1);
 
         if (tablero[fila][columna] != undefined) {
             continue;
         }
-        
+        tablero[fila][columna] = mina;
         contadorMinas++;
-    } while(contadorMinas != 3);
+    } while (contadorMinas < 3);
 }
+
