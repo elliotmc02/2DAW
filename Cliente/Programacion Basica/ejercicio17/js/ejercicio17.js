@@ -1,85 +1,102 @@
 function generarTablero(filas, columnas) {
-  let tablero = [];
+  const tablero = [];
   for (let i = 0; i < filas; i++) {
-    tablero[i] = [];
-    for (let j = 0; j < columnas; j++) {
-      tablero[i][j] = "*";
-    }
+    tablero[i] = Array(columnas).fill("*");
   }
   pintarTablero(tablero);
   return tablero;
 }
 
+function generarCoordenadaAleatoria(filas, columnas, repetido = []) {
+  let coordenada;
+  do {
+    coordenada = `${random(0, filas - 1)},${random(0, columnas - 1)}`;
+  } while (repetido.includes(coordenada));
+  return coordenada;
+}
+
 function generarTesoros(filas, columnas) {
-  let tesoros = [random(0, filas - 1) + "," + random(0, columnas - 1)];
-  return tesoros;
+  return [generarCoordenadaAleatoria(filas, columnas)];
 }
 
 function generarMinas(filas, columnas, tesoros) {
-  let minas = [];
+  const minas = [];
   let contadorMinas = 0;
   do {
-    let fila_y_columna = random(0, filas - 1) + "," + random(0, columnas - 1);
-    if (minas.includes(fila_y_columna) || tesoros.includes(fila_y_columna)) {
-      continue;
-    }
-    minas.push(fila_y_columna);
+    const coordenada = generarCoordenadaAleatoria(filas, columnas, [
+      ...minas,
+      ...tesoros,
+    ]);
+    minas.push(coordenada);
     contadorMinas++;
   } while (contadorMinas < 3);
+  console.log(`Minas: ${minas.join(" ")}`);
   return minas;
 }
 
-function jugar(COORDENADAS) {
-  let terminar = false;
+function actualizarVidas(vidas) {
+  document.getElementById("vidas").innerHTML = `Vidas: ${vidas}`;
+}
 
-  const FILA_USUARIO = COORDENADAS.split(",")[0];
-  const COLUMNA_USUARIO = COORDENADAS.split(",")[1];
+function jugar(coordenadas, tablero, tesoros, minas) {
+  const [FILA_USUARIO, COLUMNA_USUARIO] = coordenadas.split(",");
 
-  if (tablero[FILA_USUARIO][COLUMNA_USUARIO] == "_") {
+  if (
+    tablero[FILA_USUARIO][COLUMNA_USUARIO] == "_" ||
+    tablero[FILA_USUARIO][COLUMNA_USUARIO] == "X"
+  ) {
     alert("Casilla repetida");
-  }
-  // Comprobar si es una mina
-  if (MINAS.includes(COORDENADAS)) {
+  } else if (minas.includes(coordenadas)) {
     tablero[FILA_USUARIO][COLUMNA_USUARIO] = "X";
-    alert("Has perdido");
-    terminar = true;
-  } else {
-    // Comprobar si es un tesoro
-    if (TESOROS.includes(COORDENADAS)) {
-      tablero[FILA_USUARIO][COLUMNA_USUARIO] = "€";
-      alert("Has ganado");
-      terminar = true;
-    } else {
-      // Ni mina ni tesoro
-      if (tablero[FILA_USUARIO][COLUMNA_USUARIO] == "*") {
-        tablero[FILA_USUARIO][COLUMNA_USUARIO] = "_";
-      }
+    vidas--;
+    actualizarVidas(vidas);
+    if (vidas == 0) {
+      alert("Te has quedado sin vidas, has perdido");
+    }
+  } else if (tesoros.includes(coordenadas)) {
+    tablero[FILA_USUARIO][COLUMNA_USUARIO] = "€";
+    alert("Has ganado");
+  } else if (tablero[FILA_USUARIO][COLUMNA_USUARIO] == "*") {
+    tablero[FILA_USUARIO][COLUMNA_USUARIO] = "_";
+    if (minaCerca(FILA_USUARIO, COLUMNA_USUARIO, minas)) {
+      alert("Mina cerca");
     }
   }
   pintarTablero(tablero);
 }
 
+function minaCerca(fila, columna, minas) {
+  for (let i = fila - 1; i <= fila + 1; i++) {
+    for (let j = columna - 1; j <= columna + 1; j++) {
+      if (minas.includes(`${i},${j}`)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
 function obtenerCoordenadas(event) {
-  let coordenada = event.target.id;
-  jugar(coordenada);
+  const coordenada = event.target.id;
+  jugar(coordenada, tablero, TESOROS, MINAS);
   console.log(coordenada);
 }
 
 function pintarTablero(tablero) {
-  let table = document.getElementById("table");
+  const table = document.getElementById("table");
   table.innerHTML = "";
 
   for (let i = 0; i < tablero.length; i++) {
-    let fila = document.createElement("tr");
+    const fila = document.createElement("tr");
     for (let j = 0; j < tablero[i].length; j++) {
-      let columna = document.createElement("td");
+      const columna = document.createElement("td");
       columna.addEventListener("click", obtenerCoordenadas);
       columna.setAttribute("id", `${i},${j}`);
       columna.textContent = tablero[i][j];
       fila.appendChild(columna);
     }
     table.appendChild(fila);
-    console.log(tablero[i].join(" "));
+    // console.log(tablero[i].join(" "));
   }
 }
 
@@ -87,6 +104,8 @@ function random(min, max) {
   return parseInt(Math.random() * (max - min + 1) + min);
 }
 
+let vidas = 2;
+actualizarVidas(vidas);
 const NUMERO_FILAS = 4;
 const NUMERO_COLUMNAS = 5;
 const TESOROS = generarTesoros(NUMERO_FILAS, NUMERO_COLUMNAS);
