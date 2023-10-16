@@ -65,11 +65,15 @@ function jugar() {
     pintarTablero(tablero);
 }
 
+
 function random(min, max) {
     return parseInt(Math.random() * (max - min + 1) + min);
 }
 
-function pedirCoordenada(max, xy) {
+function comprobarValores(max, xy) {
+    let fila = document.getElementsByName("fil").values[0];
+    let columna = document.getElementsByName("col").values[0];
+
     let coord;
     do {
         coord = parseInt(prompt(xy));
