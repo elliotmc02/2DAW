@@ -26,3 +26,40 @@
     height: 100px;
     border: 1px solid black;
 }
+
+.parrafo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.lineaBase {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.estirar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: stretch;
+  width: 300px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.estirar__rojo {
+  background-color: red;
+}
+.estirar__verde {
+  background-color: green;
+}
+.estirar__azul {
+  background-color: blue;
+}
