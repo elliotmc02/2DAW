@@ -180,6 +180,7 @@ body {
   padding: 10px;
   max-width: 32%;
   margin-bottom: 20px;
+  vertical-align: top;
 }
 
 .proyectos-book img {
