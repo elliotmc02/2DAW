@@ -1,0 +1,10 @@
+.pakita {
+    background-color: blue;
+}
+.manolo {
+    background-color: red;
+}
+
+div {
+    display: flex;
+}
