@@ -21,12 +21,15 @@ function actualizarBotones() {
         case 0:
             buttons[0].removeAttribute("disabled");
             buttons[1].setAttribute("disabled", true);
+            break;
         case imgs.length - 1:
             buttons[0].setAttribute("disabled", true);
             buttons[1].removeAttribute("disabled");
+            break;
         default:
             buttons[0].removeAttribute("disabled");
             buttons[1].removeAttribute("disabled");
+            break;
     }
 }
 
