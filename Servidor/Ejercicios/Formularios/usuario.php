@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <? require "../Confidencial/base_de_datos.php" ?>
 </head>
 
 <body>
@@ -116,6 +117,10 @@
         echo "<h3>Nombre: $nombre</h3>";
         echo "<h3>Apellidos: $apellidos</h3>";
         echo "<h3>Fecha: $fecha</h3>";
+
+        $sql = "INSERT INTO usuarios (usuario, nombre, apellidos, fecha_nacimiento) VALUES ('$usuario', '$nombre', '$apellidos', '$fecha')";
+
+        $conexion->query($sql);
     }
     ?>
 </body>
