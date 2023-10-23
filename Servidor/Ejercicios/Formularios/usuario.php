@@ -15,7 +15,6 @@
     }
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $temp_usuario = depurar($_POST["usuario"]);
-        $temp_edad = depurar($_POST["edad"]);
         $temp_nombre = depurar($_POST["nombre"]);
         $temp_apellidos = depurar($_POST["apellidos"]);
         $temp_apellidos = preg_replace("/[ ]{2,}/", ' ', $temp_apellidos);
@@ -29,7 +28,6 @@
                 $err_usuario = "El usuario debe tener entre 4 y 8 caracteres y contener letras o numeros";
             } else {
                 $usuario = $temp_usuario;
-                echo $usuario;
             }
         }
 
@@ -100,8 +98,6 @@
             <label>Usuario: </label>
             <input type="text" name="usuario">
             <?php if (isset($err_usuario)) echo "<label style='color: red;'>" . $err_usuario . "</label>" ?><br><br>
-            <label>Edad: </label>
-            <input type="text" name="edad"><br><br>
             <label>Nombre: </label>
             <input type="text" name="nombre">
             <?php if (isset($err_nombre)) echo "<label style='color: red;'>" . $err_nombre . "</label>" ?><br><br>
@@ -115,7 +111,8 @@
         </fieldset>
     </form>
     <?php
-    if (isset($nombre) && isset($apellidos) && isset($fecha)) {
+    if (isset($usuario) && isset($nombre) && isset($apellidos) && isset($fecha)) {
+        echo "<h3>Usuario: $usuario</h3>";
         echo "<h3>Nombre: $nombre</h3>";
         echo "<h3>Apellidos: $apellidos</h3>";
         echo "<h3>Fecha: $fecha</h3>";

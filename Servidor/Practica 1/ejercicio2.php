@@ -25,7 +25,7 @@
         $min = $temperaturas[$i][1];
         $max = $temperaturas[$i][2];
         $temperaturas[$i][] = ($min + $max) / 2;
-    }
+    }   
     /* Con foreach
     foreach ($temperaturas as &$x) {
         $x[3] = ($x[1] + $x[2]) / 2;
