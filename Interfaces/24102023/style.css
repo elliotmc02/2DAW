@@ -1,0 +1,156 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#general {
+  width: 1200px;
+  border: 1px solid black;
+  margin-top: 20px;
+  margin: 0px auto;
+}
+#header {
+  width: 100%;
+  height: 100px;
+  background-color: blue;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+}
+
+#nav {
+  width: 100%;
+  background-color: #333;
+  color: white;
+  height: 40px;
+  font-family: sans-serif, Verdana, Geneva, Tahoma;
+  font-size: 14px;
+  box-shadow: 0px 0px 2px grey;
+}
+
+#nav ul {
+  list-style: none;
+  text-decoration: none;
+  margin: 0px auto;
+  width: 1130px;
+}
+
+#nav > ul > li {
+  line-height: 40px;
+  float: left;
+  border-right: 1px solid grey;
+}
+
+#nav > ul > li a {
+  display: block;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+#nav > ul > li a:first-child {
+  border-left: 1px solid grey;
+}
+
+#nav > ul > li:hover {
+  background-color: blue;
+  box-shadow: 0px 0px 10px black inset;
+}
+
+#nav > ul > li > ul {
+  display: none;
+  position: absolute;
+  color: white;
+  text-align: left;
+  width: 160px;
+  box-shadow: 0px 2px 2px grey;
+  z-index: 1;
+}
+
+#nav > ul > li:hover > ul {
+    display: block;
+}
+
+#nav > ul > li:hover > ul > li {
+    background-color: #f2f1f0;
+    border-bottom: 1px solid black;
+    padding: 8px;
+    line-height: 25px;
+    font-size: 13px;
+    transition: all 1s;
+}
+
+#nav >ul >li:hover > ul > li a {
+    color: #666;
+}
+
+#nav >ul >li:hover >ul >li:hover {
+    background-color: #ccc;
+}
+
+#contenido {
+    width: 69%;
+    border: 1px solid green;
+    float: left;
+}
+
+#lateral {
+    width: 29%;
+    border: 1px solid black;
+    float: left;
+    height: 1270px;
+    text-align: center;
+    overflow-y: scroll;
+}
+
+#contenido h1 {
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    padding: 30px;
+    color: #444;
+    text-shadow: 0px 5px 5px grey;
+}
+
+#contenido .caja {
+    width: 40%;
+    height: 250px;
+    background-color: #ccc;
+    border: 1px solid bisque;
+    color: #444;
+    float: left;
+    margin: 20px;
+    box-shadow: 0px 10px 10px grey;
+}
+
+#contenido .caja__bordeRedondeado{
+    border-radius: 10px;
+}
+
+#contenido .caja__bordeCircular{
+    border-radius: 999px;
+}
+
+#contenido .caja h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.sombra_interior {
+    box-shadow: 5px 5px 10px black !important;
+}
+
+.clearfix {
+    float: none;
+    clear: left;
+}
+
+.libre {
+    position: absolute;
+    border: 1px solid black;
+    color: white;
+    width: 50px;
+    height: 50px;
+    font-size: 14px;
+}

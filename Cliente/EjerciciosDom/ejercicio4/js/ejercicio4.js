@@ -17,6 +17,8 @@ function actualizarBotones() {
   buttons[0].setAttribute("disabled", index == imgs.length - 1);
   buttons[1].setAttribute("disabled", index == 0);
 
+
+  
   switch (index) {
     case 0:
       buttons[0].removeAttribute("disabled");
