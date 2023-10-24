@@ -3,7 +3,7 @@
  * Creo 2 clases en css: pakita, manolo boton que al pulsarlo cambie entre esas 2 clases
  */
 
-let tabla = document.getElementsByClassName("pakita")[0];
+let tabla = document.getElementsByClassName("clase1")[0];
 
 function pedirDimensiones() {
     tabla.setAttribute("height", prompt("Altura: "));
@@ -11,8 +11,8 @@ function pedirDimensiones() {
 }
 
 function pedirDimensionesQueQuiera() {
-    let opcion = prompt("altura o anchura");
-    let n = parseInt(prompt("dimensiones"));
+    const opcion = prompt("altura o anchura");
+    const n = parseInt(prompt("dimensiones"));
     tabla.setAttribute((opcion == "altura" ? "height" : "width"), n);
 
 }
@@ -23,7 +23,7 @@ function pedirBorde() {
 
 
 function cambiarCSS() {
-    tabla.setAttribute("class", (tabla.getAttribute("class") == "pakita" ? "manolo" : "pakita"));
+    tabla.setAttribute("class", (tabla.getAttribute("class") == "clase1" ? "clase2" : "clase1"));
 }
 
 function mover() {

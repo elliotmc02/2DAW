@@ -7,7 +7,7 @@ body {
     background-color: black;
 }
 
-body div:first-child {
+div {
     display: flex;
 }
 

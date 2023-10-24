@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 11</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h2>Con visibility</h2>
+    <div>
+      <div
+        class="div1"
+        onmouseenter="cambiar('vis','mostrar')"
+        onmouseleave="cambiar('vis','ocultar')"
+      >
+        Soy el DIV 1
+      </div>
+      <div class="div2 visibility">Soy el DIV 2</div>
+      <div class="div3">Soy el DIV 3</div>
+    </div>
+    <h2>Con display</h2>
+    <div>
+      <div
+        class="div1"
+        onmouseenter="cambiar('dis','mostrar')"
+        onmouseleave="cambiar('dis','ocultar')"
+      >
+        Soy el DIV 1
+      </div>
+      <div class="div2 display">Soy el DIV 2</div>
+      <div class="div3">Soy el DIV 3</div>
+    </div>
+  </body>
+  <script src="js/ejercicio11.js"></script>
+</html>

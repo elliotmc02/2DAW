@@ -1,4 +1,4 @@
-let imgs = [
+const imgs = [
   "foto1.jpg",
   "foto2.jpg",
   "foto3.jpg",
@@ -18,7 +18,7 @@ function actualizarBotones() {
   buttons[1].setAttribute("disabled", index == 0);
 
 
-  
+
   switch (index) {
     case 0:
       buttons[0].removeAttribute("disabled");
