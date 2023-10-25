@@ -1,0 +1,48 @@
+.principal {
+  position: absolute;
+  width: 15%;
+}
+
+.arriba,
+.abajo,
+.izquierda,
+.derecha {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+}
+
+.arriba {
+  top: 0;
+  left: 0;
+  height: 30%;
+  width: 100%;
+  z-index: 1;
+}
+
+.abajo {
+  bottom: 0;
+  right: 0;
+  height: 30%;
+  width: 100%;
+  z-index: 1;
+}
+
+.izquierda {
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+}
+
+.derecha {
+  right: 0;
+  top: 0;
+  width: 30%;
+  height: 100%;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
