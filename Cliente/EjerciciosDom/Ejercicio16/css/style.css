@@ -1,0 +1,16 @@
+meter,
+progress {
+  width: 10%;
+}
+
+body > div {
+  text-align: center;
+}
+
+div > div {
+  margin-bottom: 1%;
+}
+
+button {
+  width: 10%;
+}
