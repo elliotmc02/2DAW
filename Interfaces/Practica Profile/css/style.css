@@ -30,13 +30,14 @@
 
 .body-dark {
   color: white;
-  background-color: rgb(24, 24, 44);
+  background-color: rgb(9, 9, 24);
 }
 
 .header-dark,
 .main-dark {
   border: 2px solid white;
   margin: 3%;
+  background-color: rgb(20, 27, 43);
 }
 
 /* HEADER */
@@ -97,7 +98,17 @@
   border-bottom: 2px solid white;
 }
 
-.informacion-section-dark img {
+.informacion-section-dark > div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  padding: 1%;
+  border: 2px solid black;
+  border-radius: 50px;
+  background-color: rgb(36, 36, 36);
+}
+
+.informacion-section-dark > div > img {
   width: 25%;
   height: 25%;
 }
@@ -128,19 +139,20 @@
   border-bottom: 2px solid white;
 }
 
-.aficiones-div {
-  margin-top: 2%;
+.aficiones-section-dark > div {
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr;
-  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
-.aficiones-div > div {
-  display: flex;
-  justify-content: center;
-  width: 60%;
-  flex-wrap: wrap;
-  padding: 10%;
+.aficiones-section-dark > div > div {
+  margin: 5%;
+}
+
+.aficiones-section-dark img {
+  width: 100%;
+  height: 20rem;
+  border: 1px solid white;
+  border-radius: 30px;
 }
 
 .aficiones-section-dark > h1 {
@@ -149,20 +161,12 @@
   text-decoration: underline;
 }
 
-.aficiones-div > div > h4 {
-  text-align: center;
-  font-size: 18pt;
+.aficiones-section-dark > div > div > h4 {
+  font-size: 14pt;
 }
 
-.aficiones-div > div > p {
+.aficiones-section-dark > div > div {
   text-align: center;
-}
-
-.aficiones-section-dark img {
-  width: 80%;
-  height: 80%;
-  border: 2px solid white;
-  border-radius: 25px;
 }
 
 /* ciudades */
@@ -173,8 +177,37 @@
   border-bottom: 2px solid white;
 }
 
+.ciudades-section-dark > div > div > ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
 .ciudades-section-dark img {
+  height: 30rem;
+  width: 80%;
   display: none;
+  border: 2px solid white;
+}
+
+.ciudades-section-dark li {
+  margin: 0.5%;
+  background-color: rgb(36, 36, 36);
+  text-align: center;
+  list-style: none;
+  vertical-align: middle;
+  font-size: 14pt;
+  color: white;
+  width: 100%;
+}
+
+.ciudades-section-dark li:hover {
+  background-color: rgb(23, 86, 82);
+}
+
+.ciudades-section-dark li:hover + img {
+  display: block;
 }
 
 /* sitios */
