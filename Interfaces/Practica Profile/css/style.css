@@ -15,6 +15,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 .iconoFijo {
@@ -39,6 +40,12 @@
   border: 2px solid white;
   margin: 3%;
   background-color: rgb(23, 27, 37);
+}
+
+.titulos {
+  text-align: center;
+  font-size: 26pt;
+  text-decoration: underline;
 }
 
 /* HEADER */
@@ -122,11 +129,6 @@
   padding-left: 5%;
 }
 
-.informacion-div > h1 {
-  font-size: 26pt;
-  text-decoration: underline;
-}
-
 .informacion-div > p {
   font-size: 14pt;
   text-align: justify;
@@ -156,14 +158,9 @@
   border-radius: 30px;
 }
 
-.aficiones-section-dark > h1 {
-  text-align: center;
-  font-size: 26pt;
-  text-decoration: underline;
-}
-
 .aficiones-section-dark > div > div > h4 {
   font-size: 14pt;
+  margin-top: 2%;
 }
 
 .aficiones-section-dark > div > div {
@@ -176,9 +173,6 @@
   padding: 2%;
   margin: 2%;
   border-bottom: 2px solid white;
-}
-.ciudades-section-dark h1 {
-  text-align: center;
 }
 
 .ciudades-section-dark > div > div {
@@ -228,10 +222,6 @@
   border-bottom: 2px solid white;
 }
 
-.sitios-section-dark h1 {
-  text-align: center;
-}
-
 .sitios-section-dark > div {
   background-color: rgb(36, 36, 36);
   border: 2px solid black;
@@ -275,6 +265,22 @@
 
 .actividades-section-dark > h1 {
   text-align: center;
+  text-decoration: underline;
+}
+
+.actividades-section-dark table thead th {
+  background-color: rgb(16, 21, 39);
+}
+
+.actividades-section-dark table tr td {
+  background-color: rgb(30, 30, 30);
+}
+.actividades-section-dark table tr:nth-child(odd) td {
+  background-color: rgb(36, 36, 36);
+}
+
+.actividades-section-dark table tr:hover td {
+  background-color: rgb(23, 86, 82);
 }
 
 /* galeria */
@@ -282,10 +288,6 @@
 .galeria-section-dark {
   padding: 2%;
   margin: 2%;
-}
-
-.galeria-section-dark > h1 {
-  text-align: center;
 }
 
 .galeria {
