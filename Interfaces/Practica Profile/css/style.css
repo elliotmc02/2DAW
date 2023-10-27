@@ -17,6 +17,17 @@
   box-sizing: border-box;
 }
 
+.iconoFijo {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 1%;
+  left: 0.75%;
+}
+.iconoFijo img {
+  width: 50%;
+}
+
 .body-dark {
   color: white;
   background-color: rgb(24, 24, 44);
@@ -25,13 +36,14 @@
 .header-dark,
 .main-dark {
   border: 2px solid white;
-  margin: 1.5%;
+  margin: 3%;
 }
 
 /* HEADER */
 
 .header-dark {
   height: 5rem;
+  margin-top: 1%;
 }
 
 .header-dark > nav {
@@ -60,7 +72,7 @@
 }
 
 .header-dark > nav > div > a:hover {
-  background-color: rgb(109, 31, 31);
+  background-color: rgb(23, 86, 82);
 }
 
 .header-dark img {
@@ -100,6 +112,7 @@
 
 .informacion-div > h1 {
   font-size: 26pt;
+  text-decoration: underline;
 }
 
 .informacion-div > p {
@@ -115,24 +128,67 @@
   border-bottom: 2px solid white;
 }
 
-.aficiones-section-dark > div {
+.aficiones-div {
   margin-top: 2%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 2fr 2fr 2fr;
+  justify-items: center;
 }
 
-.aficiones-section-dark > div > div {
+.aficiones-div > div {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  flex-wrap: wrap;
   padding: 10%;
 }
 
 .aficiones-section-dark > h1 {
   text-align: center;
   font-size: 26pt;
+  text-decoration: underline;
+}
+
+.aficiones-div > div > h4 {
+  text-align: center;
+  font-size: 18pt;
+}
+
+.aficiones-div > div > p {
+  text-align: center;
 }
 
 .aficiones-section-dark img {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   border: 2px solid white;
   border-radius: 25px;
+}
+
+/* ciudades */
+
+.ciudades-section-dark {
+  padding: 2%;
+  margin: 2%;
+  border-bottom: 2px solid white;
+}
+
+.ciudades-section-dark img {
+  display: none;
+}
+
+/* sitios */
+
+.sitios-section-dark {
+  padding: 2%;
+  margin: 2%;
+  border-bottom: 2px solid white;
+}
+
+/* actividades */
+
+.actividades-section-dark {
+  padding: 2%;
+  margin: 2%;
+  border-bottom: 2px solid white;
 }
