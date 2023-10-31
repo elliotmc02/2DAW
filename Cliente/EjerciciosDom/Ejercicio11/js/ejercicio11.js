@@ -1,3 +1,11 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const divs = document.querySelectorAll(".div1")
+    divs[0].addEventListener("mouseenter", () => cambiar("vis", "mostrar"));
+    divs[0].addEventListener("mouseleave", () => cambiar("vis", "ocultar"));
+    divs[1].addEventListener("mouseenter", () => cambiar("dis", "mostrar"));
+    divs[1].addEventListener("mouseleave", () => cambiar("dis", "ocultar"));
+});
+
 function cambiar(prop, estado) {
     const div = document.querySelectorAll(".div2");
     switch (prop) {
@@ -11,11 +19,3 @@ function cambiar(prop, estado) {
             console.log("Error, propiedad no encontrada");
     }
 }
-
-// function mostrar(prop) {
-//     document.querySelectorAll(".div2")[prop == "vis" ? 0 : 1].style.setProperty(prop == "vis" ? "visibility" : "display", prop == "vis" ? "visible" : "flex")
-// }
-
-// function ocultar(prop) {
-//     document.querySelectorAll(".div2")[prop == "vis" ? 0 : 1].style.setProperty(prop == "vis" ? "visibility" : "display", prop == "vis" ? "hidden" : "none")
-// }

@@ -3,16 +3,16 @@
   width: 15%;
 }
 
-.arriba,
-.abajo,
-.izquierda,
-.derecha {
+.top,
+.bottom,
+.left,
+.right {
   width: 50%;
   height: 50%;
   position: absolute;
 }
 
-.arriba {
+.top {
   top: 0;
   left: 0;
   height: 30%;
@@ -20,7 +20,7 @@
   z-index: 1;
 }
 
-.abajo {
+.bottom {
   bottom: 0;
   right: 0;
   height: 30%;
@@ -28,14 +28,14 @@
   z-index: 1;
 }
 
-.izquierda {
+.left {
   bottom: 0;
   left: 0;
   width: 30%;
   height: 100%;
 }
 
-.derecha {
+.right {
   right: 0;
   top: 0;
   width: 30%;

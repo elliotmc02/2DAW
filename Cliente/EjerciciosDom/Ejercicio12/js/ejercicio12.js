@@ -1,3 +1,9 @@
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("div > div").forEach((element) => {
+        element.addEventListener("mousemove", () => mover(element.getAttribute("class")));
+    })
+});
+
 function mover(mouse) {
     const div = document.querySelector("div");
     const divStyle = window.getComputedStyle(div);
