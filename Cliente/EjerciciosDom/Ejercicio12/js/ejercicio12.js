@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function mover(mouse) {
-    const div = document.querySelector("div");
+    const div = document.querySelector(".principal");
     const divStyle = window.getComputedStyle(div);
     let direccion;
     switch (mouse) {
