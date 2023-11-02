@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function apostar() {
-    let dinero = document.querySelector("#dinero").textContent.split(": ")[1];
-    let caballo = document.querySelector("#caballo").value;
-    let cantidad = document.querySelector("#cantidad").value;
-    if (dinero <= 0 || dinero < cantidad) {
+    let dinero = parseInt(document.querySelector("#dinero").textContent.split(": ")[1]);
+    let caballo = parseInt(document.querySelector("#caballo").value);
+    let cantidad = parseInt(document.querySelector("#cantidad").value);
+    if (dinero <= 0 || cantidad > dinero) {
         alert("No tienes dinero");
         return;
     }
@@ -25,7 +25,7 @@ function correr(caballo, cantidad) {
 
     function mover() {
         for (let i = 0; i < caballos.length; i++) {
-            coords[i] += random(0.1, 2);
+            coords[i] += random(0.1, 3);
             caballos[i].firstElementChild.style.setProperty("transform", `translateX(${coords[i]}px)`);
 
             if (coords[i] >= window.getComputedStyle(document.querySelector(".panel")).getPropertyValue("width").split("px")[0] - window.getComputedStyle(caballos[i].firstElementChild).getPropertyValue("width").split("px")[0]) {

@@ -1,0 +1,99 @@
+$fuente-tipica: sans-serif, Helvetica, Arial;
+$fuente-tipica2: Arial, Helvetica, sans-serif;
+$color-fondo: #ccc;
+$color-letra: red;
+$color-letra2: blue;
+
+body {
+  background-color: $color-fondo;
+}
+
+h1 {
+  color: $color-letra;
+  font-family: $fuente-tipica;
+}
+
+p {
+  color: $color-letra2;
+  font-family: $fuente-tipica2;
+}
+
+.caja {
+  border: 1px solid black;
+  margin: 0px auto;
+  text-align: center;
+  background-color: white;
+  padding: 10px;
+
+  h2 {
+    color: blue;
+  }
+  p {
+    color: green;
+  }
+  .info {
+    font-size: 10px;
+    .autor {
+      font-size: 14px;
+      color: orange;
+    }
+  }
+}
+
+@mixin crearBorder5-Sombra() {
+  border: 5px solid red;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px black;
+}
+
+@mixin crear-Border-Sombra-Param($color, $size, $shadow) {
+  border: $size solid $color;
+  border-radius: $size;
+  box-shadow: 0px 0px $size $shadow;
+}
+
+.caja {
+  @include crearBorder5-Sombra();
+}
+
+.caja2 {
+  @include crear-Border-Sombra-Param(blue, 10px, black);
+}
+
+.listadoMixin {
+  @include crear-Border-Sombra-Param(green, 5px, yellow);
+}
+
+%alerta-normal {
+  @include crear-Border-Sombra-Param(gray, 5px, black);
+  padding: 10px;
+  width: 80%;
+  margin: 10px auto;
+}
+
+.alerta {
+  @extend %alerta-normal;
+}
+
+.alerta-peligro {
+  @extend %alerta-normal;
+  background-color: red;
+  color: white;
+}
+
+.alerta-exito {
+  @extend %alerta-normal;
+  background-color: green;
+  color: white;
+}
+
+h4 {
+  font-size: 32px + 5px - 1px;
+}
+
+h5 {
+  font-size: 18px - 2px;
+}
+
+$caja: 200px;
+$wrap: 900px;
