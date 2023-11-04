@@ -25,11 +25,12 @@ function correr(caballo, cantidad) {
 
     function mover() {
         for (let i = 0; i < caballos.length; i++) {
-            coords[i] += random(0.1, 3);
+            coords[i] += random(0.5, 2.5);
             caballos[i].firstElementChild.style.setProperty("transform", `translateX(${coords[i]}px)`);
 
             if (coords[i] >= window.getComputedStyle(document.querySelector(".panel")).getPropertyValue("width").split("px")[0] - window.getComputedStyle(caballos[i].firstElementChild).getPropertyValue("width").split("px")[0]) {
-                alert("Ha ganado el caballo " + (i + 1));
+                // alert("Ha ganado el caballo " + (i + 1));
+                alert(`Ha ganado el caballo ${i + 1}`);
                 if (caballo == i + 1) {
                     setDinero(parseInt(document.querySelector("#dinero").textContent.split(": ")[1]) + parseInt(cantidad * 2));
                 }

@@ -1,0 +1,21 @@
+.parrafo-inicial {
+  width: 50%;
+  border: 1px solid black;
+  font-size: 16pt;
+}
+
+.parrafo-nuevo {
+  width: 75%;
+  border: 2px dashed red;
+  font-size: 20pt;
+}
+
+table,
+td {
+  width: 50%;
+  height: 50px;
+  text-align: center;
+  font-size: 16pt;
+  border-collapse: collapse;
+  border: 2px solid black;
+}

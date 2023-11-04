@@ -1,0 +1,12 @@
+.div-enlace {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 2px solid black;
+    width: 200px;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    font-size: 16pt;
+}

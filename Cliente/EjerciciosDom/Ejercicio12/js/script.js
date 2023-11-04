@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("div > div").forEach((element) => {
         element.addEventListener("mousemove", () => mover(element.getAttribute("class")));
-    })
+    });
 });
 
 function mover(mouse) {
