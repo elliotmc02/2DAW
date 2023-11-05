@@ -9,7 +9,7 @@ function generar() {
   const parrafo_inicial = document.querySelector(".parrafo-inicial");
   let p = document.createElement("p");
   p.textContent = parrafo_inicial.textContent;
-  p.setAttribute("class", "parrafo-nuevo");
+  p.className = "parrafo-nuevo";
   parrafo_inicial.parentNode.insertBefore(p, parrafo_inicial.nextSibling);
   document.querySelectorAll("input")[2].removeAttribute("disabled");
 }
@@ -22,10 +22,9 @@ function borrarViejo() {
 }
 
 function borrarNuevos() {
-  const padre = document.querySelector(".parrafo-nuevo").parentNode;
-  while (padre.querySelector(".parrafo-nuevo")) {
-    padre.removeChild(padre.querySelector(".parrafo-nuevo"));
-  }
+  document.querySelectorAll(".parrafo-nuevo").forEach((parrafo) => {
+    parrafo.parentNode.removeChild(parrafo);
+  });
   document.querySelectorAll("input")[2].setAttribute("disabled", true);
 }
 

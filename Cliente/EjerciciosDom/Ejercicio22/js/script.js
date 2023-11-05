@@ -3,21 +3,15 @@ document.addEventListener("DOMContentLoaded", () => {
         elemento.addEventListener("click", () => ampliar(elemento));
         cambiarPropiedades(elemento);
     });
-
-    document.querySelector(".capa").addEventListener("click", function (event) {
-        if (event.target == this) {
-            this.classList.remove("activo");
-            setTimeout(() => {
-                this.style.setProperty("display", "none");
-                document.body.style.removeProperty("overflow");
-            }, 1000);
-        }
-    });
 });
 
 function ampliar(elemento) {
     const estilo = window.getComputedStyle(elemento);
-    const capa = document.querySelector(".capa");
+    // const capa = document.querySelector(".capa");
+    const capa = document.createElement("div");
+    capa.appendChild(document.createElement("img"));
+    capa.className = "capa";
+    document.body.appendChild(capa);
     if (elemento != document.querySelector(".capa img")) {
         setTimeout(() => {
             capa.classList.add("activo");
@@ -27,6 +21,15 @@ function ampliar(elemento) {
         capa.firstElementChild.style.setProperty("width", parseInt(estilo.getPropertyValue("width").split("px")[0]) * 2 + "px");
         capa.firstElementChild.style.setProperty("height", parseInt(estilo.getPropertyValue("height").split("px")[0]) * 2 + "px");
         document.body.style.setProperty("overflow", "hidden");
+        capa.addEventListener("click", function (event) {
+            if (event.target == this) {
+                this.classList.remove("activo");
+                setTimeout(() => {
+                    document.body.removeChild(this);
+                    document.body.style.removeProperty("overflow");
+                }, 1000);
+            }
+        })
     }
 }
 
