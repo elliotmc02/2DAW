@@ -46,7 +46,7 @@ function moverse(tablero, casilla) {
                 }
             }
         }
-        pintarTablero(document.querySelectorAll("tr"), nueva_fila, nueva_columna, casilla);
+        pintarTablero(document.querySelectorAll("tr"), nueva_fila, nueva_columna);
     }
 }
 
