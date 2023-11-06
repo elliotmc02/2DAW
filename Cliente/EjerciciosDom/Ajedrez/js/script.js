@@ -1,4 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
+    crearTabla();
+
+    const fila_aleatoria = random(0, 7);
+    const columna_aleatoria = random(0, 7);
+
+    document.querySelectorAll("tr")[fila_aleatoria].querySelectorAll("td")[columna_aleatoria].style.setProperty("background-image", "url(img/foto.png)");
+
+    const tablero = document.querySelectorAll("tr");
+
+    comprobarCasillas(tablero, fila_aleatoria, columna_aleatoria);
+
+    document.querySelectorAll("td").forEach((element) => {
+        element.addEventListener("click", () => moverse(tablero, element));
+    });
+});
+
+function crearTabla() {
     const table = document.createElement("table");
 
     for (let i = 0; i < 8; i++) {
@@ -10,22 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         table.appendChild(tr);
     }
-    document.body.appendChild(table);
-
-    const fila_aleatoria = random(0, 7);
-    const columna_aleatoria = random(0, 7);
-
-    document.querySelectorAll("tr")[fila_aleatoria].querySelectorAll("td")[columna_aleatoria].style.setProperty("background-image", "url(img/foto.png)");
-    let tablero = document.querySelectorAll("tr");
-    let rey = document.querySelectorAll("tr")[fila_aleatoria].querySelectorAll("td")[columna_aleatoria];
-    pintarTablero(tablero, fila_aleatoria, columna_aleatoria, rey);
-    document.querySelectorAll("td").forEach((element) => {
-        element.addEventListener("click", () => moverse(tablero, element));
-    });
-});
-
-function random(min, max) {
-    return parseInt(Math.random() * (max - min + 1) + min);
+    document.querySelector("div").appendChild(table);
 }
 
 function moverse(tablero, casilla) {
@@ -46,21 +48,24 @@ function moverse(tablero, casilla) {
                 }
             }
         }
-        pintarTablero(document.querySelectorAll("tr"), nueva_fila, nueva_columna);
+        comprobarCasillas(document.querySelectorAll("tr"), nueva_fila, nueva_columna);
     }
 }
 
-function pintarTablero(tablero, fila_aleatoria, columna_aleatoria) {
-    for (let i = fila_aleatoria - 1; i <= fila_aleatoria + 1; i++) {
-        for (let j = columna_aleatoria - 1; j <= columna_aleatoria + 1; j++) {
-            if (tablero[i] != null) {
-                let casilla = tablero[i].querySelectorAll("td")[j];
-                if (casilla != null) {
-                    if (i != fila_aleatoria || j != columna_aleatoria) {
-                        casilla.classList.add("casilla-cerca");
-                    }
-                }
+function comprobarCasillas(tablero, fila, columna) {
+    const filaInicio = Math.max(0, fila - 1);
+    const filaFinal = Math.min(tablero.length - 1, fila + 1);
+    const columnaInicio = Math.max(0, columna - 1);
+    const columnaFinal = Math.min(tablero.length - 1, columna + 1);
+    for (let i = filaInicio; i <= filaFinal; i++) {
+        for (let j = columnaInicio; j <= columnaFinal; j++) {
+            if (i != fila || j != columna) {
+                tablero[i].querySelectorAll("td")[j].classList.add("casilla-cerca");
             }
         }
     }
+}
+
+function random(min, max) {
+    return parseInt(Math.random() * (max - min + 1) + min);
 }
