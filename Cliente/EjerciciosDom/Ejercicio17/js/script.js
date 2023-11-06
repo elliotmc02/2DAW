@@ -29,7 +29,6 @@ function correr(caballo, cantidad) {
             caballos[i].firstElementChild.style.setProperty("transform", `translateX(${coords[i]}px)`);
 
             if (coords[i] >= window.getComputedStyle(document.querySelector(".panel")).getPropertyValue("width").split("px")[0] - window.getComputedStyle(caballos[i].firstElementChild).getPropertyValue("width").split("px")[0]) {
-                // alert("Ha ganado el caballo " + (i + 1));
                 alert(`Ha ganado el caballo ${i + 1}`);
                 if (caballo == i + 1) {
                     setDinero(parseInt(document.querySelector("#dinero").textContent.split(": ")[1]) + parseInt(cantidad * 2));

@@ -32,10 +32,11 @@ function sustituir() {
   const parrafo_inicial = document.querySelector(".parrafo-inicial");
   const table = document.createElement("table");
 
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 8; i++) {
     const tr = document.createElement("tr");
-    for (let j = 0; j < 2; j++) {
+    for (let j = 0; j < 8; j++) {
       const td = document.createElement("td");
+      td.style.setProperty("background-color", (i + j) % 2 == 0 ? "black" : "white");
       td.textContent = (i + 1) * (j + 1);
       tr.appendChild(td);
     }

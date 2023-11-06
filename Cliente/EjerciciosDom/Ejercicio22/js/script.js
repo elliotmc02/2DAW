@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function ampliar(elemento) {
     const estilo = window.getComputedStyle(elemento);
-    // const capa = document.querySelector(".capa");
     const capa = document.createElement("div");
     capa.appendChild(document.createElement("img"));
     capa.className = "capa";
