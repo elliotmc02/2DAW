@@ -1,6 +1,8 @@
 meter,
 progress {
   width: 10%;
+  height: 20px;
+  border-radius: 0;
 }
 
 body > div {
