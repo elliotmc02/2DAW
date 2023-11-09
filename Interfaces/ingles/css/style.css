@@ -1,0 +1,372 @@
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.iconoFijo {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 1%;
+  left: 0.75%;
+}
+.iconoFijo img {
+  margin-top: 10%;
+  width: 50%;
+}
+
+.body-dark {
+  color: white;
+  background-color: rgb(32, 32, 36);
+}
+
+.header-dark,
+.main-dark {
+  border: 2px solid white;
+  margin: 3%;
+  background-color: rgb(23, 27, 37);
+}
+
+.titulos {
+  text-align: center;
+  font-size: 26pt;
+  text-decoration: underline;
+}
+
+/* HEADER */
+
+.header-dark {
+  height: 5rem;
+  margin-top: 1%;
+}
+
+.header-dark > nav {
+  height: 100%;
+  display: flex;
+}
+
+.header-dark > nav > div {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 100%;
+}
+
+.header-dark > nav > div > a {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  height: 100%;
+  padding-right: 1%;
+  padding-left: 1%;
+  text-decoration: none;
+  color: white;
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+.header-dark > nav > div > a:hover {
+  background-color: rgb(23, 86, 82);
+}
+
+.header-dark img {
+  margin-left: 1%;
+  margin-right: 1%;
+  width: 50px;
+  height: 50px;
+}
+
+/* MAIN */
+
+.main-dark {
+  margin-top: 3%;
+}
+
+/* infomacion */
+
+.informacion-section-dark {
+  padding: 2%;
+  margin: 2%;
+  display: flex;
+  border-bottom: 2px solid white;
+}
+
+.informacion-section-dark > div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  padding: 1%;
+  border: 2px solid black;
+  border-radius: 50px;
+  background-color: rgb(36, 36, 36);
+}
+
+.informacion-section-dark > div > img {
+  width: 25%;
+  height: 25%;
+}
+
+.informacion-div {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 5%;
+}
+
+.informacion-div > p {
+  font-size: 14pt;
+  text-align: justify;
+}
+
+/* aficiones */
+
+.aficiones-section-dark {
+  padding: 2%;
+  margin: 2%;
+  border-bottom: 2px solid white;
+}
+
+.aficiones-section-dark > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.aficiones-section-dark > div > div {
+  margin: 5%;
+}
+
+.aficiones-section-dark img {
+  width: 100%;
+  height: 20rem;
+  border: 1px solid white;
+  border-radius: 30px;
+  transition: all 1s ease;
+}
+
+.aficiones-section-dark img:hover {
+  transform: rotateY(180deg) scale(1.1);
+}
+
+.aficiones-section-dark > div > div > h4 {
+  font-size: 14pt;
+  margin-top: 2%;
+}
+
+.aficiones-section-dark > div > div {
+  text-align: center;
+}
+
+/* ciudades */
+
+.ciudades-section-dark {
+  padding: 2%;
+  margin: 2%;
+  border-bottom: 2px solid white;
+}
+
+.ciudades-section-dark > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ciudades-section-dark > div > div > ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+.ciudades-section-dark img {
+  height: 30rem;
+  width: 80%;
+  display: none;
+  border: 2px solid white;
+}
+
+.ciudades-section-dark li {
+  margin: 0.5%;
+  background-color: rgb(36, 36, 36);
+  text-align: center;
+  list-style: none;
+  vertical-align: middle;
+  font-size: 14pt;
+  color: white;
+  width: 100%;
+  overflow: hidden;
+}
+
+.ciudades-section-dark li:hover {
+  background-color: rgb(23, 86, 82);
+}
+
+.ciudades-section-dark li:hover + img {
+  display: block;
+}
+
+/* sitios */
+
+.sitios-section-dark {
+  padding: 2%;
+  margin: 2%;
+  border-bottom: 2px solid white;
+}
+
+.sitios-section-dark > div {
+  background-color: rgb(36, 36, 36);
+  border: 2px solid black;
+  border-radius: 50px;
+  padding: 1%;
+}
+
+.sitios-section-dark > div > ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: 1%;
+}
+
+.sitios-section-dark > div > ul > li:nth-child(odd) {
+  background-color: rgb(30, 30, 30);
+}
+
+.sitios-section-dark > div > ul > li {
+  list-style: none;
+}
+.sitios-section-dark > div > ul > li:hover {
+  background-color: rgb(23, 86, 82);
+}
+.sitios-section-dark > div > ul > li > a {
+  text-decoration: none;
+  display: block;
+  color: white;
+  font-size: 14pt;
+  width: 100%;
+}
+
+/* actividades */
+
+.actividades-section-dark {
+  padding: 2%;
+  margin: 2%;
+  border-bottom: 2px solid white;
+}
+
+.actividades-section-dark > h1 {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.actividades-section-dark table thead th {
+  background-color: rgb(16, 21, 39);
+}
+
+.actividades-section-dark table tr td {
+  background-color: rgb(30, 30, 30);
+}
+.actividades-section-dark table tr:nth-child(odd) td {
+  background-color: rgb(36, 36, 36);
+}
+
+.actividades-section-dark table tr:hover td {
+  background-color: rgb(23, 86, 82);
+}
+
+/* galeria */
+
+.galeria-section-dark {
+  padding: 2%;
+  margin: 2%;
+}
+
+.galeria {
+  position: relative;
+  max-width: 50%;
+  margin: 50px auto;
+}
+
+.contenedor-imagenes {
+  display: flex;
+}
+
+.imagen {
+  width: 100%;
+  height: 20rem;
+  background-size: cover;
+  display: none;
+  border: 2px solid white;
+}
+
+#img1 {
+  background-image: url("../img/foto1.jpg");
+}
+#img2 {
+  background-image: url("../img/foto2.jpg");
+}
+#img3 {
+  background-image: url("../img/foto3.jpg");
+}
+#img4 {
+  background-image: url("../img/foto4.jpg");
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.contenedor-botones {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+label {
+  cursor: pointer;
+  margin: 0 5px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: inline-block;
+}
+
+#imagen1:checked ~ .contenedor-botones > #label1,
+#imagen2:checked ~ .contenedor-botones > #label2,
+#imagen3:checked ~ .contenedor-botones > #label3,
+#imagen4:checked ~ .contenedor-botones > #label4 {
+  background-color: black;
+}
+
+#imagen1:checked ~ .contenedor-imagenes #img1,
+#imagen2:checked ~ .contenedor-imagenes #img2,
+#imagen3:checked ~ .contenedor-imagenes #img3,
+#imagen4:checked ~ .contenedor-imagenes #img4 {
+  display: block;
+}
+
+/* footer */
+
+footer {
+  width: 100%;
+  height: 100px;
+  background-color: rgb(23, 27, 37);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,8 @@
+Pablo: presentacion nav y info sobre nosotros, basicamente hablar sobre como esta
+estructurado
+
+Jaime: Hobbies y ciudades y sitios de interes
+
+elliot: proyectos imagenes y footer y adios
+
+universal: boton para subir o bajar en la pagina
