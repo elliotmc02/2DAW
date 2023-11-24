@@ -52,9 +52,6 @@ body {
 .wrap {
   width: 1250px;
   margin: 0px auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 .gear,
 .icon {
@@ -68,6 +65,9 @@ body {
   background-color: black;
   font-family: $fontBebas;
   color: white;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
 }
 #logo {
   width: 200px;
@@ -85,7 +85,8 @@ body {
   -ms-transition: all 500ms;
   -o-transition: all 500ms;
   display: flex;
-  justify-content: space-between;
+  grid-template-columns: auto 1fr;
+  align-items: center;
 }
 
 #logo h3 {
