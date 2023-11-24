@@ -1,0 +1,307 @@
+@font-face {
+  font-family: "TrebuchetMS";
+  src: url("./fonts/TrebuchetMS.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "BebasNeue";
+  src: url("./fonts/BebasNeue.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+/* https://www.fontsquirrel.com/fonts/web-symbols */
+@font-face {
+  font-family: "WebSymbolsRegular";
+  src: url("./fonts/websymbols-regular-webfont.eot");
+  src: url("./fonts/websymbols-regular-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("./fonts/websymbols-regular-webfont.woff") format("woff"),
+    url("./fonts/websymbols-regular-webfont.ttf") format("truetype"),
+    url("./fonts/websymbols-regular-webfont.svg#WebSymbolsRegular")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Variables globales */
+$fontTrebuchet: "TrebuchetMS";
+$fontBebas: "BebasNeue";
+$fontSymbols: "WebSymbolsRegular";
+$colorPrincipal: #37bcf9;
+$colorSecundario: #00538c;
+$colorGrisOscuro: #555;
+$colorGrisClaro: rgba(0, 0, 0, 0.3);
+@mixin sombraCajaLineal($size1, $size2, $size3, $shadow) {
+  /*    box-shadow: 0px 1px 0px black, 1px 2px 0px black, 2px 3px 0px black, 3px 4px 0px black; */
+  box-shadow: $size1 $size2 $size3 $shadow,
+    $size1 + 1px $size2 + 1px $size3 $shadow,
+    $size1 + 2px $size2 + 2px $size3 $shadow,
+    $size1 + 3px $size2 + 3px $size3 $shadow;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  background: url("./img/pattern.png");
+}
+
+/* wrap - Marco general */
+.wrap {
+  width: 1250px;
+  margin: 0px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.gear,
+.icon {
+  font-family: $fontSymbols;
+}
+
+/* Cabecera */
+#header {
+  width: 100%;
+  height: 70px;
+  background-color: black;
+  font-family: $fontBebas;
+  color: white;
+}
+#logo {
+  width: 200px;
+  height: 50px;
+  background-color: $colorPrincipal;
+  text-align: center;
+  margin-top: 8px;
+  margin-left: 20px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 500ms;
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+  display: flex;
+  justify-content: space-between;
+}
+
+#logo h3 {
+  display: block;
+  font-size: 40px;
+  margin-top: 5px;
+  margin-right: 65px;
+  transition: all 500ms;
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+}
+
+#logo:hover h3 {
+  animation: desdeDerecha 500ms linear;
+  -webkit-animation: desdeDerecha 500ms linear;
+}
+
+@keyframes desdeDerecha {
+  from {
+    transform: translateX(200%); /* desaparece al estar desplazado */
+    -webkit-transform: translateX(200%);
+    -moz-transform: translateX(200%);
+    -ms-transform: translateX(200%);
+    -o-transform: translateX(200%);
+  }
+  to {
+    transform: translateX(0%); /* vuelve */
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+  }
+}
+
+#logo:hover {
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  color: black;
+  background-color: #ccc;
+}
+
+#logo .gear {
+  display: block;
+  font-size: 30px;
+  margin-top: 8px;
+  margin-left: 26px;
+
+  /* Animación para la Rueda */
+  animation-name: rotar-rueda;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotar-rueda {
+  from {
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+    -webkit-transform: rotateZ(360deg);
+    -moz-transform: rotateZ(360deg);
+    -ms-transform: rotateZ(360deg);
+    -o-transform: rotateZ(360deg);
+  }
+}
+
+#logo:hover .gear {
+  animation: desdeAbajo 1s linear;
+  -webkit-animation: desdeAbajo 1s linear;
+}
+@keyframes desdeAbajo {
+  /* efecto de desaparecer y volver */
+  0% {
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(200%);
+    -webkit-transform: translateY(200%);
+    -moz-transform: translateY(200%);
+    -ms-transform: translateY(200%);
+    -o-transform: translateY(200%);
+  }
+  100% {
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+  }
+}
+
+#menu {
+  height: 70px;
+  background: transparent;
+}
+
+#menu ul {
+  display: flex;
+  list-style: none;
+  width: 100%;
+}
+
+#menu ul li {
+  font-size: 24px;
+  margin: auto 21px;
+  letter-spacing: 1px;
+  line-height: 70px;
+}
+#menu ul li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+}
+#menu ul li a:hover {
+  color: $colorPrincipal;
+  transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2, 1.2);
+  -moz-transform: scale(1.2, 1.2);
+  -ms-transform: scale(1.2, 1.2);
+  -o-transform: scale(1.2, 1.2);
+}
+
+#info {
+  width: 100%;
+}
+
+/* Maquetando el Banner */
+#banner {
+  width: 95.5%;
+  height: 100px;
+  border: 10px solid white;
+  box-shadow: 0px 0px 2px gray;
+  background: url("../img/banner2.jpg");
+  background-position: -200px -200px;
+  margin: 20px auto;
+  animation: banner 10s linear;
+  -webkit-animation: banner 10s linear;
+  animation-iteration-count: infinite;
+}
+@keyframes banner {
+  from {
+    background-position: 0px 0px;
+  }
+  to {
+    background-position: -200px -200px;
+  }
+}
+
+#banner h1 {
+  display: block;
+  width: 850px;
+  font-family: $fontBebas;
+  color: white;
+  font-size: 45px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 1px black;
+  margin: 27px auto;
+  animation: muestraTexto 10s linear;
+  -webkit-animation: muestraTexto 10s linear;
+}
+@keyframes muestraTexto {
+  0% {
+    transform: translateX(-600%) scale(3, 3);
+    -webkit-transform: translateX(-600%) scale(3, 3);
+    -moz-transform: translateX(-600%) scale(3, 3);
+    -ms-transform: translateX(-600%) scale(3, 3);
+    -o-transform: translateX(-600%) scale(3, 3);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(600%) scale(3, 3);
+    -webkit-transform: translateX(600%) scale(3, 3);
+    -moz-transform: translateX(600%) scale(3, 3);
+    -ms-transform: translateX(600%) scale(3, 3);
+    -o-transform: translateX(600%) scale(3, 3);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(-600%) scale(3, 3);
+    -webkit-transform: translateX(-600%) scale(3, 3);
+    -moz-transform: translateX(-600%) scale(3, 3);
+    -ms-transform: translateX(-600%) scale(3, 3);
+    -o-transform: translateX(-600%) scale(3, 3);
+    text-shadow: none;
+    color: transparent;
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%) scale(1, 1);
+    -webkit-transform: translateX(0%) scale(1, 1);
+    -moz-transform: translateX(0%) scale(1, 1);
+    -ms-transform: translateX(0%) scale(1, 1);
+    -o-transform: translateX(0%) scale(1, 1);
+    color: white;
+    opacity: 1;
+  }
+}
+
+

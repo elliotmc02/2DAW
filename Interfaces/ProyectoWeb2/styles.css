@@ -920,27 +920,21 @@ Etiquetado cada punto como efecto, transtion, animation,...*/
     width: 23%;
   }
   #footer #browsers img {
-    width: 14%;
+    width: 16%;
   }
   #footer h5 {
     font-size: 3vw;
   }
 }
 @media (max-width: 1079px) {
-  #footer .wrap > div {
-    width: 20%;
-  }
   #footer p img {
     width: 90%;
   }
   #footer #browsers img {
-    width: 12%;
+    width: 14%;
   }
   #footer h5 {
     font-size: 2.5vw;
-  }
-  #footer p {
-    font-size: 1.2vw;
   }
   #footer #location iframe {
     height: 250px;
@@ -950,6 +944,9 @@ Etiquetado cada punto como efecto, transtion, animation,...*/
   }
 }
 @media (max-width: 969px) {
+  #footer .wrap > div {
+    width: 21%;
+  }
   #articles {
     width: 60%;
   }
@@ -1062,6 +1059,9 @@ Etiquetado cada punto como efecto, transtion, animation,...*/
   }
   #lateral h3 {
     font-size: 2.9vw;
+  }
+  #footer ul {
+    font-size: 100%;
   }
 }
 /* movemos ya el menú y cambiamos estructura */
