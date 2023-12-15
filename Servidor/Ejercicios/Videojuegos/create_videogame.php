@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <?php require 'nav.php' ?>
     <?php
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
