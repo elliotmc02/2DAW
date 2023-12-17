@@ -147,18 +147,22 @@
                             <th colspan="2">Total</th>
                         </tr>
                         <?php
-                            foreach ($deudas as $deuda) {
-                        ?>
-                            <tr class="total">
-                                <th><?php echo $deuda->receptor ?></th>
-                                <?php
-                                $sql = $_conexion->prepare("SELECT sum(cantidad) as total from deudas WHERE usuario =? AND receptor = ?");
-                                $sql->bind_param("ss", $usuario, $deuda->receptor);
+                            $receptores_unicos = array_unique(array_column($deudas, "receptor"));
+                            $total_por_receptor = [];
+                            foreach ($receptores_unicos as $receptor) {
+                                $sql = $_conexion->prepare("SELECT sum(cantidad) as total FROM deudas WHERE usuario = ? AND receptor = ?");
+                                $sql->bind_param("ss", $usuario, $receptor);
                                 $sql->execute();
                                 $resultado = $sql->get_result();
                                 $total = $resultado->fetch_assoc()["total"];
-                                ?>
-                                <th><?php echo $total; ?> €</th>
+                                $total_por_receptor[$receptor] = $total;
+                            }
+
+                            foreach ($receptores_unicos as $receptor) {
+                        ?>
+                            <tr class="total">
+                                <th><?php echo $receptor; ?></th>
+                                <th><?php echo isset($total_por_receptor[$receptor]) ? $total_por_receptor[$receptor] . ' €' : '0 €'; ?></th>
                             </tr>
                     <?php
                             }
@@ -233,7 +237,6 @@
                                 );
                                 array_push($deudas, $nueva_deuda);
                             }
-
                             foreach ($deudas as $deuda) {
                             ?>
                                 <tr>
@@ -253,18 +256,22 @@
                             <th colspan="2">Total</th>
                         </tr>
                         <?php
-                            foreach ($deudas as $deuda) {
-                        ?>
-                            <tr class="total">
-                                <th><?php echo $deuda->usuario ?></th>
-                                <?php
-                                $sql = $_conexion->prepare("SELECT sum(cantidad) as total from deudas WHERE usuario =? AND receptor = ?");
-                                $sql->bind_param("ss", $deuda->usuario, $usuario);
+                            $receptores_unicos = array_unique(array_column($deudas, "usuario"));
+                            $total_por_receptor = [];
+                            foreach ($receptores_unicos as $receptor) {
+                                $sql = $_conexion->prepare("SELECT sum(cantidad) as total FROM deudas WHERE usuario = ? AND receptor = ?");
+                                $sql->bind_param("ss", $receptor, $usuario);
                                 $sql->execute();
                                 $resultado = $sql->get_result();
                                 $total = $resultado->fetch_assoc()["total"];
-                                ?>
-                                <th><?php echo $total; ?> €</th>
+                                $total_por_receptor[$receptor] = $total;
+                            }
+
+                            foreach ($receptores_unicos as $receptor) {
+                        ?>
+                            <tr class="total">
+                                <th><?php echo $receptor; ?></th>
+                                <th><?php echo isset($total_por_receptor[$receptor]) ? $total_por_receptor[$receptor] . ' €' : '0 €'; ?></th>
                             </tr>
                     <?php
                             }
