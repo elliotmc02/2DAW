@@ -1,0 +1,164 @@
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(56, 56, 56);
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container-centro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-centro > form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+.auth {
+  height: 100vh;
+  background-image: url(../imagenes/bg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container-hijo {
+  width: 400px;
+  padding: 10px 30px 0px 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 0px inset rgba(255, 255, 255);
+}
+
+.sign-up {
+  color: white;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.grupo {
+  display: flex;
+  flex-flow: column wrap;
+  width: 70%;
+  margin: 2px;
+}
+
+.control {
+  border-radius: 5px;
+}
+
+.control:focus {
+  background-color: rgb(214, 214, 214);
+}
+
+.boton {
+  border: 1px solid black;
+  color: black;
+  font-size: 16px;
+  padding: 5px;
+  font-weight: bold;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.boton:hover {
+  background-color: rgb(171, 171, 171);
+}
+
+.obligatorio {
+  color: red;
+}
+
+.mi-nav {
+  background-color: rgb(43, 40, 40);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+}
+
+.mi-nav-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  height: 100%;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.mi-nav-list > li {
+  height: 100%;
+}
+
+.mi-nav-list > li a {
+  font-weight: bold;
+  height: 100%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.mis-items > li a {
+  transition: all 0.3s ease;
+}
+
+.mis-items > li a:hover {
+  background-color: white;
+  color: black;
+}
+
+.mi-nav-list > li .texto-rojo {
+  color: rgb(147, 22, 22);
+}
+
+.mi-nav-list > li .texto-rojo:hover {
+  color: rgb(245, 4, 4);
+}
+
+.contenedor {
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+  margin: 50px 100px 50px 100px;
+  border: 1px solid black;
+}
+
+.contenedor-tabla {
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+}
+
+.titulo {
+  text-align: center;
+}
+
+.bienvenido {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 26px;
+}
