@@ -37,7 +37,7 @@
                     <div class="grupo">
                         <label>Contraseña <span class="obligatorio">*</span></label>
                         <input class="control" type="password" name="contrasena" />
-                        <label class="text-danger"><?php if (isset($err_contrasena)) echo $err_contrasena ?></label>
+                        <label class="text-danger"><?php if (isset($err)) echo $err ?></label>
                     </div>
                     <div class="text-center mt-3">
                         <input type="hidden" name="action" value="iniciar_sesion">

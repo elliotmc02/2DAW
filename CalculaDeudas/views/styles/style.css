@@ -132,11 +132,11 @@
 }
 
 .mi-nav-list > li .texto-rojo {
-  color: rgb(147, 22, 22);
+  color: rgb(225, 14, 14);
 }
 
 .mi-nav-list > li .texto-rojo:hover {
-  color: rgb(245, 4, 4);
+  color: rgb(254, 136, 136);
 }
 
 .contenedor {
@@ -145,6 +145,7 @@
   flex-flow: column wrap;
   margin: 50px 100px 50px 100px;
   border: 1px solid black;
+  padding: 20px;
 }
 
 .contenedor-tabla {
@@ -161,4 +162,42 @@
   text-align: center;
   margin-top: 10px;
   font-size: 26px;
+}
+
+.mensajes-error {
+  margin-bottom: 0;
+}
+
+.tabla {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.tabla thead {
+  background-color: rgb(71, 68, 68);
+  color: white;
+  width: 100%;
+}
+
+.tabla tr {
+  text-align: center;
+  height: 50px;
+}
+
+.tabla tbody tr:nth-child(odd) {
+  background-color: rgb(223, 223, 223);
+}
+
+.tabla tbody tr:hover {
+  background-color: rgb(171, 171, 171);
+}
+
+.tabla th,
+.tabla td {
+  border: 1px solid black;
+}
+
+.tabla tfoot {
+  text-align: right;
 }

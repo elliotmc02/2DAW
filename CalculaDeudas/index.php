@@ -27,8 +27,7 @@
         exit();
     }
     ?>
-    <?php require 'views/funciones/anadir_deuda.php' ?>
-    <?php require 'views/funciones/solicitar_deuda.php' ?>
+    <?php require 'views/funciones/realizar_deuda.php' ?>
     <header>
         <nav class="mi-nav">
             <ul class="mi-nav-list mis-items">
@@ -42,14 +41,22 @@
     </header>
     <main>
         <h3 class="bienvenido">Bienvenido, moroso <?php echo $usuario; ?></h3>
-        <?php if (isset($mensaje)) {
+        <?php if (isset($mensajes)) {
         ?>
             <div class="container alert <?php if ($correcto) {
                                             echo "alert-success";
                                         } else {
                                             echo "alert-danger";
                                         }   ?> alert-dismissible fade show" role="alert">
-                <?php echo $mensaje; ?>
+                <ul class="mensajes-error">
+                    <?php
+                    foreach ($mensajes as $mensaje) {
+                    ?>
+                        <li><?php echo $mensaje; ?></li>
+                    <?php
+                    }
+                    ?>
+                </ul>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         <?php
@@ -60,7 +67,7 @@
             <div class="contenedor-tabla">
                 <form action="" method="post">
                     <label>Receptor</label>
-                    <select name="receptor">
+                    <select name="elegido">
                         <option value="" selected disabled>Seleccione a un usuario</option>
                         <?php
                         $sql = $_conexion->prepare("SELECT usuario FROM usuarios WHERE usuario != ?");
@@ -82,7 +89,7 @@
                     <input type="hidden" name="action" value="anadir_deuda">
                     <input class="boton" type="submit" value="Añadir">
                 </form>
-                <table>
+                <table class="tabla">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -131,11 +138,33 @@
                                     <td><?php echo $deuda->creador; ?></td>
                                     <td><?php echo $deuda->pagado ? "Si" : "No"; ?></td>
                                 </tr>
+                            <?php
+                            }
+                            ?>
+                    </tbody>
+                    <tfoot>
+                        <tr class="total">
+                            <th colspan="2">Total</th>
+                        </tr>
                         <?php
+                            foreach ($deudas as $deuda) {
+                        ?>
+                            <tr class="total">
+                                <th><?php echo $deuda->receptor ?></th>
+                                <?php
+                                $sql = $_conexion->prepare("SELECT sum(cantidad) as total from deudas WHERE usuario =? AND receptor = ?");
+                                $sql->bind_param("ss", $usuario, $deuda->receptor);
+                                $sql->execute();
+                                $resultado = $sql->get_result();
+                                $total = $resultado->fetch_assoc()["total"];
+                                ?>
+                                <th><?php echo $total; ?> €</th>
+                            </tr>
+                    <?php
                             }
                         }
-                        ?>
-                    </tbody>
+                    ?>
+                    </tfoot>
                 </table>
             </div>
         </div>
@@ -144,7 +173,7 @@
             <div class="contenedor-tabla">
                 <form action="" method="post">
                     <label>Moroso</label>
-                    <select name="moroso">
+                    <select name="elegido">
                         <option value="" selected disabled>Seleccione a un moroso</option>
                         <?php
                         $sql = $_conexion->prepare("SELECT usuario FROM usuarios WHERE usuario != ?");
@@ -166,7 +195,7 @@
                     <input type="hidden" name="action" value="solicitar_deuda">
                     <input class="boton" type="submit" value="Añadir">
                 </form>
-                <table>
+                <table class="tabla">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -215,12 +244,34 @@
                                     <td><?php echo $deuda->creador; ?></td>
                                     <td><?php echo $deuda->pagado ? "Si" : "No"; ?></td>
                                 </tr>
+                            <?php
+                            }
+                            ?>
+                    </tbody>
+                    <tfoot>
+                        <tr class="total">
+                            <th colspan="2">Total</th>
+                        </tr>
                         <?php
+                            foreach ($deudas as $deuda) {
+                        ?>
+                            <tr class="total">
+                                <th><?php echo $deuda->usuario ?></th>
+                                <?php
+                                $sql = $_conexion->prepare("SELECT sum(cantidad) as total from deudas WHERE usuario =? AND receptor = ?");
+                                $sql->bind_param("ss", $deuda->usuario, $usuario);
+                                $sql->execute();
+                                $resultado = $sql->get_result();
+                                $total = $resultado->fetch_assoc()["total"];
+                                ?>
+                                <th><?php echo $total; ?> €</th>
+                            </tr>
+                    <?php
                             }
                         }
                         $_conexion->close();
-                        ?>
-                    </tbody>
+                    ?>
+                    </tfoot>
                 </table>
             </div>
         </div>
