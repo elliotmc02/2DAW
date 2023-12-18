@@ -63,62 +63,54 @@
         }
         ?>
         <div class="contenedor">
+            <div class="right-pos">
+                <div class="formularios_deudas filtrar">
+                    <h4>Filtrar resultados</h4>
+                    <form action="" method="post">
+                        <input class="control" type="text" name="usuario" placeholder="Buscar usuario">
+                        <select class="control" name="campo">
+                            <option value="receptor">Nombre</option>
+                            <option value="cantidad">Cantidad</option>
+                            <option value="fecha">Fecha</option>
+                            <option value="pagado">Pagado</option>
+                        </select>
+                        <select class="control" name="orden">
+                            <option value="ASC">Ascendente</option>
+                            <option value="DESC">Descendente</option>
+                        </select>
+                        <input type="hidden" name="action" value="filtrar">
+                        <input class="boton filter" type="submit" value="Filtrar">
+                    </form>
+                </div>
+            </div>
             <h2 class="titulo">Deudas a pagar</h2>
             <div class="contenedor-tabla">
-                <div class="row">
-                    <div class="col">
-                        <form action="" method="post">
-                            <label>Receptor</label>
-                            <select name="elegido">
-                                <option value="" selected disabled>Seleccione a un usuario</option>
-                                <?php
-                                $sql = $_conexion->prepare("SELECT usuario FROM usuarios WHERE usuario != ?");
-                                $sql->bind_param("s", $usuario);
-                                if ($sql->execute()) {
-                                    $resultado = $sql->get_result();
-                                    while ($fila = $resultado->fetch_assoc()) {
-                                ?>
-                                        <option value="<?php echo $fila["usuario"] ?>"><?php echo $fila["usuario"] ?></option>
-                                <?php
-                                    }
+                <div class="formularios_deudas">
+                    <h4>Añadir deuda</h4>
+                    <form action="" method="post">
+                        <label>Receptor:</label>
+                        <select class="control" name="elegido">
+                            <option value="" selected disabled>Seleccione a un usuario</option>
+                            <?php
+                            $sql = $_conexion->prepare("SELECT usuario FROM usuarios WHERE usuario != ?");
+                            $sql->bind_param("s", $usuario);
+                            if ($sql->execute()) {
+                                $resultado = $sql->get_result();
+                                while ($fila = $resultado->fetch_assoc()) {
+                            ?>
+                                    <option value="<?php echo $fila["usuario"] ?>"><?php echo $fila["usuario"] ?></option>
+                            <?php
                                 }
-                                ?>
-                            </select>
-                            <label>Cantidad</label>
-                            <input class="control" type="text" name="cantidad">
-                            <label>Motivo</label>
-                            <input class="control" type="text" name="descripcion">
-                            <input type="hidden" name="action" value="anadir_deuda">
-                            <input class="boton" type="submit" value="Añadir">
-                        </form>
-                    </div>
-                    <div class="col">
-                        <form action="" method="post">
-                            <div class="row row-cols-12">
-                                <div class="col-3">
-                                    <input class="form-control" type="text" name="usuario">
-                                </div>
-                                <div class="col-2">
-                                    <select class="form-select" name="campo">
-                                        <option value="usuario">Nombre</option>
-                                        <option value="cantidad">Cantidad</option>
-                                        <option value="precio">Fecha</option>
-                                        <option value="pagado">Pagado</option>
-                                    </select>
-                                </div>
-                                <div class="col-2">
-                                    <select class="form-select" name="orden">
-                                        <option value="ASC">Ascendente</option>
-                                        <option value="DESC">Descendente</option>
-                                    </select>
-                                </div>
-                                <div class="col-4">
-                                    <input type="hidden" name="action" value="filtrar">
-                                    <input class="btn btn-success" type="submit" value="Filtrar">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                            }
+                            ?>
+                        </select>
+                        <label>Cantidad:</label>
+                        <input class="control" type="text" name="cantidad">
+                        <label>Motivo:</label>
+                        <input class="control" type="text" name="descripcion">
+                        <input type="hidden" name="action" value="anadir_deuda">
+                        <input class="boton warning" type="submit" value="Añadir">
+                    </form>
                 </div>
                 <table class="tabla">
                     <thead>
@@ -133,16 +125,15 @@
                     </thead>
                     <tbody>
                         <?php
-                        if ($_SERVER["REQUEST_METHOD"] == "GET") {
+                        if ($_SERVER["REQUEST_METHOD"] == "GET" ||  $_POST["action"] == "anadir_deuda" || $_POST["action"] == "solicitar_deuda") {
                             $sql = $_conexion->prepare("SELECT * from deudas WHERE usuario =?");
                             $sql->bind_param("s", $usuario);
                         } else if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] == "filtrar") {
                             $busqueda = $_POST["usuario"];
                             $campo = $_POST["campo"];
                             $orden = $_POST["orden"];
-
-                            $sql = $_conexion->prepare("SELECT * FROM deudas  WHERE usuario LIKE CONCAT('%',?, '%') ORDER BY $campo $orden");
-                            $sql->bind_param("s", $busqueda);
+                            $sql = $_conexion->prepare("SELECT * FROM deudas  WHERE receptor LIKE CONCAT('%',?, '%') and usuario = ? ORDER BY $campo $orden");
+                            $sql->bind_param("ss", $busqueda, $usuario);
                         }
                         $sql->execute();
                         $deudas = [];
@@ -215,30 +206,33 @@
         <div class="contenedor">
             <h2 class="titulo">Deudas a recibir</h2>
             <div class="contenedor-tabla">
-                <form action="" method="post">
-                    <label>Moroso</label>
-                    <select name="elegido">
-                        <option value="" selected disabled>Seleccione a un moroso</option>
-                        <?php
-                        $sql = $_conexion->prepare("SELECT usuario FROM usuarios WHERE usuario != ?");
-                        $sql->bind_param("s", $usuario);
-                        if ($sql->execute()) {
-                            $resultado = $sql->get_result();
-                            while ($fila = $resultado->fetch_assoc()) {
-                        ?>
-                                <option value="<?php echo $fila["usuario"] ?>"><?php echo $fila["usuario"] ?></option>
-                        <?php
+                <div class="formularios_deudas">
+                    <h4>Solicitar deuda</h4>
+                    <form action="" method="post">
+                        <label>Moroso:</label>
+                        <select class="control" name="elegido">
+                            <option value="" selected disabled>Seleccione a un moroso</option>
+                            <?php
+                            $sql = $_conexion->prepare("SELECT usuario FROM usuarios WHERE usuario != ?");
+                            $sql->bind_param("s", $usuario);
+                            if ($sql->execute()) {
+                                $resultado = $sql->get_result();
+                                while ($fila = $resultado->fetch_assoc()) {
+                            ?>
+                                    <option value="<?php echo $fila["usuario"] ?>"><?php echo $fila["usuario"] ?></option>
+                            <?php
+                                }
                             }
-                        }
-                        ?>
-                    </select>
-                    <label>Cantidad</label>
-                    <input class="control" type="text" name="cantidad">
-                    <label>Motivo</label>
-                    <input class="control" type="text" name="descripcion">
-                    <input type="hidden" name="action" value="solicitar_deuda">
-                    <input class="boton" type="submit" value="Añadir">
-                </form>
+                            ?>
+                        </select>
+                        <label>Cantidad:</label>
+                        <input class="control" type="text" name="cantidad">
+                        <label>Motivo:</label>
+                        <input class="control" type="text" name="descripcion">
+                        <input type="hidden" name="action" value="solicitar_deuda">
+                        <input class="boton warning" type="submit" value="Añadir">
+                    </form>
+                </div>
                 <table class="tabla">
                     <thead>
                         <tr>
@@ -252,8 +246,19 @@
                     </thead>
                     <tbody>
                         <?php
-                        $sql = $_conexion->prepare("SELECT * from deudas WHERE receptor = ?");
-                        $sql->bind_param("s", $usuario);
+                        if ($_SERVER["REQUEST_METHOD"] == "GET" || $_POST["action"] == "anadir_deuda" || $_POST["action"] == "solicitar_deuda") {
+                            $sql = $_conexion->prepare("SELECT * from deudas WHERE receptor = ?");
+                            $sql->bind_param("s", $usuario);
+                        } else if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] == "filtrar") {
+                            $busqueda = $_POST["usuario"];
+                            $campo = $_POST["campo"];
+                            $orden = $_POST["orden"];
+
+                            if ($campo == 'receptor') $campo = 'usuario';
+
+                            $sql = $_conexion->prepare("SELECT * FROM deudas WHERE receptor = ? and usuario LIKE CONCAT('%', ?, '%') ORDER BY $campo $orden");
+                            $sql->bind_param("ss", $usuario, $busqueda);
+                        }
                         $sql->execute();
                         $deudas = [];
                         $resultado = $sql->get_result();

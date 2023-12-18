@@ -62,10 +62,13 @@
 
 .control {
   border-radius: 5px;
+  padding: 3px;
+  border: 1px solid rgb(214, 214, 214);
 }
 
 .control:focus {
-  background-color: rgb(214, 214, 214);
+  box-shadow: 0px 0px 10px 2px #4476ff;
+  border: 1px solid rgb(214, 214, 214);
 }
 
 .boton {
@@ -144,7 +147,6 @@
   justify-content: center;
   flex-flow: column wrap;
   margin: 50px 100px 50px 100px;
-  padding: 20px;
 }
 
 .contenedor-tabla {
@@ -155,6 +157,8 @@
 
 .titulo {
   text-align: center;
+  margin-bottom: 20px;
+  text-decoration: underline;
 }
 
 .bienvenido {
@@ -199,4 +203,39 @@
 
 .tabla tfoot {
   text-align: right;
+}
+
+.formularios_deudas {
+  display: flex;
+  padding: 15px;
+  height: 100px;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.warning {
+  background-color: rgb(255, 255, 15);
+}
+
+.warning:hover {
+  background-color: rgb(177, 177, 0);
+}
+
+.filter {
+  background-color: rgb(0, 175, 0);
+}
+
+.filter:hover {
+  background-color: green;
+}
+
+.filtrar h4 {
+  text-align: right;
+}
+
+.right-pos {
+  display: flex;
+  justify-content: right;
 }
