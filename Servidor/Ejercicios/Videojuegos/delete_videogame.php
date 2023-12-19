@@ -1,5 +1,5 @@
 <?php
-require '../Confidencial/db_videojuegos.php';
+require 'db_videojuegos.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titulo = $_GET["titulo"];

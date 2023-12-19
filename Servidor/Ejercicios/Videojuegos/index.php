@@ -7,7 +7,7 @@
     <title>Mis videojuegos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <?php require '../Confidencial/db_videojuegos.php'; ?>
+    <?php require 'db_videojuegos.php'; ?>
 </head>
 
 <body>
@@ -37,6 +37,25 @@
                         <option value="DESC">Descendente</option>
                     </select>
                 </div>
+                <div class="col-1">
+                    <input class="form-control" type="text" name="r1">
+                </div>
+                <div class="col-1">
+                    <input class="form-control" type="text" name="r2">
+                </div>
+                <div class="col-4">
+                    <?php
+                    $sql = $_conexion->prepare("SELECT DISTINCT distribuidora FROM videojuegos");
+                    $sql->execute();
+                    $resultado = $sql->get_result();
+                    while ($fila = $resultado->fetch_assoc()) {
+                    ?>
+                        <label><?php echo $fila["distribuidora"] ?></label>
+                        <input type="checkbox" name="distribuidoras[]" value="<?php echo $fila["distribuidora"] ?>">
+                    <?php
+                    }
+                    ?>
+                </div>
             </div>
         </form>
         <table class="table">
@@ -52,12 +71,19 @@
                 if ($_SERVER["REQUEST_METHOD"] == "GET") {
                     $sql = $_conexion->prepare("SELECT * from videojuegos");
                 } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $busqueda = $_POST["titulo"];
+                    $nombre = $_POST["titulo"];
                     $campo = $_POST["campo"];
                     $orden = $_POST["orden"];
-
-                    $sql = $_conexion->prepare("SELECT * FROM videojuegos  WHERE titulo LIKE CONCAT('%',?, '%') ORDER BY $campo $orden");
-                    $sql->bind_param("s", $busqueda);
+                    $busqueda = $campo == "distribuidora" ? "titulo" : "titulo";
+                    $distribuidoras = $_POST["distribuidoras"] ?? false;
+                    $seleccionadas = "";
+                    if ($distribuidoras != "") {
+                        $seleccionadas = "and distribuidora IN (" . rtrim(str_repeat("?,", count($distribuidoras)), ",") . ")";
+                    }
+                    $r1 = empty($_POST["r1"]) ? 0 : $_POST["r1"];
+                    $r2 = empty($_POST["r2"]) ? PHP_FLOAT_MAX : $_POST["r2"];
+                    $sql = $_conexion->prepare("SELECT * FROM videojuegos WHERE $busqueda LIKE CONCAT('%',?, '%') and precio BETWEEN ? and ? $seleccionadas ORDER BY $campo $orden");
+                    !$distribuidoras ? $sql->bind_param("sdd", $nombre, $r1, $r2) : $sql->bind_param("sdd" . str_repeat("s", count($distribuidoras)), $nombre, $r1, $r2, ...$distribuidoras);
                 }
                 $sql->execute();
                 $resultado = $sql->get_result();
@@ -75,7 +101,7 @@
                                 <input class="btn btn-secondary" type="submit" value="Ver">
                             </form>
                         </td>
-                        
+
                     </tr>
                 <?php
                 }
