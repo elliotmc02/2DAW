@@ -19,6 +19,9 @@
 
 <body>
     <?php
+    // TODO: Comprobar si el usuario está logueado
+    // TODO: Arreglar filtrado por total
+    // TODO: Añadir notificaciones
     session_start();
 
     if (isset($_SESSION["usuario"]) && isset($_SESSION["rol"])) {
@@ -77,8 +80,8 @@
                             <option value="pagado">Pagado</option>
                         </select>
                         <select class="control" name="orden">
-                            <option value="ASC">Ascendente</option>
-                            <option value="DESC">Descendente</option>
+                            <option value="ASC">A-Z</option>
+                            <option value="DESC">Z-A</option>
                         </select>
                         <input type="hidden" name="action" value="filtrar">
                         <input class="boton filter" type="submit" value="Filtrar">
@@ -200,7 +203,7 @@
                                 $sql->execute();
                                 $total = $sql->get_result();
                         ?>
-                            <tr class="total">
+                            <tr>
                                 <th><?php echo $receptor; ?></th>
                                 <th><?php echo $total->fetch_assoc()["total"] . ' €'; ?></th>
                             </tr>
@@ -299,7 +302,13 @@
                                     <td><?php echo $deuda->descripcion; ?></td>
                                     <td><?php echo $deuda->fecha; ?></td>
                                     <td><?php echo $deuda->creador; ?></td>
-                                    <td><?php echo $deuda->pagado ? "Si" : "No"; ?></td>
+                                    <td class="<?php echo $deuda->pagado ? 'text-success fw-bold' : 'text-danger fw-bold' ?>"><?php echo $deuda->pagado ? "SI" : "NO"; ?></td>
+                                    <td>
+                                        <form action="views/funciones/marcar_pagado.php" method="post">
+                                            <input type="hidden" name="idDeuda" value="<?php echo $deuda->idDeuda ?>">
+                                            <input type="checkbox" name="checkboxPagado" class="checkboxPagado" <?php echo $deuda->pagado ? 'checked' : '' ?>>
+                                        </form>
+                                    </td>
                                 </tr>
                             <?php
                             }
@@ -324,7 +333,7 @@
                                 $sql->execute();
                                 $total = $sql->get_result();
                         ?>
-                            <tr class="total">
+                            <tr>
                                 <th><?php echo $receptor; ?></th>
                                 <th><?php echo $total->fetch_assoc()["total"] . ' €'; ?></th>
                             </tr>

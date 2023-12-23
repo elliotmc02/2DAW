@@ -193,7 +193,7 @@
 }
 
 .tabla tbody tr:hover {
-  background-color: rgb(171, 171, 171);
+  background-color: rgb(231, 255, 226);
 }
 
 .tabla th,
@@ -238,4 +238,9 @@
 .right-pos {
   display: flex;
   justify-content: right;
+}
+
+.total {
+  background-color: rgb(71, 68, 68);
+  color: white;
 }
