@@ -10,6 +10,8 @@
 
     <link rel="stylesheet" href="views/styles/style.css">
 
+    <script src="views/scripts/form.js"></script>
+
     <?php require 'util/database.php'; ?>
     <?php require_once 'views/objetos/deuda.php' ?>
     <?php require_once 'views/funciones/funciones.php' ?>
@@ -132,7 +134,7 @@
                             $busqueda = $_POST["usuario"];
                             $campo = $_POST["campo"];
                             $orden = $_POST["orden"];
-                            $sql = $_conexion->prepare("SELECT * FROM deudas  WHERE receptor LIKE CONCAT('%',?, '%') and usuario = ? ORDER BY $campo $orden");
+                            $sql = $_conexion->prepare("SELECT * FROM deudas WHERE receptor LIKE CONCAT('%',?, '%') and usuario = ? ORDER BY $campo $orden");
                             $sql->bind_param("ss", $busqueda, $usuario);
                         }
                         $sql->execute();
@@ -167,7 +169,13 @@
                                     <td><?php echo $deuda->descripcion; ?></td>
                                     <td><?php echo $deuda->fecha; ?></td>
                                     <td><?php echo $deuda->creador; ?></td>
-                                    <td><?php echo $deuda->pagado ? "Si" : "No"; ?></td>
+                                    <td class="<?php echo $deuda->pagado ? 'text-success fw-bold' : 'text-danger fw-bold' ?>"><?php echo $deuda->pagado ? "SI" : "NO"; ?></td>
+                                    <td>
+                                        <form action="views/funciones/marcar_pagado.php" method="post">
+                                            <input type="hidden" name="idDeuda" value="<?php echo $deuda->idDeuda ?>">
+                                            <input type="checkbox" name="checkboxPagado" class="checkboxPagado" <?php echo $deuda->pagado ? 'checked' : '' ?>>
+                                        </form>
+                                    </td>
                                 </tr>
                             <?php
                             }
@@ -178,22 +186,23 @@
                             <th colspan="2">Total</th>
                         </tr>
                         <?php
-                            $receptores_unicos = array_unique(array_column($deudas, "receptor"));
-                            $total_por_receptor = [];
-                            foreach ($receptores_unicos as $receptor) {
+                            $sql = $_conexion->prepare("SELECT DISTINCT receptor FROM deudas where usuario = ?");
+                            $sql->bind_param("s", $usuario);
+                            $sql->execute();
+                            $resultado = $sql->get_result();
+                            $receptores = [];
+                            while ($fila = $resultado->fetch_assoc()) {
+                                array_push($receptores, $fila["receptor"]);
+                            }
+                            foreach ($receptores as $receptor) {
                                 $sql = $_conexion->prepare("SELECT sum(cantidad) as total FROM deudas WHERE usuario = ? AND receptor = ?");
                                 $sql->bind_param("ss", $usuario, $receptor);
                                 $sql->execute();
-                                $resultado = $sql->get_result();
-                                $total = $resultado->fetch_assoc()["total"];
-                                $total_por_receptor[$receptor] = $total;
-                            }
-
-                            foreach ($receptores_unicos as $receptor) {
+                                $total = $sql->get_result();
                         ?>
                             <tr class="total">
                                 <th><?php echo $receptor; ?></th>
-                                <th><?php echo isset($total_por_receptor[$receptor]) ? $total_por_receptor[$receptor] . ' €' : '0 €'; ?></th>
+                                <th><?php echo $total->fetch_assoc()["total"] . ' €'; ?></th>
                             </tr>
                     <?php
                             }
@@ -301,22 +310,23 @@
                             <th colspan="2">Total</th>
                         </tr>
                         <?php
-                            $receptores_unicos = array_unique(array_column($deudas, "usuario"));
-                            $total_por_receptor = [];
-                            foreach ($receptores_unicos as $receptor) {
+                            $sql = $_conexion->prepare("SELECT DISTINCT receptor FROM deudas where usuario = ?");
+                            $sql->bind_param("s", $usuario);
+                            $sql->execute();
+                            $resultado = $sql->get_result();
+                            $receptores = [];
+                            while ($fila = $resultado->fetch_assoc()) {
+                                array_push($receptores, $fila["receptor"]);
+                            }
+                            foreach ($receptores as $receptor) {
                                 $sql = $_conexion->prepare("SELECT sum(cantidad) as total FROM deudas WHERE usuario = ? AND receptor = ?");
                                 $sql->bind_param("ss", $receptor, $usuario);
                                 $sql->execute();
-                                $resultado = $sql->get_result();
-                                $total = $resultado->fetch_assoc()["total"];
-                                $total_por_receptor[$receptor] = $total;
-                            }
-
-                            foreach ($receptores_unicos as $receptor) {
+                                $total = $sql->get_result();
                         ?>
                             <tr class="total">
                                 <th><?php echo $receptor; ?></th>
-                                <th><?php echo isset($total_por_receptor[$receptor]) ? $total_por_receptor[$receptor] . ' €' : '0 €'; ?></th>
+                                <th><?php echo $total->fetch_assoc()["total"] . ' €'; ?></th>
                             </tr>
                     <?php
                             }
