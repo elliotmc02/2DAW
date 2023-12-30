@@ -50,16 +50,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if (empty($mensajes) && isset($elegido) && isset($cantidad) && isset($descripcion)) {
                 $sql = $_conexion->prepare("INSERT INTO deudas (usuario, receptor, cantidad, descripcion, creador) VALUES (?, ?, ?, ?, ?)");
+                $sql_notificacion = $_conexion->prepare("INSERT INTO notificaciones (emisor, receptor, mensaje) VALUES (?, ?, ?)");
 
                 if ($_POST["action"] == "anadir_deuda") {
                     $sql->bind_param("ssdss", $usuario, $elegido, $cantidad, $descripcion, $usuario);
+                    $mensaje_notificaciones = "Ha creado una deuda en la que te debe " . $cantidad . " € con la descripción: " . $descripcion . ".";
                 } elseif ($_POST["action"] == "solicitar_deuda") {
                     $sql->bind_param("ssdss", $elegido, $usuario, $cantidad, $descripcion, $usuario);
+                    $mensaje_notificaciones = "Te ha solicitado una deuda en la que le debes " . $cantidad . " € con la descripción: " . $descripcion . ".";
                 }
 
+                $sql_notificacion->bind_param("sss", $usuario, $elegido, $mensaje_notificaciones);
                 if ($sql->execute()) {
                     $correcto = true;
                     $mensajes = ["Deuda añadida con éxito"];
+                    $sql_notificacion->execute();
                 } else {
                     $mensajes = ["Ha ocurrido un error"];
                 }

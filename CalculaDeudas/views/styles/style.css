@@ -244,3 +244,26 @@
   background-color: rgb(71, 68, 68);
   color: white;
 }
+
+@media (max-width: 1086px) {
+  .formularios_deudas input {
+    width: 110px;
+  }
+}
+@media (max-width: 976px) {
+  .formularios_deudas input {
+    width: 70px;
+  }
+  .right-pos h4 {
+    text-align: center;
+  }
+  .filtrar {
+    width: 100%;
+  }
+}
+@media (max-width: 860px) {
+  .formularios_deudas input {
+    width: 50px;
+    font-size: 12px;
+  }
+}

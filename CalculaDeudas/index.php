@@ -19,9 +19,7 @@
 
 <body>
     <?php
-    // TODO: Comprobar si el usuario está logueado
-    // TODO: Arreglar filtrado por total
-    // TODO: Añadir notificaciones
+    // TODO: Ajustes de cuenta (Cambiar nombre, contraseña)
     session_start();
 
     if (isset($_SESSION["usuario"]) && isset($_SESSION["rol"])) {
@@ -33,17 +31,7 @@
     }
     ?>
     <?php require 'views/funciones/realizar_deuda.php' ?>
-    <header>
-        <nav class="mi-nav">
-            <ul class="mi-nav-list mis-items">
-                <li><a href="./">Ver Deudas</a></li>
-                <li><a href="">Notificaciones</a></li>
-            </ul>
-            <ul class="mi-nav-list">
-                <li><a class="texto-rojo" href="views/funciones/cerrar_sesion.php">Cerrar Sesión</a></li>
-            </ul>
-        </nav>
-    </header>
+    <?php require 'views/nav.php'; ?>
     <main>
         <h3 class="bienvenido">Bienvenido, moroso <?php echo $usuario; ?></h3>
         <?php if (isset($mensajes)) {
@@ -131,13 +119,13 @@
                     <tbody>
                         <?php
                         if ($_SERVER["REQUEST_METHOD"] == "GET" ||  $_POST["action"] == "anadir_deuda" || $_POST["action"] == "solicitar_deuda") {
-                            $sql = $_conexion->prepare("SELECT * from deudas WHERE usuario =?");
+                            $sql = $_conexion->prepare("SELECT * from deudas WHERE usuario = ?");
                             $sql->bind_param("s", $usuario);
                         } else if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] == "filtrar") {
                             $busqueda = $_POST["usuario"];
                             $campo = $_POST["campo"];
                             $orden = $_POST["orden"];
-                            $sql = $_conexion->prepare("SELECT * FROM deudas WHERE receptor LIKE CONCAT('%',?, '%') and usuario = ? ORDER BY $campo $orden");
+                            $sql = $_conexion->prepare("SELECT * FROM deudas WHERE receptor LIKE CONCAT('%', ?, '%') and usuario = ? ORDER BY $campo $orden");
                             $sql->bind_param("ss", $busqueda, $usuario);
                         }
                         $sql->execute();
@@ -189,23 +177,25 @@
                             <th colspan="2">Total</th>
                         </tr>
                         <?php
-                            $sql = $_conexion->prepare("SELECT DISTINCT receptor FROM deudas where usuario = ?");
-                            $sql->bind_param("s", $usuario);
+                            if ($_SERVER["REQUEST_METHOD"] == "GET" ||  $_POST["action"] == "anadir_deuda" || $_POST["action"] == "solicitar_deuda") {
+                                $sql = $_conexion->prepare("SELECT receptor, sum(cantidad) as total FROM deudas where usuario = ? and pagado = 0 GROUP BY receptor");
+                                $sql->bind_param("s", $usuario);
+                            } else if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] == "filtrar") {
+                                $busqueda = $_POST["usuario"];
+                                $campo = $_POST["campo"];
+                                $orden = $_POST["orden"];
+                                $campo = in_array($campo, ["receptor", "cantidad"]) ? $campo : "receptor";
+                                $campo = $campo == 'cantidad' ? 'total' : $campo;
+                                $sql = $_conexion->prepare("SELECT receptor, sum(cantidad) as total FROM deudas WHERE receptor LIKE CONCAT('%', ?, '%') and usuario = ? and pagado = 0 GROUP BY receptor ORDER BY $campo $orden");
+                                $sql->bind_param("ss", $busqueda, $usuario);
+                            }
                             $sql->execute();
                             $resultado = $sql->get_result();
-                            $receptores = [];
                             while ($fila = $resultado->fetch_assoc()) {
-                                array_push($receptores, $fila["receptor"]);
-                            }
-                            foreach ($receptores as $receptor) {
-                                $sql = $_conexion->prepare("SELECT sum(cantidad) as total FROM deudas WHERE usuario = ? AND receptor = ?");
-                                $sql->bind_param("ss", $usuario, $receptor);
-                                $sql->execute();
-                                $total = $sql->get_result();
                         ?>
                             <tr>
-                                <th><?php echo $receptor; ?></th>
-                                <th><?php echo $total->fetch_assoc()["total"] . ' €'; ?></th>
+                                <th><?php echo $fila["receptor"]; ?></th>
+                                <th><?php echo $fila["total"]; ?> €</th>
                             </tr>
                     <?php
                             }
@@ -266,7 +256,7 @@
                             $campo = $_POST["campo"];
                             $orden = $_POST["orden"];
 
-                            if ($campo == 'receptor') $campo = 'usuario';
+                            $campo = ($campo == 'receptor') ? 'usuario' : $campo;
 
                             $sql = $_conexion->prepare("SELECT * FROM deudas WHERE receptor = ? and usuario LIKE CONCAT('%', ?, '%') ORDER BY $campo $orden");
                             $sql->bind_param("ss", $usuario, $busqueda);
@@ -319,23 +309,25 @@
                             <th colspan="2">Total</th>
                         </tr>
                         <?php
-                            $sql = $_conexion->prepare("SELECT DISTINCT receptor FROM deudas where usuario = ?");
-                            $sql->bind_param("s", $usuario);
+                            if ($_SERVER["REQUEST_METHOD"] == "GET" ||  $_POST["action"] == "anadir_deuda" || $_POST["action"] == "solicitar_deuda") {
+                                $sql = $_conexion->prepare("SELECT usuario, sum(cantidad) as total FROM deudas WHERE receptor = ? and pagado = 0 GROUP BY usuario");
+                                $sql->bind_param("s", $usuario);
+                            } else if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] == "filtrar") {
+                                $busqueda = $_POST["usuario"];
+                                $campo = $_POST["campo"];
+                                $orden = $_POST["orden"];
+                                $campo = in_array($campo, ["receptor", "cantidad"]) ? $campo : "receptor";
+                                $campo = ($campo == 'receptor') ? 'usuario' : (($campo == 'cantidad') ? 'total' : $campo);
+                                $sql = $_conexion->prepare("SELECT usuario, sum(cantidad) as total FROM deudas WHERE receptor = ? and usuario LIKE CONCAT('%', ?, '%') and pagado = 0 GROUP BY usuario ORDER BY $campo $orden");
+                                $sql->bind_param("ss", $usuario, $busqueda);
+                            }
                             $sql->execute();
                             $resultado = $sql->get_result();
-                            $receptores = [];
                             while ($fila = $resultado->fetch_assoc()) {
-                                array_push($receptores, $fila["receptor"]);
-                            }
-                            foreach ($receptores as $receptor) {
-                                $sql = $_conexion->prepare("SELECT sum(cantidad) as total FROM deudas WHERE usuario = ? AND receptor = ?");
-                                $sql->bind_param("ss", $receptor, $usuario);
-                                $sql->execute();
-                                $total = $sql->get_result();
                         ?>
                             <tr>
-                                <th><?php echo $receptor; ?></th>
-                                <th><?php echo $total->fetch_assoc()["total"] . ' €'; ?></th>
+                                <th><?php echo $fila["usuario"]; ?></th>
+                                <th><?php echo $fila["total"]; ?> €</th>
                             </tr>
                     <?php
                             }

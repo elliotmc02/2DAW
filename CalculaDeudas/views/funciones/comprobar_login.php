@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($acceso_valido) {
 
-          $tiempo = time() + 60;
+          $tiempo = time() + 60 * 60 * 24 * 7;
           setcookie("usuario", $usuario, $tiempo, "/");
 
           session_start();
