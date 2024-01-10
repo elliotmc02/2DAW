@@ -15,13 +15,15 @@
             <tr>
                 <th>Nombre</th>
                 <th>Precio</th>
+                <th>Tipo</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($bebidas as $bebida)
                 <tr>
-                    <td>{{ $bebida[0] }}</td>
-                    <td>{{ $bebida[1] }}</td>
+                    <td>{{ $bebida->nombre }}</td>
+                    <td>{{ $bebida->precio }}</td>
+                    <td>{{ $bebida->tipo }}</td>
                 </tr>
             @endforeach
         </tbody>

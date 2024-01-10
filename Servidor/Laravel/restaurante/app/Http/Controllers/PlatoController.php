@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Plato;
 
 class PlatoController extends Controller
 {
@@ -12,11 +13,8 @@ class PlatoController extends Controller
     public function index()
     {
         $mensaje = "Estos son mis platos";
-        $platos = [
-            ["Tortilla de patatas", 4.95, "Racion"],
-            ["Chuletillas de cordero", 9.95, "Racion"],
-            ["Ensaladilla rusa", 3.5, "Tapa"]
-        ];
+        $platos = Plato::all();
+
         return view(
             'platos/index',
             ['mensaje' => $mensaje, 'platos' => $platos]
@@ -28,7 +26,7 @@ class PlatoController extends Controller
      */
     public function create()
     {
-        //
+        return view('platos/create');
     }
 
     /**
@@ -36,7 +34,13 @@ class PlatoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $plato = new Plato;
+        $plato->nombre = $request->input('nombre');
+        $plato->precio = $request->input('precio');
+        $plato->tipo = $request->input('tipo');
+        $plato->save();
+
+        return redirect('platos');
     }
 
     /**
@@ -44,7 +48,7 @@ class PlatoController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('platos/show', ['plato' => Plato::find($id)]);
     }
 
     /**
