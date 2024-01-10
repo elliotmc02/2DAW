@@ -8,8 +8,7 @@
 </head>
 
 <body>
-    <h1>index platos</h1>
-    <h2>{{ $mensaje }}</h2>
+    <h1>Mi plato</h1>
     <table>
         <thead>
             <tr>
@@ -19,13 +18,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($platos as $plato)
                 <tr>
                     <td>{{ $plato->nombre }}</td>
                     <td>{{ $plato->precio }}</td>
                     <td>{{ $plato->tipo }}</td>
                 </tr>
-            @endforeach
         </tbody>
     </table>
 </body>
