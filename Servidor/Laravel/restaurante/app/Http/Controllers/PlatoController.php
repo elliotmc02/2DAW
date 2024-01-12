@@ -56,7 +56,7 @@ class PlatoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('platos/edit', ['plato' => Plato::find($id)]);
     }
 
     /**
@@ -64,7 +64,14 @@ class PlatoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $plato = Plato::find($id);
+
+        $plato->nombre = $request->input('nombre');
+        $plato->precio = $request->input('precio');
+        $plato->tipo = $request->input('tipo');
+        $plato->save();
+
+        return redirect('platos');
     }
 
     /**
@@ -72,6 +79,7 @@ class PlatoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Plato::find($id)->delete();
+        return redirect('platos');
     }
 }

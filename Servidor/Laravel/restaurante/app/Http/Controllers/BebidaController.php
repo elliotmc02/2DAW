@@ -56,7 +56,7 @@ class BebidaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('bebidas/edit', ['bebida' => Bebida::find($id)]);
     }
 
     /**
@@ -64,7 +64,14 @@ class BebidaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $bebida = Bebida::find($id);
+
+        $bebida->nombre = $request->input('nombre');
+        $bebida->precio = $request->input('precio');
+        $bebida->tipo = $request->input('tipo');
+        $bebida->save();
+
+        return redirect('bebidas');
     }
 
     /**
