@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.main-container {
+  width: 50%;
+  background-color: burlywood;
+  margin-top: 50px;
+  padding: 20px 60px;
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#title {
+  text-align: center;
+}
+
+#description {
+  text-align: center;
+}
+
+#name,
+#email,
+#number,
+#dropdown {
+  height: 25px;
+  margin-bottom: 10px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+#submit {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  padding: 10px;
+  background-color: rgb(117, 181, 255);
+}
