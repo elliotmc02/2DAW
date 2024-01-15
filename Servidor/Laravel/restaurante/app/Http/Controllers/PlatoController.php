@@ -37,7 +37,7 @@ class PlatoController extends Controller
         $plato = new Plato;
         $plato->nombre = $request->input('nombre');
         $plato->precio = $request->input('precio');
-        $plato->tipo = $request->input('tipo');
+        $plato->tipo_plato_id = $request->input('tipo');
         $plato->save();
 
         return redirect('platos');
@@ -68,7 +68,7 @@ class PlatoController extends Controller
 
         $plato->nombre = $request->input('nombre');
         $plato->precio = $request->input('precio');
-        $plato->tipo = $request->input('tipo');
+        $plato->tipo_plato_id = $request->input('tipo');
         $plato->save();
 
         return redirect('platos');

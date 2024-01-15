@@ -18,10 +18,10 @@
         <input type="text" name="precio" value="{{ $plato->precio }}">
         <label>Tipo</label>
         <select name="tipo">
-            <option selected hidden value="{{ $plato->tipo }}">{{ $plato->tipo }}</option>
-            <option value="Racion">Racion</option>
-            <option value="Media racion">Media racion</option>
-            <option value="Tapa">Tapa</option>
+            <option selected hidden value="{{ $plato->tipo_plato_id }}">{{ $plato->tipo_plato->tipo }}</option>
+            <option value="1">Racion</option>
+            <option value="2">Media racion</option>
+            <option value="3">Tapa</option>
         </select>
         <input type="submit" value="Editar">
     </form>

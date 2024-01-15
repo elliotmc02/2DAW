@@ -17,9 +17,9 @@
         <input type="text" name="precio">
         <label>Tipo</label>
         <select name="tipo">
-            <option value="Racion">Racion</option>
-            <option value="Media racion">Media racion</option>
-            <option value="Tapa">Tapa</option>
+            <option value="1">Racion</option>
+            <option value="2">Media racion</option>
+            <option value="3">Tapa</option>
         </select>
         <input type="submit" value="Crear">
     </form>
