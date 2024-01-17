@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Ticket extends Model
 {
     use HasFactory;
-    public function train_name()
+    public function train()
     {
-        return $this->belongsTo(Train::class, 'train_id');
+        return $this->belongsTo(Train::class);
     }
     public function ticket_type()
     {

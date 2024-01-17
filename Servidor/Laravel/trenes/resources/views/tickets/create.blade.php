@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Crear Tren</title>
+    <title>Crear Ticket</title>
 </head>
 
 <body>
     <form action="{{ route('tickets.store') }}" method="post">
         @csrf
-        <label>Fecha</label>
-        <input type="text" name="date"><br>
+        {{-- <label>Fecha</label>
+        <input type="text" name="date"><br> --}}
         <label>Precio</label>
         <input type="text" name="price"><br>
         <label>Nombre del tren</label>

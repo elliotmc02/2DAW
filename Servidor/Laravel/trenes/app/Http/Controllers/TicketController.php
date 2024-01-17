@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Ticket;
 use App\Models\TicketType;
 use App\Models\Train;
+use Carbon\Carbon;
 
 class TicketController extends Controller
 {
@@ -31,7 +32,7 @@ class TicketController extends Controller
     public function store(Request $request)
     {
         $ticket = new Ticket;
-        $ticket->date = $request->input('date');
+        $ticket->date = Carbon::now();
         $ticket->price = $request->input('price');
         $ticket->train_id = $request->input('train');
         $ticket->ticket_type_id = $request->input('type');

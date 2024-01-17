@@ -21,7 +21,7 @@
             <tr>
                 <td>{{ $ticket->date }}</td>
                 <td>{{ $ticket->price }}</td>
-                <td>{{ $ticket->train_name->name }}</td>
+                <td>{{ $ticket->train->name }}</td>
                 <td>{{ $ticket->ticket_type->type }}</td>
             </tr>
         </tbody>
