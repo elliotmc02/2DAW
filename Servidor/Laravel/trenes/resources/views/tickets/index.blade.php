@@ -10,7 +10,7 @@
 
 <body>
     <h1>Todos los tickets</h1>
-    <a href="{{ route('trains.create') }}">Crear tren</a>
+    <a href="{{ route('tickets.create') }}">Crear ticket</a>
     <table>
         <thead>
             <tr>

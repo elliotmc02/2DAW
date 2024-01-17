@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tren</title>
+    <title>Ticket</title>
 </head>
 <body>
-    <h1>Mi tren</h1>
+    <h1>Mi ticket</h1>
     <table>
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Pasajeros</th>
-                <th>Año</th>
-                <th>Tipo de tren</th>
+                <th>Fecha</th>
+                <th>Precio</th>
+                <th>Nombre del tren</th>
+                <th>Tipo de ticket</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>{{ $train->name }}</td>
-                <td>{{ $train->passengers }}</td>
-                <td>{{ $train->year }}</td>
-                <td>{{ $train->train_type->type }}</td>
+                <td>{{ $ticket->date }}</td>
+                <td>{{ $ticket->price }}</td>
+                <td>{{ $ticket->train_name->name }}</td>
+                <td>{{ $ticket->ticket_type->type }}</td>
             </tr>
         </tbody>
     </table>

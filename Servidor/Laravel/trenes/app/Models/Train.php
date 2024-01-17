@@ -12,6 +12,6 @@ class Train extends Model
         return $this->belongsTo(TrainType::class);
     }
     public function ticket() {
-        return $this->hasOne(Ticket::class);
+        return $this->hasMany(Ticket::class);
     }
 }

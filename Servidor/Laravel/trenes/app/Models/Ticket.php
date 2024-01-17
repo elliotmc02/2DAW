@@ -10,7 +10,7 @@ class Ticket extends Model
     use HasFactory;
     public function train_name()
     {
-        return $this->belongsTo(Train::class);
+        return $this->belongsTo(Train::class, 'train_id');
     }
     public function ticket_type()
     {
