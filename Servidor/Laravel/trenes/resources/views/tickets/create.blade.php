@@ -11,19 +11,19 @@
 <body>
     <form action="{{ route('tickets.store') }}" method="post">
         @csrf
-        {{-- <label>Fecha</label>
-        <input type="text" name="date"><br> --}}
+        <label>Fecha</label>
+        <input type="date" name="date"><br>
         <label>Precio</label>
         <input type="text" name="price"><br>
         <label>Nombre del tren</label>
-        <select name="train">
+        <select name="train_id">
             @foreach ($trains as $train)
                 <option value="{{ $train->id }}">{{ $train->name }}
                 </option>
             @endforeach
         </select><br>
         <label>Tipo de ticket</label>
-        <select name="type">
+        <select name="ticket_type_id">
             @foreach ($ticket_types as $type)
                 <option value="{{ $type->id }}">{{ $type->type }}
                 </option>

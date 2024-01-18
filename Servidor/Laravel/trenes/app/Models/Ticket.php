@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Ticket extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['date', 'price', 'train_id', 'ticket_type_id'];
+
     public function train()
     {
         return $this->belongsTo(Train::class);

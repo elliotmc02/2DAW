@@ -17,7 +17,7 @@
         <label>Precio</label>
         <input type="text" name="price" value="{{ $ticket->price }}"><br>
         <label>Nombre del tren</label>
-        <select name="train">
+        <select name="train_id">
             <option selected hidden value="{{ $ticket->train_id }}">{{ $ticket->train->name }}</option>
             @foreach ($trains as $train)
                 <option value="{{ $train->id }}">{{ $train->name }}
@@ -25,7 +25,7 @@
             @endforeach
         </select><br>
         <label>Tipo de ticket</label>
-        <select name="type">
+        <select name="ticket_type_id">
             <option selected hidden value="{{ $ticket->ticket_type_id }}">{{ $ticket->ticket_type->type }}</option>
             @foreach ($ticket_types as $type)
                 <option value="{{ $type->id }}">{{ $type->type }}

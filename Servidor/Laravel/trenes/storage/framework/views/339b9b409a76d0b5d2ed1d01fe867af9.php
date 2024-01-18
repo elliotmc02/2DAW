@@ -11,11 +11,12 @@
 <body>
     <form action="<?php echo e(route('tickets.store')); ?>" method="post">
         <?php echo csrf_field(); ?>
-        
+        <label>Fecha</label>
+        <input type="date" name="date"><br>
         <label>Precio</label>
         <input type="text" name="price"><br>
         <label>Nombre del tren</label>
-        <select name="train">
+        <select name="train_id">
             <?php $__currentLoopData = $trains; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $train): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <option value="<?php echo e($train->id); ?>"><?php echo e($train->name); ?>
 
@@ -23,7 +24,7 @@
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </select><br>
         <label>Tipo de ticket</label>
-        <select name="type">
+        <select name="ticket_type_id">
             <?php $__currentLoopData = $ticket_types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $type): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <option value="<?php echo e($type->id); ?>"><?php echo e($type->type); ?>
 

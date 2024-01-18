@@ -18,7 +18,7 @@
         <label>Precio</label>
         <input type="text" name="price" value="<?php echo e($ticket->price); ?>"><br>
         <label>Nombre del tren</label>
-        <select name="train">
+        <select name="train_id">
             <option selected hidden value="<?php echo e($ticket->train_id); ?>"><?php echo e($ticket->train->name); ?></option>
             <?php $__currentLoopData = $trains; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $train): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <option value="<?php echo e($train->id); ?>"><?php echo e($train->name); ?>
@@ -27,7 +27,7 @@
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </select><br>
         <label>Tipo de ticket</label>
-        <select name="type">
+        <select name="ticket_type_id">
             <option selected hidden value="<?php echo e($ticket->ticket_type_id); ?>"><?php echo e($ticket->ticket_type->type); ?></option>
             <?php $__currentLoopData = $ticket_types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $type): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <option value="<?php echo e($type->id); ?>"><?php echo e($type->type); ?>

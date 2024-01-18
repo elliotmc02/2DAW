@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Ticket;
 use App\Models\TicketType;
 use App\Models\Train;
-use Carbon\Carbon;
 
 class TicketController extends Controller
 {
@@ -31,13 +30,7 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        $ticket = new Ticket;
-        $ticket->date = Carbon::now();
-        $ticket->price = $request->input('price');
-        $ticket->train_id = $request->input('train');
-        $ticket->ticket_type_id = $request->input('type');
-        $ticket->save();
-
+        Ticket::create($request->all());
         return redirect('tickets');
     }
 
@@ -57,18 +50,12 @@ class TicketController extends Controller
         return view('tickets/edit', ['ticket' => Ticket::find($id), 'ticket_types' => TicketType::all(), 'trains' => Train::all()]);
     }
 
-    /**
+    /** 
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        $ticket = Ticket::find($id);
-        $ticket->date = $request->input('date');
-        $ticket->price = $request->input('price');
-        $ticket->train_id = $request->input('train');
-        $ticket->ticket_type_id = $request->input('type');
-        $ticket->save();
-
+        Ticket::find($id)->update($request->all());
         return redirect('tickets');
     }
 
