@@ -19,7 +19,7 @@
         <label>Año</label>
         <input type="text" name="year" value="{{ $train->year }}"><br>
         <label>Tipo de tren</label>
-        <select name="type">
+        <select name="train_type_id">
             <option selected hidden value="{{ $train->train_type_id }}">{{ $train->train_type->type }}</option>
             @foreach ($train_types as $type)
                 <option value="{{ $type->id }}">{{ $type->type }}

@@ -18,7 +18,7 @@
         <label>Año</label>
         <input type="text" name="year"><br>
         <label>Tipo de tren</label>
-        <select name="type">
+        <select name="train_type_id">
             @foreach ($train_types as $type)
                 <option value="{{ $type->id }}">{{ $type->type }}
                 </option>

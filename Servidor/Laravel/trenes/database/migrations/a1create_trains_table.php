@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->integer('passengers');
             $table->integer('year');
             $table->unsignedBigInteger('train_type_id');
-            $table->foreign('train_type_id')->references('id')->on('train_types');
+            $table->foreign('train_type_id')->references('id')->on('train_types')->onDelete('cascade');
             $table->timestamps();
         });
     }

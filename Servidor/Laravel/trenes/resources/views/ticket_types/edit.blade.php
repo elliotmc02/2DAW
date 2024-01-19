@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Editar tipo de tren</title>
+    <title>Editar tipo de ticket</title>
 </head>
 
 <body>
-    <form action="{{ route('train_types.update', ['train_type' => $train_type->id]) }}" method="post">
+    <form action="{{ route('ticket_types.update', ['ticket_type' => $ticket_type->id]) }}" method="post">
         @csrf
         {{ method_field('PUT') }}
-        <label>Tipo de tren</label>
-        <input type="text" name="type" value="{{ $train_type->type }}"><br>
+        <label>Tipo de ticket</label>
+        <input type="text" name="type" value="{{ $ticket_type->type }}"><br>
         <input type="submit" value="Editar">
     </form>
 

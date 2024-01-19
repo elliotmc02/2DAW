@@ -55,7 +55,7 @@ class TicketController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        Ticket::find($id)->update($request->all());
+        Ticket::find($id)->fill($request->all())->save();
         return redirect('tickets');
     }
 
