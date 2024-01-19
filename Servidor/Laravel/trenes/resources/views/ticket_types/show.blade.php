@@ -8,6 +8,10 @@
 </head>
 <body>
     <h1>Mi tipo de ticket</h1>
+    <a href="{{ route('trains.index') }}">Trenes</a>
+    <a href="{{ route('train_types.index') }}">Tipos de trenes</a>
+    <a href="{{ route('tickets.index') }}">Tickets</a>
+    <a href="{{ route('ticket_types.index') }}">Tipos de tickets</a><br>
     <table>
         <thead>
             <tr>
