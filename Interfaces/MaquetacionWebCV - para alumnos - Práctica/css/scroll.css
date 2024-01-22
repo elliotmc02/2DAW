@@ -1,0 +1,68 @@
+:root{
+    --color-scrollbar: #D3D3D4;
+    --color-background-scrollbar: #eee;
+}
+/* Scroll para Chrome */
+.content__page::-webkit-scrollbar{
+    width: 25px;
+    background: transparent;
+}
+
+.content__page::-webkit-scrollbar-thumb{
+    border: 10px solid transparent;
+    border-radius: 40px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -ms-border-radius: 40px;
+    -o-border-radius: 40px;
+    box-shadow: none;
+}
+
+.content__page:hover::-webkit-scrollbar-thumb{
+    box-shadow: inset 0 0 0 10px var(--color-secondary);
+}
+
+/* barra de recorrido del scroll */
+.content__page::-webkit-scrollbar-track{
+    /* background-color: blue; Para identificar a qué nos referimos y estamos moviendo */
+    background-color: transparent;
+    margin: 40px 0; /* le damos espacio de arriba y abajo para que no toque los bordes */
+
+}
+
+/* Scroll para Chrome barra lateral */
+.layout__aside::-webkit-scrollbar{
+    width: 25px;
+    background: var(--color-secondary);
+}
+
+.layout__aside::-webkit-scrollbar-thumb{
+    border: 10px solid transparent;
+    border-radius: 40px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -ms-border-radius: 40px;
+    -o-border-radius: 40px;
+    box-shadow: none;
+}
+
+.layout__aside:hover::-webkit-scrollbar-thumb{
+    box-shadow: inset 0 0 0 10px var(--color-principal);
+}
+/* barra de recorrido del scroll */
+.layout__aside::-webkit-scrollbar-track{
+    /* background-color: blue; Para identificar a qué nos referimos y estamos moviendo */
+    background-color: transparent;
+    margin: 40px 0; /* le damos espacio de arriba y abajo para que no toque los bordes */
+
+}
+
+/* Scroll para Mozilla Firefox */
+.content__page{
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-scrollbar) transparent;
+}
+.layout__aside{
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-scrollbar) var(--color-secondary);
+}

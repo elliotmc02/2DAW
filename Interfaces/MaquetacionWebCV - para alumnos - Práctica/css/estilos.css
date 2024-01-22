@@ -1,0 +1,1342 @@
+/* reseteamos estilos */
+*{
+    margin: 0px;
+    padding: 0px;
+    vertical-align: baseline;
+}
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+body{
+    min-height: 100vh; /* ocupa el 100% de la altura vertical que tiene el navegador */
+    scroll-behavior: smooth; /* scroll suavizado */
+    text-rendering: optimizeSpeed; /* renderice fuentes de forma más rápida */
+    line-height: 1.5;
+}
+
+.swiper {
+    width: 600px;
+    height: 300px;
+  }
+
+ul, ol{
+    list-style: none;
+}
+a{
+    display: block;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+p a{
+    display: inline; /* esos enlaces dentro de un párrafo que se presenten en línea para que no se produzca un salto de línea */
+}
+
+img, video, iframe, picture, figure{
+ max-width: 100%;
+ display: block;
+}
+
+form, input, select, textarea, button, label{
+    display: block;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+} /* hacemos que lo hereden para que no se apliquen estilos propios de cada elemento y hereden los disponibles en el padre. */
+/* fin de reseteo de estilos */
+
+/* Iniciamos estilos personalizados  */
+/* Definición Variables
+ definimos familia de fuente que voy a utilizar */
+:root{
+    --color-principal: #FFFFFF;
+    --color-secondary: #04B4E0;
+
+    --color-background: #F2F7F9;
+    --color-transparent: transparent;
+
+    --color-icons: #B5B6B7;
+    --color-title: #222222;
+    --color-subtitle: #888;
+    --color-text: #555;
+
+    --color-border-reviews: #E5E6E7;
+    --color-company: #A5A6A7;
+}
+
+/* Estilos Generales */
+html{
+    font-size: 10px;
+}
+body{
+    width: 100%;
+    height: 100%;
+    font-family: "Poppins", Helvetica, sans-serif;
+    background-color: var(--color-background);
+    font-size: 1.5rem;
+    color: var(--color-text);
+    overflow: hidden;
+}
+h1,h2,h3,h4,h5,h6{
+    color: --var(--color-title);
+}
+
+/* imagen de fondo */
+body{
+    background-image: url("../img/fondo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -20px -120px;
+}
+
+/* Estructura principal */
+.layout{
+    position: relative; /* nos permite algo más de flexibilidad que la posición estática, pero no nos permite mover el elemento por encima de otros, como sí puedo realizar con la posición absoluta
+    posicion relativa, se posiciona de forma relativa con respecto a su posición original. 
+    Esto nos permite añadir un elemento after, before,... que nos permite manejarlo de forma más fácil que si fuera posición static */
+    min-width: 1290px;
+    width: 75%;
+    height: 80vh; /* 80% sobre la altura del navegador */
+    
+    min-height: 80vh;
+    margin: 10vh auto; /* 10vh es un margen del 10% por arriba y abajo */
+    /*border: 1px solid red; */
+    
+    display: grid;
+    grid-template-areas:
+        "aside content";
+    grid-template-columns: 30% 70%;
+
+    border-radius: 4rem;
+    -webkit-border-radius: 4rem;
+    -moz-border-radius: 4rem;
+    -ms-border-radius: 4rem;
+    -o-border-radius: 4rem;
+
+    /* aplico la sombra detrás del layout */
+    box-shadow: 0px 0px 100px -5px rgba(0,0,0, 0.25);
+}
+
+/* barra lateral azul */
+.layout__aside{
+    grid-area: aside;
+    border-radius: 4rem 0 0 4rem;
+    -webkit-border-radius: 4rem 0 0 4rem;
+    -moz-border-radius: 4rem 0 0 4rem;
+    -ms-border-radius: 4rem 0 0 4rem;
+    -o-border-radius: 4rem 0 0 4rem;
+
+    overflow: auto;
+    overflow-x: hidden; /* nos interesa por el responsivo */
+}
+
+.aside__user-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* posicionamos los elementos: posiciona los que funcionan como un bloque */
+    text-align: center; /* posicionamos textos */
+
+    min-height: 100%;
+    min-width: 30rem;
+
+    background-color: var(--color-secondary);
+    color: var(--color-principal);
+}
+
+.user-info__container-image{
+    position: relative;
+    display: inline-block; /* display block se comporta como elemento en bloque y no tiene espacio entre los elementos, y con inline block si que existe este espacio entre los elementos. */
+    width: 18rem;
+    margin-top: 7rem;
+}
+
+.user-info__image{
+    width: 100%;
+    background-color: var(--color-principal);
+    border: 3px solid var(--color-principal);
+    border-radius: 20rem;
+    -webkit-border-radius: 20rem;
+    -moz-border-radius: 20rem;
+    -ms-border-radius: 20rem;
+    -o-border-radius: 20rem;
+    overflow: hidden;
+    z-index: 1; /* necesario para el tema de la sombra */
+}
+/* agrego un contenido adicional para añadir un fondo de degradado de puntos de ahí el uso de ::after */
+/* sombra de puntitos: incluyendo contenido estético */
+.user-info__container-image::after{
+    content: "hola";
+    position: absolute;
+    top: 5%;
+    left: 9%;
+    width: 100%;
+    height: 100%;
+    border-radius: 30rem;
+    -webkit-border-radius: 30rem;
+    -moz-border-radius: 30rem;
+    -ms-border-radius: 30rem;
+    -o-border-radius: 30rem;
+    background-image: 
+    -webkit-repeating-radial-gradient(center center,#fff, #fff 1px, transparent 0px, transparent 100%),
+    -moz-repeating-radial-gradient(center center,#fff, #fff 1px, transparent 0px, transparent 100%);
+    background-size: 0.6rem 0.6rem;
+    z-index: -1;
+    opacity: 0.4;
+}
+
+.user-info__name{
+    font-size: 3.2rem;
+    font-weight: bold;
+    color: var(--color-principal);
+    margin-top: 2.6rem;
+}
+.user-info__job{
+    font-size: 1.7rem;
+    font-weight: 200;
+    color: var(--color-principal);
+}
+
+.user-info__links{
+    margin-bottom: 3.6rem;
+}
+
+.links__social{
+    margin-top: 2rem;
+    text-align: center;
+
+    display:flex;
+    flex-direction: row;
+}
+
+.social__option{
+    height: 3rem;
+    width: 3rem;
+    font-size: 1.8rem;
+    line-height: 3.2rem;
+    opacity: 0.9;
+    border-radius: 3rem;
+    -webkit-border-radius: 3rem;
+    -moz-border-radius: 3rem;
+    -ms-border-radius: 3rem;
+    -o-border-radius: 3rem;
+    transition: all 300ms ease-in-out;
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    -ms-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+}
+
+.social__option:hover{
+    opacity: 1;
+    background-color: rgba(255,255,255, 0.20);
+}
+
+.user-info__buttons{
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.user-info__btn{
+    border: 2px solid var(--color-principal);
+    padding: 2.5rem;
+    padding-top: 1.3rem;
+    padding-bottom: 1.3rem;
+    border-radius: 3.2rem;
+    -webkit-border-radius: 3.2rem;
+    -moz-border-radius: 3.2rem;
+    -ms-border-radius: 3.2rem;
+    -o-border-radius: 3.2rem;
+    color: var(--color-principal);
+    box-shadow: 0 10px 10px -4px rgba(0,0,0, 0.20);
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+}
+
+.user-info__btn:hover{
+    background-color: var(--color-principal);
+    color: var(--color-secondary);
+    border: 2px solid rgba(0,0,0, 0.40);
+}
+
+.user-info__footer{
+    position: absolute;
+    bottom: 2rem; /* hace que se quede fijo y con el tamaño de diferencia hasta el final */
+    font-size: 1.2rem;
+}
+
+/* contenedor principal */
+.layout__content{
+    grid-area: content;
+    height: 100%;
+    min-height: 100%;
+    background-color: var(--color-secondary);
+    border-radius: 0 10rem 10rem 0;
+    -webkit-border-radius: 0 10rem 10rem 0;
+    -moz-border-radius: 0 10rem 10rem 0;
+    -ms-border-radius: 0 10rem 10rem 0;
+    -o-border-radius: 0 10rem 10rem 0;
+}
+/* el redondeo se ve de esta forma puesto que la caja layout__content está completa en azul y el redondeo viene en content_page */
+.content__page{
+    background-color: var(--color-principal);
+    min-height: 100%;
+    border-radius: 3.2rem;
+    -webkit-border-radius: 3.2rem;
+    -moz-border-radius: 3.2rem;
+    -ms-border-radius: 3.2rem;
+    -o-border-radius: 3.2rem;
+
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.page__name{
+    font-size: 6rem;
+    margin-bottom: 1rem;
+    color: var(--color-title);
+}
+
+.page__job{
+    font-size: 2.1rem;
+    font-weight: lighter;
+    color: var(--color-subtitle);
+}
+
+/* Menú navegación lateral */
+.layout__menu{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -105px;
+    margin-right: -2rem;
+    min-width: 11rem;
+    background-color: var(--color-transparent);
+}
+.menu__list{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-principal);
+    width: 60%;
+    min-height: 32rem;
+    padding: 2rem;
+    box-shadow: 0 0 3rem -0.4rem rgba(0,0,0, 0.20);
+    border-radius: 5rem;
+    -webkit-border-radius: 5rem;
+    -moz-border-radius: 5rem;
+    -ms-border-radius: 5rem;
+    -o-border-radius: 5rem;
+}
+.menu__option{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.menu__link--active .menu__icon{
+    color: var(--color-secondary); 
+}
+.menu__icon{
+    color: var(--color-icons);
+    font-size: 2.8rem;
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+}
+.menu__option:hover .menu__icon{
+    color: var(--color-secondary); 
+}
+.menu__overlay{
+    position: absolute;
+    right: 0;
+    margin-top: -3rem;
+    opacity: 0;
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--color-principal);
+    background-color: var(--color-secondary);
+    white-space: nowrap;
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+}
+
+.menu__option:hover .menu__overlay{
+    opacity: 1;
+    right: 100%;
+}
+
+/* Estilos generales compartidos para Sobre mi - Curriculum, Portfolio, Blog... */
+.content__about, .content__resume, .content__portafolio,
+.content__blog, .content__contact{
+    display:block;
+    height: 100%;
+    min-height: 100%;
+    padding: 5rem !important;
+    padding-right: 3rem !important;
+    overflow: auto;   
+}
+
+.about__header, .resume__header, .portafolio__header, 
+.blog__header, .contact__header{
+    display: inline-block; /* me permite que los puntitos de radial-gradient se vean superpuestos. Así el tamaño del elemento se adecua al contenido que tiene */
+    margin-bottom: 4rem;
+}
+.about__title, .resume__title, .portafolio__title, 
+.blog__title, .contact__title{
+    font-size: 3.2rem;
+    position: relative;
+}
+/* agrego un contenido adicional para añadir un fondo de degradado de puntos */
+.about__title::after, .portafolio__title::after, 
+.blog__title::after, .contact__title::after{
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: -25px;
+    width: 50px;
+    height: 30px;
+    /* transparente desde el pixel 0 hasta que llegue al 100%. vamos a tener puntitos de hasta 1 pixel de color azul */
+    background-image: -webkit-repeating-radial-gradient(center center, var(--color-secondary), var(--color-secondary) 1px, transparent 0px, transparent 100%);
+    background-size: 6px 6px;
+    opacity: 0.6;
+}
+/* .resume__header::after{
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 500px;
+    width: 50px;
+    height: 30px;
+    background-image: -webkit-repeating-radial-gradient(center center, var(--color-secondary), var(--color-secondary) 1px, transparent 0px, transparent 100%);
+    background-size: 6px 6px;
+    opacity: 0.6;
+} */
+.title__color, .subtitle__color{
+    color: var(--color-secondary);
+}
+
+/* maquetación de la info personal */
+.about__personal-info{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5rem;
+}
+.personal-info__bio{
+    flex-basis: 56%;
+}
+.personal-info__desription{
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+}
+.personal-info__data{
+    flex-basis: 44%;
+    padding: 0 1.5rem;
+}
+.personal-info__option{
+    margin-bottom: 1rem;
+
+}
+.personal-info__title{
+    margin-right: 0.5rem;
+    color: var(--color-secondary);
+    font-weight: 600;
+}
+
+/* Estilos Compartidos en Sobre Mí, curriculum: maquetando los servicios, reseñas */
+.about__services, .about__reviews, 
+.about__clients, .about__prices, .about__extra{
+    width: 100%;
+    margin-bottom: 3rem;
+}
+.services__header, .reviews__header, 
+.clients__header, .prices__header, .extra__header,
+.resume__subheader, .contact__form-header{
+    display: inline-block;
+    padding-right: 1.2rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+.services__title, .reviews__title, 
+.clients__title, .prices__title, .extra__tittle,
+.resume__subtitle, .form-header__subtitle{
+    font-size: 2.1rem;
+}
+/* agrego un contenido adicional para añadir un fondo de degradado de puntos */
+.services__title::after, .reviews__title::after, 
+.clients__title::after, .prices__title::after, .extra__title::after,
+.resume__subtitle::after, .form-header__subtitle::after{
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: 0px;
+    width: 30px;
+    height: 20px;
+    /* transparente desde el pixel 0 hasta que llegue al 100%. vamos a tener puntitos de hasta 1 pixel de color azul */
+    background-image: -webkit-repeating-radial-gradient(center center, var(--color-secondary), var(--color-secondary) 1px, transparent 0px, transparent 100%);
+    background-size: 6px 6px;
+    opacity: 0.6;
+}
+.services__container, .reviews__container{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+.services__service, .reviews__review{
+    flex-basis: calc(50% - 3rem);
+    margin-right: 3rem;
+    margin-bottom: 2.5rem;
+}
+.service__real-icon{
+    color: var(--color-secondary);
+    font-size: 3.8rem;
+    margin-bottom: 0.5rem 0;
+}
+.service__title{
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+}
+.service__description{
+    font-size: 1.5rem;
+    text-align: justify;
+}
+
+/* maquetando reviews */
+
+.reviews__review{
+    border: 2px solid var(--color-border-reviews);
+    border-radius: 2rem;
+    padding-top: 0;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    padding-bottom: 1.5rem;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+}
+.review__image-container{
+    width: 100%;
+}
+.review__image{
+    max-width: 9rem;
+    max-height: 9rem;
+    border-radius: 9rem;
+    -webkit-border-radius: 9rem;
+    -moz-border-radius: 9rem;
+    -ms-border-radius: 9rem;
+    -o-border-radius: 9rem;
+    margin: 0px auto;
+    margin-top: -4.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0px 10px 10px -6px rgba(0,0,0, 0.25);
+}
+.review__description{
+    margin-bottom: 1rem;
+}
+.review__text{
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+}
+.review__author{
+    margin-top: 2rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.review__name{
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+.review__company{
+    color: var(--color-company);
+    font-weight: 300;
+    font-size: 1.3rem;
+}
+.review__icon{
+    font-size: 4rem;
+    opacity: 0.5;
+    color: var(--color-secondary);
+}
+
+/* maquetando zona clientes */
+.about__clients{
+    width: 100%;
+    margin-bottom: 2rem;
+}
+.clients__header{
+    margin-bottom: 3rem;
+}
+.clients__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.clients_link{
+    display: block;
+    width: 100%;
+    opacity: 0.7;
+    transition: all 300ms linear;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+}
+.clients_link:hover{
+    opacity: 1;
+    transform: scale(1.1,1.1);
+    -webkit-transform:;
+    -moz-transform:;
+    -ms-transform:;
+    -o-transform:;
+}
+.clients__image{
+    width: 200px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* maquetamos la zona de precios */
+.prices__container{
+    margin-bottom: 5rem;
+    display: flex;
+    /* flex-flow: row wrap; */
+}
+.prices__box{
+    flex-basis: 50%;
+    margin-right: 3rem;
+    padding: 3rem;
+    border: 2px solid var(--color-border-reviews);
+    border-radius: 1.5rem;
+    -webkit-border-radius: 1.5rem;
+    -moz-border-radius: 1.5rem;
+    -ms-border-radius: 1.5rem;
+    -o-border-radius: 1.5rem;
+    text-align: center;
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+}
+.prices__box:hover, .extra__info:hover{
+    box-shadow: 0 14px 18px -5px rgba(0,0,0, 0.20);
+    /* transform: scale(1.05,1.05);
+    -webkit-transform: translateY(-1rem) ;
+    -moz-transform: translateY(-1rem) ;
+    -ms-transform: translateY(-1rem) ;
+    -o-transform: translateY(-1rem) ; */
+    
+    /* opcion2 */
+    transform: translateY(-1rem) ;
+}
+.prices_subtitle{
+    margin-bottom: 3rem;
+}
+.prices__text{
+    position: relative;
+    display: inline-block;   
+}
+/* genero efecto en el texto --> genero un subrayado */
+.prices__box:hover .prices__text::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.3rem;
+    right: 0;
+    height: 0.2rem;
+    background-color: var(--color-secondary);
+}
+.prices__price{
+    padding-bottom: 1rem;
+}
+.prices__number{
+    display: block;
+    font-size: 4.2rem;   
+    line-height: 1;
+    color: var(--color-title);
+}
+.prices__advice{
+    display: block;
+    color: var(--color-subtitle);
+}
+.prices__buy{
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+}
+.prices__btn{
+    /*para que siga actuando como elemento en linea pero que siga funcionando como un bloque*/
+    display: inline-block; 
+    padding: 1.2rem 3.1rem;
+    border: 2px solid var(--color-border-reviews);
+    box-shadow: 0 10px 10px -6px var(--color-border-reviews);
+    border-radius: 3rem;
+    -webkit-border-radius: 3rem;
+    -moz-border-radius: 3rem;
+    -ms-border-radius: 3rem;
+    -o-border-radius: 3rem;
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+}
+.prices__btn:hover{
+    border: 2px solid var(--color-secondary);
+    background-color: var(--color-secondary);
+    color: var(--color-principal);
+}
+.prices__reward{
+    font-size: 1.4rem;
+    padding: 0.2rem 0;
+}
+/* información extra */
+.extra__container{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+.extra__info{
+    flex-basis: 30%;
+    padding: 2.5rem 1rem;
+    border: 2px solid var(--color-border-reviews);
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    text-align: center;
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+}
+.extra__icon{
+    font-size: 3.3rem;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+}
+.extra__subtittle{
+    font-size: 1.5rem;
+    margin: 1.5rem;
+}
+.extra__quantity{
+    display: block;
+    margin: 1.5rem 1rem;
+    margin-bottom: 0px;
+    font-size: 3rem; 
+    line-height: 4rem;
+    color: var(--color-subtitle);
+}
+
+/* maquetando curriculum */
+.resume__container{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+/* izquierda */
+.resume__left{
+    flex-basis: 58%;
+    margin-right: 1.5rem;
+}
+.resume__timelines{
+    margin-bottom: 5rem;
+}
+.timelines__timeline{
+    position: relative;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: row;
+}
+.timeline__header{
+    flex-basis: 30%;
+    text-align: right;
+    padding-right: 2.5rem;
+}
+.timeline__year{
+    margin: 0.3rem 0;
+    line-height: 1.9rem;
+    font-size: 1.4rem;
+}
+.timeline__company{
+    display: block;
+    /* margin: 0;
+    margin-bottom: 0.4rem; */
+    font-size: 1.3rem;
+    font-weight: lighter;
+    color: var(--color-company);
+}
+.timeline__description{
+    width: 70%;
+    padding-left: 2.5rem;
+    padding-right: 1.5rem;
+}
+.timeline__title{
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+.timeline__text{
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.timeline__divider{
+    position: absolute;
+    top: 0;
+    left: 30%; /* coloca este divisor en el sitio adecuado */
+    bottom: -16px; /* me permite que las líneas se unan y parezca una única línea */
+    width: 1px;
+    /* height: 100%; si incluyo esto, no se aplica el bottom negativo que me permite salirme del tamaño de la caja */
+    background-color: var(--color-icons);
+}
+.timeline__divider::before{
+    content: ""; /* agrego contenido vacío */
+    position: absolute; /* me permite manipular los elementos de forma que puedo saltarme los límites. */
+    margin-top: 0.4rem;
+    margin-left: -0.8rem;
+    width: 1.7rem; /*añado la bola de 17px*/
+    height: 1.7rem;
+    background-color: var(--color-secondary);
+
+    border-radius: 10rem;
+    -webkit-border-radius: 10rem;
+    -moz-border-radius: 10rem;
+    -ms-border-radius: 10rem;
+    -o-border-radius: 10rem;
+    opacity: 0.25;
+}
+/* añado un círculo blanco interno. Lo añado como after porque en otro caso machacaría el anterior */
+.timeline__divider::after{
+    content: ""; /*agrego contenido vacío*/
+    position: absolute;
+    margin-top: 0.8rem;
+    margin-left: -0.4rem;
+    width: 0.9rem; /*añado la bola de 17px*/
+    height: 0.9rem;
+    border: 2px solid var(--color-secondary);
+    background-color: var(--color-principal);
+
+    border-radius: 10rem;
+    -webkit-border-radius: 10rem;
+    -moz-border-radius: 10rem;
+    -ms-border-radius: 10rem;
+    -o-border-radius: 10rem;
+    opacity: 0.5;
+}
+
+/* derecha */
+.resume__right{
+    flex-basis: 40%;
+    padding: 0 1.5rem;
+}
+.resume__skills{
+    width: 100%;
+    margin-bottom: 3rem;
+}
+.skills__title{
+    display: flex;
+    justify-content: space-between;
+}
+.skills__text{
+    font-size: 1.3rem;
+    line-height: 1.4rem;
+    margin-bottom: 0.4rem;
+}
+.skills__number{
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+    margin-bottom: 0.4rem;
+    color: var(--color-subtitle);
+}
+.skills__progressbar{
+    height: 1rem;
+    border: 1px solid var(--color-secondary);
+    background-color: var(--color-principal);
+    margin-bottom: 1.5rem;
+    /* en lugar de este margin-bottom podría utilizar un display: inline-block que incluiría también un espaciado adicional entre los elementos */
+    border-radius: 1rem;
+}
+.skills__percentage{
+    height: 0.8rem;
+    background-color: var(--color-secondary);
+    border: 2px solid var(--color-principal);
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+
+.skills__percentage--p1{width: 90%;}
+.skills__percentage--p2{width: 40%;}
+.skills__percentage--p3{width: 40%;}
+.skills__percentage--p4{width: 80%;}
+.skills__percentage--p5{width: 60%;}
+.skills__percentage--p6{width: 90%;}
+.skills__percentage--p7{width: 80%;}
+.skills__percentage--p8{width: 90%;}
+.skills__percentage--p9{width: 80%;}
+
+.knowledges__list{
+    display: flex;
+    flex-flow: row wrap;
+}
+.knowledges_option{
+    padding: 0.1rem 1rem;
+    margin: 0.3rem;
+    font-size: 1.4rem;
+    background-color: var(--color-secondary);
+    border-radius: 0.3rem;
+    -webkit-border-radius: 0.3rem;
+    -moz-border-radius: 0.3rem;
+    -ms-border-radius: 0.3rem;
+    -o-border-radius: 0.3rem;
+    color: var(--color-principal);
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+}
+.knowledges_option:hover{
+    background-color: var(--color-title);
+    transform: scale(1.05,1.05);
+    -webkit-transform: scale(1.05,1.05);
+    -moz-transform: scale(1.05,1.05);
+    -ms-transform: scale(1.05,1.05);
+    -o-transform: scale(1.05,1.05);
+}
+
+.certificates__container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.certificates__certificate{
+    border: 1px solid var(--color-border-reviews);
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+    display: flex;
+    flex-direction: row;
+}
+.certificates__certificate:hover{
+    transform: scale(1.1,1.1);
+    -webkit-transform: scale(1.1,1.1);
+    -moz-transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    -o-transform: scale(1.1,1.1);
+}
+
+.certificate__logo{
+    width: 15rem;
+    height: 100%;
+    padding: 2.5rem;
+    background-color: var(--color-background);
+}
+.certificate__img{
+    width: 100%;
+
+}
+.certificate__content{
+    padding: 2rem 2.5rem;
+}
+.certificate__title{
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+.certificate__id{
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 1.3rem;
+    color: var(--color-subtitle);
+}
+.certificate__date{
+    font-size: 1rem;
+    color: var(--color-subtitle);
+    opacity: 0.7;
+}
+
+/* Maquetando portfolio */
+.portfolio__navbar{
+    margin-bottom: 3rem;
+}
+.portfolio__menu{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1.5rem;
+}
+.portfolio__option{
+    font-size: 1.3rem;
+    opacity: 0.7;
+}
+.portfolio__option--active{
+    opacity: 1;
+    font-weight: bold;
+}
+.portfolio__link{
+    cursor: pointer;
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+}
+.portfolio__link:hover{
+    color: var(--color-secondary);
+    text-shadow: 0 0 3px rgba(0,0,0, 0.25);
+    transform: scale(1.1,1.1);
+    -webkit-transform: scale(1.1,1.1);
+    -moz-transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    -o-transform: scale(1.1,1.1);
+}
+.portfolio__gallery{
+    display: flex;
+    flex-flow: row wrap;
+}
+.gallery__item{
+    flex-basis: 33%;
+    padding: 0.7rem;
+    position: relative; /* necesario para el movimiento de los iconos */
+}
+.gallery__container-image{
+    overflow: hidden; /* genero un zoom en interno */
+} 
+.gallery__image{
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+}
+.gallery__image:hover{
+    transform: scale(1.1, 1.1);
+    -webkit-transform: scale(1.1, 1.1);
+    -moz-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    -o-transform: scale(1.1, 1.1);
+}
+.gallery__title{
+    font-size: 1.6rem;
+    padding: 1.5rem 0;
+    font-weight: bold;
+}
+.gallery__text{
+    font-size: 1rem;
+    opacity: 0.7;
+}
+.gallery__icon{
+    opacity: 0;
+    position: absolute; /* posición absoluta con respecto a la posición relative que tiene su elemento padre */
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.6rem;
+    text-align: center;
+    line-height: 3rem;
+    background-color: var(--color-principal);
+    color: var(--color-secondary);
+    border-radius: 3rem;
+    -webkit-border-radius: 3rem;
+    -moz-border-radius: 3rem;
+    -ms-border-radius: 3rem;
+    -o-border-radius: 3rem;
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+}
+.gallery__category{
+    opacity: 0;
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    padding: 0.2rem 0.7rem;
+    font-size: 1.1rem;
+    background-color: var(--color-principal);
+    color: var(--color-text);
+    border-radius: 3rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 3rem;
+    -ms-border-radius: 3rem;
+    -o-border-radius: 3rem;
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+}
+
+.gallery__item:hover .gallery__icon,
+.gallery__item:hover .gallery__category{
+    opacity: 1;
+}
+
+/* maquetación del blog */
+.blog__articles{
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-flow: row wrap;
+}
+.articles__article{
+    flex-basis: 50%;
+    padding: 0 1.5rem;
+    padding-bottom: 3.5rem;
+}
+.article__top{
+    position: relative;
+    overflow: hidden;
+}
+.article__category{
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 1.1rem;
+    line-height: 2rem;
+    background-color: var(--color-principal);
+    color: var(--color-text);
+    font-weight: bold;
+    padding: 0.2rem 0.7rem;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    z-index: 3; /* mantengo la etiqueta por encima de la imagen */
+}
+.article__mask{
+    width: 100%;
+    height: 18.5rem;
+    overflow: hidden;
+}
+.article__image{
+    display: block;
+    z-index: 1;
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+}
+.article__top:hover .article__image{
+    transform: scale(1.1,1.1);
+    -webkit-transform: scale(1.1,1.1);
+    -moz-transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    -o-transform: scale(1.1,1.1);
+}
+.article__logo{
+    transition: all 300ms ease-in-out;
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    -ms-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+    opacity: 0;
+}
+.article__icon{
+    position: absolute;
+    top: calc(50% - 2.2rem);
+    left: calc(50% - 2.2rem); /* lo posiciono en el centro de la imagen. Es 2.2 que es la mitad de los 4.4rem que tiene de width y font-size */
+    width: 4.4rem;
+    font-size: 4.4rem;
+    color: var(--color-principal);
+    text-align: center;   
+}
+.article__top:hover .article__logo{
+    opacity: 1;
+}
+.article__bottom{
+    margin: 0;
+    padding: 2.1rem;
+    padding-top: 1.5rem;
+    border: 0.2rem solid var(--color-border-reviews);
+    border-top: 0;
+}
+.article__date{
+    display: block;
+    font-size: 1.1rem;
+    /* line-height: 1.2rem; */
+    font-weight: 300;
+    color: var(--color-text)
+}
+.article__title{
+    font-size: 1.6rem;
+}
+.article__text{
+    font-size: 1rem;
+    color: var(--color-subtitle);
+}
+
+/* maquetando contacto */
+.contact__container{
+    display: flex;
+    flex-flow: row wrap;
+}
+.contact__info{
+    flex-basis: 33%;
+    padding: 0 1.5rem;
+}
+.contact__data{
+    width: 100%;
+    margin-bottom: 1.5rem;
+    padding: 2rem 1rem;
+    text-align: center;
+    background-color: var(--color-background);
+    border: 0.1rem solid var(--color-border-reviews);
+}
+.contact__icon{
+    font-size: 3.3rem;
+    color: var(--color-secondary);
+}
+.contact__subtitle{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+.contact__form-box{
+    flex-basis: 66%;
+    padding: 0 1.5rem;
+}
+.form__container{
+    display: flex;
+    flex-flow: row wrap;
+}
+.form__left{
+    flex-basis: 47%;
+    margin-right: 1.5rem;
+}
+.form__group{
+    position: relative; /* para conseguir luego poder mover los label en efectos */
+    margin-bottom: 3rem;
+}
+.form__input{
+    position: relative;
+    width: 100%;
+    height: 4.2rem;
+    display: block;
+    border: 0.2rem solid var(--color-border-reviews);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    font-size: 1.5rem;
+    padding: 1rem 1.2rem;
+    outline: none; /* no incluir bordes de los navegadores */
+    box-shadow: 0 1rem 1rem -6px rgba(0,0,0, 0.20);
+    background-color: transparent;
+    line-height: 2.1rem;
+}
+.form__input:focus{
+    border: 0.2rem solid var(--color-secondary);
+}
+
+.form__label{
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    z-index: 1;
+    color: var(--color-company);
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+    pointer-events: none; /* permite que no se pueda clickar en los labels puesto que no nos interesa esto ya que el punteado es al input para hacerle focus */
+}
+
+/* necesito seleccionar el elemento hermano de ese input mediante Alt Gr 4 
+ se denomina: virulilla este ~ 
+ .form__input:not(:placeholder-shown)~label consigo con esto que cuando no esté mostrado el placeholder que el label se quede arriba */
+.form__input:focus~label,
+.form__input:not(:placeholder-shown)~label{
+    top: -2rem;
+    left: 0;
+    z-index: 1;
+    font-size: 1.3rem;
+    color: var(--color-secondary);
+}
+.form__input::-webkit-input-placeholder{
+    color: transparent;
+}
+.form__input::-moz-placeholder{
+    color: transparent;
+}
+
+.form__right{
+    flex-basis: 49%;
+    max-width: 49%;
+    max-height: 100%;
+}
+.form__input--textarea{
+    display: block;
+    resize: none;
+    height: 17rem;
+}
+
+.form__button{
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    border: 0.2rem solid var(--color-secondary);
+    color: var(--color-title);
+    background-color: var(--color-principal);
+    border-radius: 3rem;
+    -webkit-border-radius: 3rem;
+    -moz-border-radius: 3rem;
+    -ms-border-radius: 3rem;
+    -o-border-radius: 3rem;
+    box-shadow: 0 1rem 1rem -6px rgba(0,0,0, 0.25);
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+}
+.form__button:hover{
+    border: 0.2rem solid var(--color-principal);
+    color: var(--color-principal);
+    background-color: var(--color-secondary);
+    cursor: pointer;
+    transform: scale(1.1,1.1);
+    -webkit-transform: scale(1.1,1.1);
+    -moz-transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    -o-transform: scale(1.1,1.1);
+}
+.contact__map{
+    width: 100%;
+    min-height: 15rem;
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+}
+.contact__iframe{
+    width: 100%;
+    height: 15rem;
+}
