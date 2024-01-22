@@ -9,6 +9,10 @@
 </head>
 
 <body>
+    <a href="<?php echo e(route('trains.index')); ?>">Trenes</a>
+    <a href="<?php echo e(route('train_types.index')); ?>">Tipos de trenes</a>
+    <a href="<?php echo e(route('tickets.index')); ?>">Tickets</a>
+    <a href="<?php echo e(route('ticket_types.index')); ?>">Tipos de tickets</a><br>
     <form action="<?php echo e(route('tickets.update', ['ticket' => $ticket->id])); ?>" method="post">
         <?php echo csrf_field(); ?>
         <?php echo e(method_field('PUT')); ?>

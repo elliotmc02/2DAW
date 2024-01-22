@@ -9,6 +9,10 @@
 </head>
 
 <body>
+    <a href="<?php echo e(route('trains.index')); ?>">Trenes</a>
+    <a href="<?php echo e(route('train_types.index')); ?>">Tipos de trenes</a>
+    <a href="<?php echo e(route('tickets.index')); ?>">Tickets</a>
+    <a href="<?php echo e(route('ticket_types.index')); ?>">Tipos de tickets</a><br>
     <form action="<?php echo e(route('trains.store')); ?>" method="post">
         <?php echo csrf_field(); ?>
         <label>Nombre del tren</label>
@@ -18,7 +22,7 @@
         <label>Año</label>
         <input type="text" name="year"><br>
         <label>Tipo de tren</label>
-        <select name="type">
+        <select name="train_type_id">
             <?php $__currentLoopData = $train_types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $type): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <option value="<?php echo e($type->id); ?>"><?php echo e($type->type); ?>
 
