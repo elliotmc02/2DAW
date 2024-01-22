@@ -55,7 +55,7 @@ form, input, select, textarea, button, label{
  definimos familia de fuente que voy a utilizar */
 :root{
     --color-principal: #FFFFFF;
-    --color-secondary: #04B4E0;
+    --color-secondary: burlywood;
 
     --color-background: #F2F7F9;
     --color-transparent: transparent;
@@ -316,11 +316,24 @@ body{
 .layout__menu{
     display: block;
     position: absolute;
-    top: 0;
+    top: 45px;
     right: -105px;
     margin-right: -2rem;
     min-width: 11rem;
     background-color: var(--color-transparent);
+}
+.layout__menu-abajo{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -105px;
+    min-width: 11rem;
+    background-color: var(--color-transparent);
+}
+#oscuro {
+    border: 0;
+    background-color: transparent;
+    display: unset;
 }
 .menu__list{
     position: relative;
@@ -338,6 +351,9 @@ body{
     -moz-border-radius: 5rem;
     -ms-border-radius: 5rem;
     -o-border-radius: 5rem;
+}
+.menu__list-abajo {
+    height:unset;
 }
 .menu__option{
     display: block;

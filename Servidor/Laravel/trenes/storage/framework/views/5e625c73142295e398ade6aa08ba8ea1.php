@@ -8,6 +8,10 @@
 </head>
 <body>
     <h1>Mi tipo de ticket</h1>
+    <a href="<?php echo e(route('trains.index')); ?>">Trenes</a>
+    <a href="<?php echo e(route('train_types.index')); ?>">Tipos de trenes</a>
+    <a href="<?php echo e(route('tickets.index')); ?>">Tickets</a>
+    <a href="<?php echo e(route('ticket_types.index')); ?>">Tipos de tickets</a><br>
     <table>
         <thead>
             <tr>

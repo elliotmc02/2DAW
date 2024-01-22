@@ -13,4 +13,8 @@ class Plato extends Model
     {
         return $this->belongsTo(TipoPlato::class);
     }
+
+    public function menus() {
+        return $this->belongsToMany(Menu::class);
+    }
 }
