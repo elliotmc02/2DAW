@@ -18,11 +18,6 @@ body{
     line-height: 1.5;
 }
 
-.swiper {
-    width: 600px;
-    height: 300px;
-  }
-
 ul, ol{
     list-style: none;
 }
@@ -333,6 +328,7 @@ body{
 #oscuro {
     border: 0;
     background-color: transparent;
+    color: var(--color-icons);
     display: unset;
 }
 .menu__list{
