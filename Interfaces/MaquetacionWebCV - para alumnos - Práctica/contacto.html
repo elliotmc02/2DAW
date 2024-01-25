@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title>Portafolio - Elliot Moyano Cutler</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Contacto - Elliot Moyano Cutler</title>
     <link rel="icon" type="image/png" href="./img/icono.png" />
     <!-- estilos -->
-    <link rel="stylesheet" href="fonts/fontawesome-free-6.1.2-web/css/all.css">
-    <link rel="stylesheet" href="fonts/poppins/poppins.css">
-    <link rel="stylesheet" href="css/scroll.css">
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/loader.css">
-    <link rel="stylesheet" href="css/responsive.css">    
-    
+    <link rel="stylesheet" href="fonts/fontawesome-free-6.1.2-web/css/all.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="fonts/poppins/poppins.css" />
+    <link rel="stylesheet" href="css/scroll.css" />
+    <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="css/loader.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+
     <title>Maquetación Proyecto CV</title>
 
+    <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+
+    <!-- JQuery UI -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+        integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+
+    <!-- Mis scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/datepicker.js"></script>
+
 </head>
+
 <body>
     <!-- layout principal. Usamos metodología BEM -->
     <div class="layout">
@@ -30,7 +40,7 @@
                 <!-- información general usuario -->
                 <div class="user-info__general">
                     <div class="user-info__container-image">
-                        <img src="img/default-user.jpg" class="user-info__image" alt="Foto de perfil">
+                        <img src="img/default-user.jpg" class="user-info__image" alt="Foto de perfil" />
                         <!-- aquí iría la sombra -->
                     </div>
                     <h2 class="user-info__name">Elliot Moyano Cutler</h2>
@@ -77,6 +87,16 @@
                         </li>
                     </ul>
                 </nav>
+                <nav class="layout__menu-abajo">
+                    <ul class="menu__list-abajo">
+                        <li class="menu__option">
+                            <a id="oscuro">
+                                <i class="menu__icon fa-solid fa-moon fa-house"></i>
+                                <span class="menu__overlay">Modo oscuro</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
 
                 <!-- link a redes sociales -->
                 <div class="user-info__links">
@@ -105,7 +125,7 @@
                 </div>
 
                 <!-- pié de página -->
-                <footer class="user-info__footer"> 
+                <footer class="user-info__footer">
                     &copy; 2024 Elliot Moyano Cutler - Web
                 </footer>
             </section>
@@ -143,36 +163,43 @@
                             <span class="loader"></span>
                         </div>
                         <header class="contact__form-header">
-                            <h3 class="form-header__subtitle">¿ Cómo puedo <span class="subtitle__color">ayudarte</span> ?</h3>
+                            <h3 class="form-header__subtitle">
+                                ¿ Cómo puedo <span class="subtitle__color">ayudarte</span> ?
+                            </h3>
                         </header>
                         <form action="" class="contact__form">
                             <div class="form__container">
                                 <section class="form__left">
                                     <div class="form__group">
-                                        <input type="text" class="form__input" name="name" required placeholder="Nombre">
+                                        <input type="text" class="form__input" name="name" required
+                                            placeholder="Nombre" />
                                         <label for="name" class="form__label">Nombre</label>
                                     </div>
                                     <div class="form__group">
-                                        <input type="email" class="form__input" name="email" required placeholder="Email">
+                                        <input type="email" class="form__input" name="email" required
+                                            placeholder="Email" />
                                         <label for="email" class="form__label">Email</label>
                                     </div>
                                     <div class="form__group">
-                                        <input type="text" class="form__input" name="subject" required placeholder="Asunto">
+                                        <input type="text" class="form__input" name="subject" required
+                                            placeholder="Asunto" />
                                         <label for="subject" class="form__label">Asunto</label>
                                     </div>
                                 </section>
                                 <section class="form__right">
                                     <div class="form__group">
-                                        <input type="text" id="fecha" class="form__input" name="message" required placeholder="Fecha"></input>
+                                        <input type="text" id="fecha" class="form__input" name="message" required
+                                            placeholder="Fecha" />
                                         <label for="message" class="form__label">Fecha: </label>
                                     </div>
                                     <div class="form__group">
-                                        <textarea class="form__input form__input--textarea" name="message" required placeholder="Mensaje"></textarea>
+                                        <textarea class="form__input form__input--textarea" name="message" required
+                                            placeholder="Mensaje"></textarea>
                                         <label for="message" class="form__label">Mensaje</label>
                                     </div>
                                 </section>
                             </div>
-                            <input type="submit" value="Enviar Mensaje" class="form__button">
+                            <input type="submit" value="Enviar Mensaje" class="form__button" />
                         </form>
                     </section>
                 </div>
@@ -182,4 +209,5 @@
     <!-- propiedad defer para que el script se cargue cuando el html se haya cargado -->
     <script src="js/map.js" defer></script>
 </body>
+
 </html>

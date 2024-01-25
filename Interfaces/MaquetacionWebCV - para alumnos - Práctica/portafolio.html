@@ -1,285 +1,260 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1"
-    />
-    <title>Portafolio - Elliot Moyano Cutler</title>
 
-    <link rel="icon" type="image/png" href="./img/icono.png" />
-    <!-- estilos -->
-    <link
-      rel="stylesheet"
-      href="fonts/fontawesome-free-6.1.2-web/css/all.css"
-    />
-    <link rel="stylesheet" href="fonts/poppins/poppins.css" />
-    <link rel="stylesheet" href="css/scroll.css" />
-    <link rel="stylesheet" href="css/estilos.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>Portafolio - Elliot Moyano Cutler</title>
 
-    <link
-      rel="stylesheet"
-      href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
-    />
+  <link rel="icon" type="image/png" href="./img/icono.png" />
+  <!-- estilos -->
+  <link rel="stylesheet" href="fonts/fontawesome-free-6.1.2-web/css/all.css" />
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+  <link rel="stylesheet" href="fonts/poppins/poppins.css" />
+  <link rel="stylesheet" href="css/scroll.css" />
+  <link rel="stylesheet" href="css/estilos.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
 
-    <title>Maquetación Proyecto CV</title>
-  </head>
-  <body>
-    <!-- layout principal. Usamos metodología BEM -->
-    <div class="layout">
-      <!-- barra lateral (info usuario). -->
-      <aside class="layout__aside">
-        <section class="aside__user-info">
-          <!-- información general usuario -->
-          <div class="user-info__general">
-            <div class="user-info__container-image">
-              <img
-                src="img/default-user.jpg"
-                class="user-info__image"
-                alt="Foto de perfil"
-              />
-              <!-- aquí iría la sombra -->
-            </div>
-            <h2 class="user-info__name">Elliot Moyano Cutler</h2>
-            <h4 class="user-info__job">Estudiante - Desarrollador Web</h4>
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- JQuery UI -->
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+    integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+
+  <!-- Mis scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/tabs.js"></script>
+</head>
+
+<body>
+  <!-- layout principal. Usamos metodología BEM -->
+  <div class="layout">
+    <!-- barra lateral (info usuario). -->
+    <aside class="layout__aside">
+      <section class="aside__user-info">
+        <!-- información general usuario -->
+        <div class="user-info__general">
+          <div class="user-info__container-image">
+            <img src="img/default-user.jpg" class="user-info__image" alt="Foto de perfil" />
+            <!-- aquí iría la sombra -->
           </div>
-          <!-- menú de navegación -->
-          <nav class="layout__menu">
-            <ul class="menu__list">
-              <li class="menu__option">
-                <a href="index.html" class="menu__link">
-                  <i class="menu__icon fa-solid fa-house"></i>
-                  <span class="menu__overlay">Home</span>
-                </a>
+          <h2 class="user-info__name">Elliot Moyano Cutler</h2>
+          <h4 class="user-info__job">Estudiante - Desarrollador Web</h4>
+        </div>
+        <!-- menú de navegación -->
+        <nav class="layout__menu">
+          <ul class="menu__list">
+            <li class="menu__option">
+              <a href="index.html" class="menu__link">
+                <i class="menu__icon fa-solid fa-house"></i>
+                <span class="menu__overlay">Home</span>
+              </a>
+            </li>
+            <li class="menu__option">
+              <a href="sobre-mi.html" class="menu__link">
+                <i class="menu__icon fa-solid fa-user"></i>
+                <span class="menu__overlay">Sobre mí</span>
+              </a>
+            </li>
+            <li class="menu__option">
+              <a href="curriculum.html" class="menu__link">
+                <i class="menu__icon fa-solid fa-graduation-cap"></i>
+                <span class="menu__overlay">Curriculum</span>
+              </a>
+            </li>
+            <li class="menu__option">
+              <a href="portafolio.html" class="menu__link menu__link--active">
+                <i class="menu__icon fa-solid fa-briefcase"></i>
+                <span class="menu__overlay">Portafolio</span>
+              </a>
+            </li>
+            <li class="menu__option">
+              <a href="blog.html" class="menu__link">
+                <i class="menu__icon fa-solid fa-book"></i>
+                <span class="menu__overlay">Blog</span>
+              </a>
+            </li>
+            <li class="menu__option">
+              <a href="contacto.html" class="menu__link">
+                <i class="menu__icon fa-solid fa-envelope"></i>
+                <span class="menu__overlay">Contacto</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <nav class="layout__menu-abajo">
+          <ul class="menu__list-abajo">
+            <li class="menu__option">
+              <a id="oscuro">
+                <i class="menu__icon fa-solid fa-moon fa-house"></i>
+                <span class="menu__overlay">Modo oscuro</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- link a redes sociales -->
+        <div class="user-info__links">
+          <ul class="links__social">
+            <li class="social__option">
+              <a href="#" class="social__link">
+                <i class="social__icon fa-brands fa-youtube"></i>
+              </a>
+            </li>
+            <li class="social__option">
+              <a href="#" class="social__link">
+                <i class="social__icon fa-brands fa-linkedin"></i>
+              </a>
+            </li>
+            <li class="social__option">
+              <a href="#" class="social__link">
+                <i class="social__icon fa-brands fa-instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- botón del curriculum -->
+        <div class="user-info__buttons">
+          <a href="#" class="user-info__btn">Descargar CV</a>
+        </div>
+
+        <!-- pié de página -->
+        <footer class="user-info__footer">
+          &copy; 2024 Elliot Moyano Cutler - Web
+        </footer>
+      </section>
+    </aside>
+
+    <!-- contenido principal -->
+    <main class="layout__content">
+      <section class="content__page content__portafolio">
+        <header class="portafolio__header">
+          <h1 class="portafolio__title">Portafolio</h1>
+        </header>
+        <div id="tabs">
+          <nav class="portfolio__navbar">
+            <ul class="portfolio__menu">
+              <li class="portfolio_option portfolio__option--active">
+                <a href="#tabs-1" class="portfolio__link">Tab 1</a>
               </li>
-              <li class="menu__option">
-                <a href="sobre-mi.html" class="menu__link">
-                  <i class="menu__icon fa-solid fa-user"></i>
-                  <span class="menu__overlay">Sobre mí</span>
-                </a>
+              <li class="portfolio_option">
+                <a href="#tabs-2" class="portfolio__link">Tab 2</a>
               </li>
-              <li class="menu__option">
-                <a href="curriculum.html" class="menu__link">
-                  <i class="menu__icon fa-solid fa-graduation-cap"></i>
-                  <span class="menu__overlay">Curriculum</span>
-                </a>
+              <li class="portfolio_option">
+                <a href="#tabs-3" class="portfolio__link">Tab 3</a>
               </li>
-              <li class="menu__option">
-                <a href="portafolio.html" class="menu__link menu__link--active">
-                  <i class="menu__icon fa-solid fa-briefcase"></i>
-                  <span class="menu__overlay">Portafolio</span>
-                </a>
+              <li class="portfolio_option">
+                <a href="#tabs-4" class="portfolio__link">Tab 4</a>
               </li>
-              <li class="menu__option">
-                <a href="blog.html" class="menu__link">
-                  <i class="menu__icon fa-solid fa-book"></i>
-                  <span class="menu__overlay">Blog</span>
-                </a>
+              <li class="portfolio_option">
+                <a href="#tabs-5" class="portfolio__link">Tab 5</a>
               </li>
-              <li class="menu__option">
-                <a href="contacto.html" class="menu__link">
-                  <i class="menu__icon fa-solid fa-envelope"></i>
-                  <span class="menu__overlay">Contacto</span>
-                </a>
+              <li class="portfolio_option">
+                <a href="#tabs-6" class="portfolio__link">Tab 6</a>
               </li>
             </ul>
           </nav>
-
-          <!-- link a redes sociales -->
-          <div class="user-info__links">
-            <ul class="links__social">
-              <li class="social__option">
-                <a href="#" class="social__link">
-                  <i class="social__icon fa-brands fa-youtube"></i>
+          <section class="portfolio__gallery">
+            <figure class="gallery__item" id="tabs-1">
+              <div class="gallery__container-image">
+                <a href="#" class="gallery__link">
+                  <img src="img/galeria-1.jpg" alt="" class="gallery__image" />
                 </a>
-              </li>
-              <li class="social__option">
-                <a href="#" class="social__link">
-                  <i class="social__icon fa-brands fa-linkedin"></i>
+              </div>
+              <figcaption class="gallery__title">
+                Producción de video
+              </figcaption>
+              <i class="gallery__icon fa-solid fa-video-camera"></i>
+              <span class="gallery__category">Videos</span>
+              <p class="gallery__text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Dicta, doloribus vel. Eaque maxime cupiditate voluptatum vero,
+                iste tempore velit officia?
+              </p>
+            </figure>
+            <figure class="gallery__item" id="tabs-2">
+              <div class="gallery__container-image">
+                <a href="#" class="gallery__link">
+                  <img src="img/galeria-2.jpg" alt="" class="gallery__image" />
                 </a>
-              </li>
-              <li class="social__option">
-                <a href="#" class="social__link">
-                  <i class="social__icon fa-brands fa-instagram"></i>
+              </div>
+              <figcaption class="gallery__title">Javascript</figcaption>
+              <i class="gallery__icon fa-solid fa-code"></i>
+              <span class="gallery__category">Curso</span>
+              <p class="gallery__text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Dicta, doloribus vel. Eaque maxime cupiditate voluptatum vero,
+                iste tempore velit officia?
+              </p>
+            </figure>
+            <figure class="gallery__item" id="tabs-3">
+              <div class="gallery__container-image">
+                <a href="#" class="gallery__link">
+                  <img src="img/galeria-3.jpg" alt="" class="gallery__image" />
                 </a>
-              </li>
-            </ul>
-          </div>
+              </div>
+              <figcaption class="gallery__title">React</figcaption>
+              <i class="gallery__icon fa-solid fa-code-commit"></i>
+              <span class="gallery__category">Curso</span>
+              <p class="gallery__text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Dicta, doloribus vel. Eaque maxime cupiditate voluptatum vero,
+                iste tempore velit officia?
+              </p>
+            </figure>
+            <figure class="gallery__item" id="tabs-4">
+              <div class="gallery__container-image">
+                <a href="#" class="gallery__link">
+                  <img src="img/galeria-4.jpg" alt="" class="gallery__image" />
+                </a>
+              </div>
+              <figcaption class="gallery__title">Red social</figcaption>
+              <i class="gallery__icon fa-solid fa-code"></i>
+              <span class="gallery__category">Web</span>
+              <p class="gallery__text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Dicta, doloribus vel. Eaque maxime cupiditate voluptatum vero,
+                iste tempore velit officia?
+              </p>
+            </figure>
+            <figure class="gallery__item" id="tabs-5">
+              <div class="gallery__container-image">
+                <a href="#" class="gallery__link">
+                  <img src="img/galeria-5.jpg" alt="" class="gallery__image" />
+                </a>
+              </div>
+              <figcaption class="gallery__title">Programación</figcaption>
+              <i class="gallery__icon fa-solid fa-code"></i>
+              <span class="gallery__category">Curso</span>
+              <p class="gallery__text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Dicta, doloribus vel. Eaque maxime cupiditate voluptatum vero,
+                iste tempore velit officia?
+              </p>
+            </figure>
+            <figure class="gallery__item" id="tabs-6">
+              <div class="gallery__container-image">
+                <a href="#" class="gallery__link">
+                  <img src="img/galeria-6.jpg" alt="" class="gallery__image" />
+                </a>
+              </div>
+              <figcaption class="gallery__title">Imágenes</figcaption>
+              <i class="gallery__icon fa-solid fa-image-portrait"></i>
+              <span class="gallery__category">Proyecto</span>
+              <p class="gallery__text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Dicta, doloribus vel. Eaque maxime cupiditate voluptatum vero,
+                iste tempore velit officia?
+              </p>
+            </figure>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
 
-          <!-- botón del curriculum -->
-          <div class="user-info__buttons">
-            <a href="#" class="user-info__btn">Descargar CV</a>
-          </div>
-
-          <!-- pié de página -->
-          <footer class="user-info__footer">
-            &copy; 2024 Elliot Moyano Cutler - Web
-          </footer>
-        </section>
-      </aside>
-
-      <!-- contenido principal -->
-      <main class="layout__content">
-        <section class="content__page content__portafolio">
-          <header class="portafolio__header">
-            <h1 class="portafolio__title">Portafolio</h1>
-            <button id="oscuro">Modo oscuro</button>
-          </header>
-          <div id="tabs">
-            <nav class="portfolio__navbar">
-              <ul class="portfolio__menu">
-                <li class="portfolio_option portfolio__option--active">
-                  <a href="#tabs-1" class="portfolio__link">Tab 1</a>
-                </li>
-                <li class="portfolio_option">
-                  <a href="#tabs-2" class="portfolio__link">Tab 2</a>
-                </li>
-                <li class="portfolio_option">
-                  <a href="#tabs-3" class="portfolio__link">Tab 3</a>
-                </li>
-                <li class="portfolio_option">
-                  <a href="#tabs-4" class="portfolio__link">Tab 4</a>
-                </li>
-                <li class="portfolio_option">
-                  <a href="#tabs-5" class="portfolio__link">Tab 5</a>
-                </li>
-                <li class="portfolio_option">
-                  <a href="#tabs-6" class="portfolio__link">Tab 6</a>
-                </li>
-              </ul>
-            </nav>
-            <section class="portfolio__gallery">
-              <figure class="gallery__item" id="tabs-1">
-                <div class="gallery__container-image">
-                  <a href="#" class="gallery__link">
-                    <img
-                      src="img/galeria-1.jpg"
-                      alt=""
-                      class="gallery__image"
-                    />
-                  </a>
-                </div>
-                <figcaption class="gallery__title">
-                  Producción de video
-                </figcaption>
-                <i class="gallery__icon fa-solid fa-video-camera"></i>
-                <span class="gallery__category">Videos</span>
-                <p class="gallery__text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dicta, doloribus vel. Eaque maxime cupiditate voluptatum vero,
-                  iste tempore velit officia?
-                </p>
-              </figure>
-              <figure class="gallery__item" id="tabs-2">
-                <div class="gallery__container-image">
-                  <a href="#" class="gallery__link">
-                    <img
-                      src="img/galeria-2.jpg"
-                      alt=""
-                      class="gallery__image"
-                    />
-                  </a>
-                </div>
-                <figcaption class="gallery__title">Javascript</figcaption>
-                <i class="gallery__icon fa-solid fa-code"></i>
-                <span class="gallery__category">Curso</span>
-                <p class="gallery__text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dicta, doloribus vel. Eaque maxime cupiditate voluptatum vero,
-                  iste tempore velit officia?
-                </p>
-              </figure>
-              <figure class="gallery__item" id="tabs-3">
-                <div class="gallery__container-image">
-                  <a href="#" class="gallery__link">
-                    <img
-                      src="img/galeria-3.jpg"
-                      alt=""
-                      class="gallery__image"
-                    />
-                  </a>
-                </div>
-                <figcaption class="gallery__title">React</figcaption>
-                <i class="gallery__icon fa-solid fa-code-commit"></i>
-                <span class="gallery__category">Curso</span>
-                <p class="gallery__text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dicta, doloribus vel. Eaque maxime cupiditate voluptatum vero,
-                  iste tempore velit officia?
-                </p>
-              </figure>
-              <figure class="gallery__item" id="tabs-4">
-                <div class="gallery__container-image">
-                  <a href="#" class="gallery__link">
-                    <img
-                      src="img/galeria-4.jpg"
-                      alt=""
-                      class="gallery__image"
-                    />
-                  </a>
-                </div>
-                <figcaption class="gallery__title">Red social</figcaption>
-                <i class="gallery__icon fa-solid fa-code"></i>
-                <span class="gallery__category">Web</span>
-                <p class="gallery__text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dicta, doloribus vel. Eaque maxime cupiditate voluptatum vero,
-                  iste tempore velit officia?
-                </p>
-              </figure>
-              <figure class="gallery__item" id="tabs-5">
-                <div class="gallery__container-image">
-                  <a href="#" class="gallery__link">
-                    <img
-                      src="img/galeria-5.jpg"
-                      alt=""
-                      class="gallery__image"
-                    />
-                  </a>
-                </div>
-                <figcaption class="gallery__title">Programación</figcaption>
-                <i class="gallery__icon fa-solid fa-code"></i>
-                <span class="gallery__category">Curso</span>
-                <p class="gallery__text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dicta, doloribus vel. Eaque maxime cupiditate voluptatum vero,
-                  iste tempore velit officia?
-                </p>
-              </figure>
-              <figure class="gallery__item" id="tabs-6">
-                <div class="gallery__container-image">
-                  <a href="#" class="gallery__link">
-                    <img
-                      src="img/galeria-6.jpg"
-                      alt=""
-                      class="gallery__image"
-                    />
-                  </a>
-                </div>
-                <figcaption class="gallery__title">Imágenes</figcaption>
-                <i class="gallery__icon fa-solid fa-image-portrait"></i>
-                <span class="gallery__category">Proyecto</span>
-                <p class="gallery__text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dicta, doloribus vel. Eaque maxime cupiditate voluptatum vero,
-                  iste tempore velit officia?
-                </p>
-              </figure>
-            </section>
-          </div>
-        </section>
-      </main>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script
-      src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
-      integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c="
-      crossorigin="anonymous"
-    ></script>
-    <script src="js/script.js"></script>
-  </body>
 </html>

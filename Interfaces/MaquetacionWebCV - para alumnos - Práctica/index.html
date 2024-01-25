@@ -1,154 +1,135 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1"
-    />
-    <title>Portafolio - Elliot Moyano Cutler</title>
-    <link rel="icon" type="image/png" href="./img/icono.png" />
-    <!-- estilos -->
-    <link
-      rel="stylesheet"
-      href="fonts/fontawesome-free-6.1.2-web/css/all.css"
-    />
-    <link rel="stylesheet" href="fonts/poppins/poppins.css" />
-    <link rel="stylesheet" href="css/scroll.css" />
-    <link rel="stylesheet" href="css/estilos.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
 
-    <link
-      rel="stylesheet"
-      href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>Index - Elliot Moyano Cutler</title>
+  <link rel="icon" type="image/png" href="./img/icono.png" />
+  <!-- estilos -->
+  <link rel="stylesheet" href="fonts/fontawesome-free-6.1.2-web/css/all.css" />
+  <link rel="stylesheet" href="fonts/poppins/poppins.css" />
+  <link rel="stylesheet" href="css/scroll.css" />
+  <link rel="stylesheet" href="css/estilos.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
 
-    <title>Maquetación Proyecto CV</title>
-  </head>
-  <body>
-    <!-- layout principal. Usamos metodología BEM -->
-    <div class="layout">
-      <!-- barra lateral (info usuario). -->
-      <aside class="layout__aside">
-        <section class="aside__user-info">
-          <!-- información general usuario -->
-          <div class="user-info__general">
-            <div class="user-info__container-image">
-              <img
-                src="img/default-user.jpg"
-                class="user-info__image"
-                alt="Foto de perfil"
-              />
-              <!-- aquí iría la sombra -->
-            </div>
-            <h2 class="user-info__name">Elliot Moyano Cutler</h2>
-            <h4 class="user-info__job">Estudiante - Desarrollador Web</h4>
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- Mis scripts -->
+  <script src="js/main.js"></script>
+
+</head>
+
+<body>
+  <!-- layout principal. Usamos metodología BEM -->
+  <div class="layout">
+    <!-- barra lateral (info usuario). -->
+    <aside class="layout__aside">
+      <section class="aside__user-info">
+        <!-- información general usuario -->
+        <div class="user-info__general">
+          <div class="user-info__container-image">
+            <img src="img/default-user.jpg" class="user-info__image" alt="Foto de perfil" />
+            <!-- aquí iría la sombra -->
           </div>
-          <!-- menú de navegación -->
-          <nav class="layout__menu">
-            <ul class="menu__list">
-              <li class="menu__option">
-                <a href="index.html" class="menu__link menu__link--active">
-                  <i class="menu__icon fa-solid fa-house"></i>
-                  <span class="menu__overlay">Home</span>
-                </a>
-              </li>
-              <li class="menu__option">
-                <a href="sobre-mi.html" class="menu__link">
-                  <i class="menu__icon fa-solid fa-user"></i>
-                  <span class="menu__overlay">Sobre mí</span>
-                </a>
-              </li>
-              <li class="menu__option">
-                <a href="curriculum.html" class="menu__link">
-                  <i class="menu__icon fa-solid fa-graduation-cap"></i>
-                  <span class="menu__overlay">Curriculum</span>
-                </a>
-              </li>
-              <li class="menu__option">
-                <a href="portafolio.html" class="menu__link">
-                  <i class="menu__icon fa-solid fa-briefcase"></i>
-                  <span class="menu__overlay">Portafolio</span>
-                </a>
-              </li>
-              <li class="menu__option">
-                <a href="blog.html" class="menu__link">
-                  <i class="menu__icon fa-solid fa-book"></i>
-                  <span class="menu__overlay">Blog</span>
-                </a>
-              </li>
-              <li class="menu__option">
-                <a href="contacto.html" class="menu__link">
-                  <i class="menu__icon fa-solid fa-envelope"></i>
-                  <span class="menu__overlay">Contacto</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <nav class="layout__menu-abajo">
-            <ul class="menu__list-abajo">
-              <li class="menu__option">
-                <button
-                  id="oscuro"
-                  href="index.html"
-                  class="menu__link menu__link--active"
-                >
-                  <i class="menu__icon fa-solid fa-moon fa-house"></i>
-                  <span class="menu__overlay">Modo oscuro</span>
-                </button>
-              </li>
-            </ul>
-          </nav>
+          <h2 class="user-info__name">Elliot Moyano Cutler</h2>
+          <h4 class="user-info__job">Estudiante - Desarrollador Web</h4>
+        </div>
+        <!-- menú de navegación -->
+        <nav class="layout__menu">
+          <ul class="menu__list">
+            <li class="menu__option">
+              <a href="index.html" class="menu__link menu__link--active">
+                <i class="menu__icon fa-solid fa-house"></i>
+                <span class="menu__overlay">Home</span>
+              </a>
+            </li>
+            <li class="menu__option">
+              <a href="sobre-mi.html" class="menu__link">
+                <i class="menu__icon fa-solid fa-user"></i>
+                <span class="menu__overlay">Sobre mí</span>
+              </a>
+            </li>
+            <li class="menu__option">
+              <a href="curriculum.html" class="menu__link">
+                <i class="menu__icon fa-solid fa-graduation-cap"></i>
+                <span class="menu__overlay">Curriculum</span>
+              </a>
+            </li>
+            <li class="menu__option">
+              <a href="portafolio.html" class="menu__link">
+                <i class="menu__icon fa-solid fa-briefcase"></i>
+                <span class="menu__overlay">Portafolio</span>
+              </a>
+            </li>
+            <li class="menu__option">
+              <a href="blog.html" class="menu__link">
+                <i class="menu__icon fa-solid fa-book"></i>
+                <span class="menu__overlay">Blog</span>
+              </a>
+            </li>
+            <li class="menu__option">
+              <a href="contacto.html" class="menu__link">
+                <i class="menu__icon fa-solid fa-envelope"></i>
+                <span class="menu__overlay">Contacto</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <nav class="layout__menu-abajo">
+          <ul class="menu__list-abajo">
+            <li class="menu__option">
+              <a id="oscuro">
+                <i class="menu__icon fa-solid fa-moon fa-house"></i>
+                <span class="menu__overlay">Modo oscuro</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
 
-          <!-- link a redes sociales -->
-          <div class="user-info__links">
-            <ul class="links__social">
-              <li class="social__option">
-                <a href="#" class="social__link">
-                  <i class="social__icon fa-brands fa-youtube"></i>
-                </a>
-              </li>
-              <li class="social__option">
-                <a href="#" class="social__link">
-                  <i class="social__icon fa-brands fa-linkedin"></i>
-                </a>
-              </li>
-              <li class="social__option">
-                <a href="#" class="social__link">
-                  <i class="social__icon fa-brands fa-instagram"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
+        <!-- link a redes sociales -->
+        <div class="user-info__links">
+          <ul class="links__social">
+            <li class="social__option">
+              <a href="#" class="social__link">
+                <i class="social__icon fa-brands fa-youtube"></i>
+              </a>
+            </li>
+            <li class="social__option">
+              <a href="#" class="social__link">
+                <i class="social__icon fa-brands fa-linkedin"></i>
+              </a>
+            </li>
+            <li class="social__option">
+              <a href="#" class="social__link">
+                <i class="social__icon fa-brands fa-instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
 
-          <!-- botón del curriculum -->
-          <div class="user-info__buttons">
-            <a href="#" class="user-info__btn">Descargar CV</a>
-          </div>
+        <!-- botón del curriculum -->
+        <div class="user-info__buttons">
+          <a href="#" class="user-info__btn">Descargar CV</a>
+        </div>
 
-          <!-- pié de página -->
-          <footer class="user-info__footer">
-            &copy; 2024 Elliot Moyano Cutler - Web
-          </footer>
-        </section>
-      </aside>
+        <!-- pié de página -->
+        <footer class="user-info__footer">
+          &copy; 2024 Elliot Moyano Cutler - Web
+        </footer>
+      </section>
+    </aside>
 
-      <!-- contenido principal -->
-      <main class="layout__content">
-        <section class="content__page">
-          <h1 class="page__name">Elliot Moyano Cutler</h1>
-          <h2 class="page__job">Desarrollador Web</h2>
-        </section>
-      </main>
-    </div>
+    <!-- contenido principal -->
+    <main class="layout__content">
+      <section class="content__page">
+        <h1 class="page__name">Elliot Moyano Cutler</h1>
+        <h2 class="page__job">Desarrollador Web</h2>
+      </section>
+    </main>
+  </div>
+</body>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script
-      src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
-      integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c="
-      crossorigin="anonymous"
-    ></script>
-    <script src="js/script.js"></script>
-  </body>
 </html>

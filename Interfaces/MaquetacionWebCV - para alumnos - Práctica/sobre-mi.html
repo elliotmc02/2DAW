@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title>Portafolio - Elliot Moyano Cutler</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Sobre mi - Elliot Moyano Cutler</title>
     <link rel="icon" type="image/png" href="./img/icono.png" />
     <!-- estilos -->
-    <link rel="stylesheet" href="fonts/fontawesome-free-6.1.2-web/css/all.css">
-    <link rel="stylesheet" href="fonts/poppins/poppins.css">
-    <link rel="stylesheet" href="css/scroll.css">
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="fonts/fontawesome-free-6.1.2-web/css/all.css" />
+    <link rel="stylesheet" href="fonts/poppins/poppins.css" />
+    <link rel="stylesheet" href="css/scroll.css" />
+    <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
 
+    <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
-    
-    <title>Maquetación Proyecto CV</title>
+
+    <!-- Mis scripts -->
+    <script src="js/main.js"></script>
 </head>
+
 <body>
     <!-- layout principal. Usamos metodología BEM -->
     <div class="layout">
@@ -29,7 +30,7 @@
                 <!-- información general usuario -->
                 <div class="user-info__general">
                     <div class="user-info__container-image">
-                        <img src="img/default-user.jpg" class="user-info__image" alt="Foto de perfil">
+                        <img src="img/default-user.jpg" class="user-info__image" alt="Foto de perfil" />
                         <!-- aquí iría la sombra -->
                     </div>
                     <h2 class="user-info__name">Elliot Moyano Cutler</h2>
@@ -76,6 +77,16 @@
                         </li>
                     </ul>
                 </nav>
+                <nav class="layout__menu-abajo">
+                    <ul class="menu__list-abajo">
+                        <li class="menu__option">
+                            <a id="oscuro">
+                                <i class="menu__icon fa-solid fa-moon fa-house"></i>
+                                <span class="menu__overlay">Modo oscuro</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
 
                 <!-- link a redes sociales -->
                 <div class="user-info__links">
@@ -104,7 +115,7 @@
                 </div>
 
                 <!-- pié de página -->
-                <footer class="user-info__footer"> 
+                <footer class="user-info__footer">
                     &copy; 2024 Elliot Moyano Cutler - Web
                 </footer>
             </section>
@@ -114,11 +125,18 @@
         <main class="layout__content">
             <section class="content__page content__about">
                 <header class="about__header">
-                    <h1 class="about__title">Sobre <span class="title__color">Mí</span></h1>
+                    <h1 class="about__title">
+                        Sobre <span class="title__color">Mí</span>
+                    </h1>
                 </header>
                 <section class="about__personal-info">
                     <article class="personal-info__bio">
-                        <p class="personal-info__desription">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates maxime iusto aliquam magnam error dolor sint nesciunt, sit, quibusdam velit beatae eum facere fugiat nobis amet laudantium distinctio asperiores quis!</p>
+                        <p class="personal-info__desription">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Voluptates maxime iusto aliquam magnam error dolor sint
+                            nesciunt, sit, quibusdam velit beatae eum facere fugiat nobis
+                            amet laudantium distinctio asperiores quis!
+                        </p>
                     </article>
                     <div class="personal-info__data">
                         <ul class="personal-info__list">
@@ -147,7 +165,9 @@
                 </section>
                 <section class="about__services">
                     <header class="services__header">
-                        <h2 class="services__title">Lo que <span class="title__color">hago</span></h2>
+                        <h2 class="services__title">
+                            Lo que <span class="title__color">hago</span>
+                        </h2>
                     </header>
                     <div class="services__container">
                         <article class="services__service">
@@ -156,7 +176,13 @@
                             </div>
                             <div class="service__content">
                                 <h3 class="service__title">Programación</h3>
-                                <p class="service__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla exercitationem earum quidem, tempora dolorem molestiae sapiente facere. Quis facere repudiandae voluptatum tempore, necessitatibus, ullam asperiores voluptas, vitae libero nam cupiditate!</p>
+                                <p class="service__description">
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                    Nulla exercitationem earum quidem, tempora dolorem molestiae
+                                    sapiente facere. Quis facere repudiandae voluptatum tempore,
+                                    necessitatibus, ullam asperiores voluptas, vitae libero nam
+                                    cupiditate!
+                                </p>
                             </div>
                         </article>
                         <article class="services__service">
@@ -165,7 +191,13 @@
                             </div>
                             <div class="service__content">
                                 <h3 class="service__title">Formación</h3>
-                                <p class="service__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla exercitationem earum quidem, tempora dolorem molestiae sapiente facere. Quis facere repudiandae voluptatum tempore, necessitatibus, ullam asperiores voluptas, vitae libero nam cupiditate!</p>
+                                <p class="service__description">
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                    Nulla exercitationem earum quidem, tempora dolorem molestiae
+                                    sapiente facere. Quis facere repudiandae voluptatum tempore,
+                                    necessitatibus, ullam asperiores voluptas, vitae libero nam
+                                    cupiditate!
+                                </p>
                             </div>
                         </article>
                         <article class="services__service">
@@ -174,7 +206,13 @@
                             </div>
                             <div class="service__content">
                                 <h3 class="service__title">Desarrollo Web</h3>
-                                <p class="service__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla exercitationem earum quidem, tempora dolorem molestiae sapiente facere. Quis facere repudiandae voluptatum tempore, necessitatibus, ullam asperiores voluptas, vitae libero nam cupiditate!</p>
+                                <p class="service__description">
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                    Nulla exercitationem earum quidem, tempora dolorem molestiae
+                                    sapiente facere. Quis facere repudiandae voluptatum tempore,
+                                    necessitatibus, ullam asperiores voluptas, vitae libero nam
+                                    cupiditate!
+                                </p>
                             </div>
                         </article>
                         <article class="services__service">
@@ -183,7 +221,13 @@
                             </div>
                             <div class="service__content">
                                 <h3 class="service__title">Administración de Sistemas</h3>
-                                <p class="service__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla exercitationem earum quidem, tempora dolorem molestiae sapiente facere. Quis facere repudiandae voluptatum tempore, necessitatibus, ullam asperiores voluptas, vitae libero nam cupiditate!</p>
+                                <p class="service__description">
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                    Nulla exercitationem earum quidem, tempora dolorem molestiae
+                                    sapiente facere. Quis facere repudiandae voluptatum tempore,
+                                    necessitatibus, ullam asperiores voluptas, vitae libero nam
+                                    cupiditate!
+                                </p>
                             </div>
                         </article>
                     </div>
@@ -195,10 +239,14 @@
                     <div class="reviews__container">
                         <article class="reviews__review">
                             <div class="review__image-container">
-                                <img src="img/testimonio1.jpg" class="review__image" alt="cliente">
+                                <img src="img/testimonio1.jpg" class="review__image" alt="cliente" />
                             </div>
                             <div class="review__description">
-                                <p class="review__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque error totam inventore officia quidem commodi ipsa impedit ipsum magnam laudantium.</p>
+                                <p class="review__text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Atque error totam inventore officia quidem commodi ipsa
+                                    impedit ipsum magnam laudantium.
+                                </p>
                             </div>
                             <div class="review__author">
                                 <div class="review__author-info">
@@ -212,10 +260,14 @@
                         </article>
                         <article class="reviews__review">
                             <div class="review__image-container">
-                                <img src="img/testimonio2.jpg" class="review__image" alt="cliente">
+                                <img src="img/testimonio2.jpg" class="review__image" alt="cliente" />
                             </div>
                             <div class="review__description">
-                                <p class="review__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque error totam inventore officia quidem commodi ipsa impedit ipsum magnam laudantium.</p>
+                                <p class="review__text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Atque error totam inventore officia quidem commodi ipsa
+                                    impedit ipsum magnam laudantium.
+                                </p>
                             </div>
                             <div class="review__author">
                                 <div class="review__author-info">
@@ -238,21 +290,21 @@
                         <article class="clients__item">
                             <div class="review__image-container">
                                 <a href="#" class="clients_link">
-                                    <img src="img/cliente-1.png" class="clients__image" alt="logo cliente">
+                                    <img src="img/cliente-1.png" class="clients__image" alt="logo cliente" />
                                 </a>
                             </div>
                         </article>
                         <article class="clients__item">
                             <div class="review__image-container">
                                 <a href="#" class="clients_link">
-                                    <img src="img/cliente-2.png" class="clients__image" alt="logo cliente">
+                                    <img src="img/cliente-2.png" class="clients__image" alt="logo cliente" />
                                 </a>
                             </div>
                         </article>
                         <article class="clients__item">
                             <div class="review__image-container">
                                 <a href="#" class="clients_link">
-                                    <img src="img/cliente-3.png" class="clients__image" alt="logo cliente">
+                                    <img src="img/cliente-3.png" class="clients__image" alt="logo cliente" />
                                 </a>
                             </div>
                         </article>
@@ -275,15 +327,9 @@
                             <div class="prices__buy">
                                 <a href="#" class="prices__btn">Prueba Gratis</a>
                             </div>
-                            <div class="prices__reward">
-                                Formación de desarrollo web.
-                            </div>
-                            <div class="prices__reward">
-                                Soporte a preguntas y dudas.
-                            </div>
-                            <div class="prices__reward">
-                                Certificado de finalización.
-                            </div>
+                            <div class="prices__reward">Formación de desarrollo web.</div>
+                            <div class="prices__reward">Soporte a preguntas y dudas.</div>
+                            <div class="prices__reward">Certificado de finalización.</div>
                         </article>
                         <article class="prices__box">
                             <div class="prices_subtitle">
@@ -302,16 +348,16 @@
                             <div class="prices__reward">
                                 Soporte premium a preguntas y dudas.
                             </div>
-                            <div class="prices__reward">
-                                Certificado de finalización.
-                            </div>
+                            <div class="prices__reward">Certificado de finalización.</div>
                         </article>
                     </div>
                 </section>
 
                 <section class="about__extra">
                     <header class="extra__header">
-                        <h2 class="extra__title">Información <span class="title__color">Extra</span></h2>
+                        <h2 class="extra__title">
+                            Información <span class="title__color">Extra</span>
+                        </h2>
                     </header>
                     <div class="extra__container">
                         <article class="extra__info">
@@ -335,4 +381,5 @@
         </main>
     </div>
 </body>
+
 </html>
