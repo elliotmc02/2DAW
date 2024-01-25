@@ -9,7 +9,7 @@ $(document).ready(() => {
 
   // Modo Oscuro / Claro
   $('#oscuro').click(() => {
-    sessionStorage.setItem('temaOscuro', !$(':root').hasClass('modo-oscuro'));
+    localStorage.setItem('temaOscuro', !$(':root').hasClass('modo-oscuro'));
     cambiarTema();
   });
 
@@ -26,6 +26,17 @@ $(document).ready(() => {
       location.href = $(this).attr('href');
     });
   });
+
+  // Menu hamburguesa
+  $('.hamburger-wrapper').on('click', function () {
+    $('.hamburger-menu').toggleClass('animate');
+    $('.mobile-menu-overlay').toggleClass('visible');
+  })
+  $('.mobile-menu-overlay > ul > li > a').on('click', function () {
+    $('.hamburger-menu').removeClass('animate');
+    $('.mobile-menu-overlay').removeClass('visible');
+  })
+
 });
 
 const animacionLayout = () => {
@@ -35,7 +46,7 @@ const animacionLayout = () => {
 }
 
 const cambiarTema = () => {
-  if (!sessionStorage.getItem('temaOscuro') || sessionStorage.getItem('temaOscuro') === 'false') {
+  if (!localStorage.getItem('temaOscuro') || localStorage.getItem('temaOscuro') === 'false') {
     $(':root').removeClass('modo-oscuro');
     $('#oscuro i').addClass('fa-moon').removeClass('fa-sun');
     $('#oscuro span').text('Modo Oscuro');

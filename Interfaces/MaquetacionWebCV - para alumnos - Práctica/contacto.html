@@ -34,6 +34,28 @@
 <body>
     <!-- layout principal. Usamos metodología BEM -->
     <div class="layout">
+        <nav class="mobile-menu">
+            <a href="#" class="hamburger-wrapper">
+                <div class="hamburger-menu"></div>
+            </a>
+            <div class="mobile-menu-overlay">
+                <ul>
+                    <img src="img/default-user.jpg" class="user-info__image_mobile" alt="" />
+                    <li class="menu__option">
+                        <a id="oscuro">
+                            <i class="menu__icon fa-solid fa-moon fa-house"></i>
+                            <span class="menu__overlay">Modo oscuro</span>
+                        </a>
+                    </li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre-mi.html">Sobre mí</a></li>
+                    <li><a href="curriculum.html">Currículum</a></li>
+                    <li><a href="portafolio.html">Portafolio</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
         <!-- barra lateral (info usuario). -->
         <aside class="layout__aside">
             <section class="aside__user-info">
