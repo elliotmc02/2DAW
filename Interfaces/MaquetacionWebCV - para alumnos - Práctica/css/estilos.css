@@ -378,7 +378,7 @@ body {
   min-width: 11rem;
   background-color: var(--color-transparent);
 }
-#oscuro {
+.oscuro {
   color: var(--color-icons);
 }
 .menu__list {
@@ -1489,13 +1489,11 @@ body {
 
 nav.mobile-menu {
   position: fixed;
-  background: var(--color-secondary);
   box-sizing: border-box;
   width: 100%;
   height: 70px;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
   padding: 0 16px;
   z-index: 1000;
 }
@@ -1511,7 +1509,7 @@ nav.mobile-menu .mobile-menu-overlay {
   width: 100%;
   height: 100vh;
   position: fixed;
-  background: var(--color-principal);
+  background-color: var(--color-principal);
   top: 0;
   left: 0;
   text-align: center;
@@ -1548,7 +1546,7 @@ nav.mobile-menu .mobile-menu-overlay ul li a {
 
 .hamburger-menu {
   position: relative;
-  background: var(--color-icons);
+  background: var(--color-title);
   transition: all 0ms 200ms;
   display: block;
 }
@@ -1561,7 +1559,7 @@ nav.mobile-menu .mobile-menu-overlay ul li a {
   position: absolute;
   left: 0;
   bottom: 8px;
-  background: var(--color-icons);
+  background: var(--color-title);
   transition: bottom 200ms 200ms cubic-bezier(0.23, 1, 0.32, 1),
     transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -1571,7 +1569,7 @@ nav.mobile-menu .mobile-menu-overlay ul li a {
   position: absolute;
   left: 0;
   top: 8px;
-  background: var(--color-icons);
+  background: var(--color-title);
   transition: top 200ms 200ms cubic-bezier(0.23, 1, 0.32, 1),
     transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -1589,3 +1587,40 @@ nav.mobile-menu .mobile-menu-overlay ul li a {
   transition: bottom 200ms cubic-bezier(0.23, 1, 0.32, 1),
     transform 200ms 200ms cubic-bezier(0.23, 1, 0.32, 1);
 }
+
+.oscuro .menu__icon {
+  color: var(--color-title);
+}
+
+/* Estilo de la barra de pestañas */
+.ui-tabs .ui-tabs-nav {
+  background-color: var(--color-principal);
+  border-bottom: 1px solid #ddd;
+}
+
+/* Estilo de cada pestaña */
+.ui-tabs .ui-tabs-nav a {
+  padding: 10px 15px;
+  color: #007bff; /* Color del texto de la pestaña activa */
+  text-decoration: none;
+  border-radius: 4px 4px 0 0;
+  background-color: #fff;
+}
+
+/* Estilo de la pestaña activa */
+.ui-tabs .ui-tabs-nav .ui-state-active a {
+  background-color: #007bff; /* Color de fondo de la pestaña activa */
+  color: #fff; /* Color del texto de la pestaña activa */
+}
+
+/* Estilo del contenido de las pestañas */
+.ui-tabs .ui-tabs-panel {
+  padding: 20px;
+  border-top: none;
+}
+
+/* Opcional: Agregar un borde redondeado al contenido */
+.ui-tabs .ui-tabs-panel {
+  border-radius: 0 0 4px 4px;
+}
+
