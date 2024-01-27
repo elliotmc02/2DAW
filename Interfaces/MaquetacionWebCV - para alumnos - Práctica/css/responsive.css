@@ -43,12 +43,73 @@
     -ms-border-radius: 0;
     -o-border-radius: 0;
 
-    grid-template-areas: "content";
+    grid-template-areas: 'content';
     grid-template-columns: 100%;
   }
   /* ocultamos el aside en Responsivo */
   .layout__aside {
+    z-index: 1337;
     display: none;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: var(--color-principal);
+    top: 0;
+    left: 0;
+    text-align: center;
+  }
+  .aside__user-info {
+    background-color: transparent;
+  }
+  .user-info__general {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  .user-info__image {
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+  }
+  .user-info__footer {
+    display: none;
+  }
+  .menu__list,
+  .menu__list-arriba {
+    width: 100%;
+    box-shadow: unset;
+  }
+  .menu__icon,
+  .textoOscuro {
+    display: none;
+  }
+  .fa-moon,
+  .fa-sun {
+    display: unset;
+  }
+  .menu__overlay {
+    position: static;
+    opacity: 1;
+    background-color: transparent;
+    color: var(--color-title);
+    font-size: 20px;
+  }
+  .menu__option:hover .menu__overlay {
+    color: var(--color-secondary);
+  }
+  .social__option:hover {
+    opacity: 1;
+    background-color: var(--color-title);
+  }
+  .social__option:hover .social__icon {
+    color: var(--color-principal);
+  }
+  .user-info__btn:hover {
+    background-color: var(--color-title);
+    color: var(--color-principal);
   }
   .layout__content {
     border-radius: 0;
@@ -68,8 +129,14 @@
     -o-border-radius: 0;
     height: 100vh; /* le asigno toda la altura que tengo visible de mi viewport - pantalla */
   }
-  .layout__menu {
-    position: static; /* el elemento ya no me aparece visible */
+  .layout__menu,
+  .layout__menu-arriba {
+    position: static;
+    margin-right: 0;
+    margin-top: 15px;
+  }
+  .layout__menu-abajo {
+    display: none;
   }
 }
 

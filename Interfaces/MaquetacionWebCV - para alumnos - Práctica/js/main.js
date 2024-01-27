@@ -6,13 +6,13 @@ $(document).ready(() => {
   // PopUp
 
   $('#dialog').hide();
-  $('.certificates__certificate').click(() => {
+  $('.certificates__certificate').on('click', () => {
     $('#dialog').dialog();
   });
 
   // Modo Oscuro / Claro
 
-  $('.oscuro').click(() => {
+  $('.oscuro').on('click', () => {
     localStorage.setItem('temaOscuro', !$(':root').hasClass('modo-oscuro'));
     cambiarTema();
   });
@@ -23,12 +23,11 @@ $(document).ready(() => {
 
   $('.menu__link').on('click', function (ev) {
     ev.preventDefault();
-
+    $('.layout__aside').removeClass('visible');
     $('.layout').animate({
       top: '1500px',
     }, 600, () => {
       location.href = $(this).attr('href');
-
     });
   });
 
@@ -36,13 +35,16 @@ $(document).ready(() => {
 
   $('.hamburger-wrapper').on('click', () => {
     $('.hamburger-menu').toggleClass('animate');
-    $('.mobile-menu-overlay').toggleClass('visible');
+    $('.layout__aside').toggleClass('visible');
   });
 
-  $('.mobile-menu-overlay > ul > li > a').on('click', () => {
-    $('.hamburger-menu').removeClass('animate');
-    $('.mobile-menu-overlay').removeClass('visible');
+  // Scroll
+  $('.scroll').on('click', () => {
+    $('.content__page').animate({
+      scrollTop: 0,
+    }, 750);
   });
+
 });
 
 const animacionLayout = () => {
