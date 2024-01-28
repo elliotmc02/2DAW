@@ -46,11 +46,12 @@ $(document).ready(() => {
   });
 
   // Visibilidad del scroll al bajar
-  $('.layout__menu-abajo_resp .scroll').hide();
+  $('.layout__menu-abajo_resp').hide();
   $('.content__page').on('scroll', () => {
-    $('.content__page').scrollTop() > 100 ? $('.layout__menu-abajo_resp .scroll').fadeIn() : $('.layout__menu-abajo_resp .scroll').fadeOut();
+    if ($(window).width() < 1060) {
+      $('.content__page').scrollTop() > 100 ? $('.layout__menu-abajo_resp').fadeIn() : $('.layout__menu-abajo_resp').fadeOut();
+    }
   });
-
 });
 
 const animacionLayout = () => {
