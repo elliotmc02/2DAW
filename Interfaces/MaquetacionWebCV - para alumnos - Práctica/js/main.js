@@ -45,6 +45,12 @@ $(document).ready(() => {
     }, 750);
   });
 
+  // Visibilidad del scroll al bajar
+  $('.layout__menu-abajo_resp .scroll').hide();
+  $('.content__page').on('scroll', () => {
+    $('.content__page').scrollTop() > 100 ? $('.layout__menu-abajo_resp .scroll').fadeIn() : $('.layout__menu-abajo_resp .scroll').fadeOut();
+  });
+
 });
 
 const animacionLayout = () => {

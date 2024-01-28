@@ -97,7 +97,7 @@ html {
 body {
   width: 100%;
   height: 100%;
-  font-family: "Poppins", Helvetica, sans-serif;
+  font-family: 'Poppins', Helvetica, sans-serif;
   background-color: var(--color-background);
   font-size: 1.5rem;
   color: var(--color-text);
@@ -114,7 +114,7 @@ h6 {
 
 /* imagen de fondo */
 body {
-  background-image: url("../img/fondo.png");
+  background-image: url('../img/fondo.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: -20px -120px;
@@ -135,7 +135,7 @@ body {
   /*border: 1px solid red; */
 
   display: grid;
-  grid-template-areas: "aside content";
+  grid-template-areas: 'aside content';
   grid-template-columns: 30% 70%;
 
   border-radius: 4rem;
@@ -197,7 +197,7 @@ body {
 /* agrego un contenido adicional para añadir un fondo de degradado de puntos de ahí el uso de ::after */
 /* sombra de puntitos: incluyendo contenido estético */
 .user-info__container-image::after {
-  content: "hola";
+  content: 'hola';
   position: absolute;
   top: 5%;
   left: 9%;
@@ -375,6 +375,16 @@ body {
   min-width: 11rem;
   background-color: var(--color-transparent);
 }
+.layout__menu-abajo_resp {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: var(--color-transparent);
+}
+.layout__menu-abajo_resp .menu__list-abajo {
+  box-shadow: none;
+}
 
 .menu__list {
   position: relative;
@@ -393,7 +403,8 @@ body {
   -ms-border-radius: 5rem;
   -o-border-radius: 5rem;
 }
-.menu__list-arriba, .menu__list-abajo {
+.menu__list-arriba,
+.menu__list-abajo {
   height: unset;
   position: relative;
   display: flex;
@@ -415,7 +426,8 @@ body {
   width: 100%;
   text-align: center;
 }
-.menu__link--active .menu__icon, .menu__link--active {
+.menu__link--active .menu__icon,
+.menu__link--active {
   color: var(--color-secondary);
 }
 .menu__link {
@@ -434,7 +446,8 @@ body {
   -ms-transition: all 500ms ease-in-out;
   -o-transition: all 500ms ease-in-out;
 }
-.menu__option:hover .menu__icon, .menu__option:hover .menu__link {
+.menu__option:hover .menu__icon,
+.menu__option:hover .menu__link {
   color: var(--color-secondary);
 }
 .menu__overlay {
@@ -494,7 +507,7 @@ body {
 .portafolio__title::after,
 .blog__title::after,
 .contact__title::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 20px;
   right: -25px;
@@ -592,7 +605,7 @@ body {
 .extra__title::after,
 .resume__subtitle::after,
 .form-header__subtitle::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 15px;
   right: 0px;
@@ -776,7 +789,7 @@ body {
 }
 /* genero efecto en el texto --> genero un subrayado */
 .prices__box:hover .prices__text::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: -0.3rem;
@@ -932,7 +945,7 @@ body {
   background-color: var(--color-icons);
 }
 .timeline__divider::before {
-  content: ""; /* agrego contenido vacío */
+  content: ''; /* agrego contenido vacío */
   position: absolute; /* me permite manipular los elementos de forma que puedo saltarme los límites. */
   margin-top: 0.4rem;
   margin-left: -0.8rem;
@@ -949,7 +962,7 @@ body {
 }
 /* añado un círculo blanco interno. Lo añado como after porque en otro caso machacaría el anterior */
 .timeline__divider::after {
-  content: ""; /*agrego contenido vacío*/
+  content: ''; /*agrego contenido vacío*/
   position: absolute;
   margin-top: 0.8rem;
   margin-left: -0.4rem;
@@ -1156,10 +1169,18 @@ body {
   display: flex;
   flex-flow: row wrap;
 }
+.tab_section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
 .gallery__item {
   flex-basis: 33%;
   padding: 0.7rem;
   position: relative; /* necesario para el movimiento de los iconos */
+  width: 50%;
 }
 .gallery__container-image {
   overflow: hidden; /* genero un zoom en interno */
@@ -1170,6 +1191,7 @@ body {
   -moz-transition: all 500ms ease-in-out;
   -ms-transition: all 500ms ease-in-out;
   -o-transition: all 500ms ease-in-out;
+  width: 100%;
 }
 .gallery__image:hover {
   transform: scale(1.1, 1.1);
@@ -1184,7 +1206,7 @@ body {
   font-weight: bold;
 }
 .gallery__text {
-  font-size: 1rem;
+  font-size: 1.3rem;
   opacity: 0.7;
 }
 .gallery__icon {
@@ -1518,7 +1540,7 @@ body {
 }
 
 .hamburger-menu:before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: 8px;
@@ -1528,7 +1550,7 @@ body {
 }
 
 .hamburger-menu:after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 8px;
@@ -1551,35 +1573,37 @@ body {
     transform 200ms 200ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* Estilo de la barra de pestañas */
 .ui-tabs .ui-tabs-nav {
   background-color: var(--color-principal);
-  border-bottom: 1px solid #ddd;
+  padding: 0;
 }
 
-/* Estilo de cada pestaña */
 .ui-tabs .ui-tabs-nav a {
   padding: 10px 15px;
-  color: #007bff; /* Color del texto de la pestaña activa */
+  color: var(--color-title);
   text-decoration: none;
   border-radius: 4px 4px 0 0;
-  background-color: #fff;
+  background-color: var(--color-principal);
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+  border: none;
+  background-color: transparent;
 }
 
-/* Estilo de la pestaña activa */
 .ui-tabs .ui-tabs-nav .ui-state-active a {
-  background-color: #007bff; /* Color de fondo de la pestaña activa */
-  color: #fff; /* Color del texto de la pestaña activa */
+  background-color: var(--color-secondary);
+  color: #fff;
 }
 
-/* Estilo del contenido de las pestañas */
+.ui-widget-content {
+  color: var(--color-title);
+  background-color: transparent;
+}
+
 .ui-tabs .ui-tabs-panel {
-  padding: 20px;
-  border-top: none;
+  background-color: var(--color-principal);
 }
 
-/* Opcional: Agregar un borde redondeado al contenido */
 .ui-tabs .ui-tabs-panel {
   border-radius: 0 0 4px 4px;
 }
-

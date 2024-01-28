@@ -83,11 +83,10 @@
     box-shadow: unset;
   }
   .menu__icon,
-  .textoOscuro {
+  .oscuro .menu__overlay, .scroll .menu__overlay {
     display: none;
   }
-  .fa-moon,
-  .fa-sun {
+  .oscuro .menu__icon, .scroll .menu__icon {
     display: unset;
   }
   .menu__overlay {
@@ -137,6 +136,9 @@
   }
   .layout__menu-abajo {
     display: none;
+  }
+  .layout__menu-abajo_resp {
+    display: block;
   }
 }
 
