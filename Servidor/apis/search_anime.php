@@ -73,6 +73,11 @@
             <h3>
                 <?php echo $anime['score'] ?>
             </h3>
+            <p>
+                <a href="show_anime.php?id=<?php echo $anime['mal_id'] ?>">
+                    Ver detalles
+                </a>
+            </p>
             <img src="<?php echo $anime['images']['jpg']['image_url'] ?>" alt="">
             <?php
         }
