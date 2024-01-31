@@ -21,7 +21,7 @@
         <select name="dificultad">
             <option value="">Cualquiera</option>
             <option value="easy">Facil</option>
-            <option value="normal">Normal</option>
+            <option value="medium">Normal</option>
             <option value="hard">Dificil</option>
         </select>
         <input type="submit" value="Buscar">
