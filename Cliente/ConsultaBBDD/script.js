@@ -17,6 +17,6 @@ const enviarDatos = () => {
         body: datos
     })
         .then(response => response.text())
-        .then(data => location.reload())
+        .then(location.reload())
         .catch(error => console.log('Error:', error));
 }
