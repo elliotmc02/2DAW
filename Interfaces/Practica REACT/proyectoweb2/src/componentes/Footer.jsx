@@ -7,6 +7,9 @@ import SafariIcon from '../img/safari.png';
 import AndroidIcon from '../img/android.png';
 import OperaIcon from '../img/Opera_256x256.png';
 
+import { Link } from 'react-router-dom';
+
+
 const Footer = () => {
     return (
         <footer id="footer">
@@ -14,10 +17,10 @@ const Footer = () => {
                 <div id="menuFooter">
                     <h5>MENÚ</h5>
                     <ul>
-                        <li><a href="/">INICIO</a></li>
-                        <li><a href="/blog">BLOG/PROYECTOS</a></li>
-                        <li><a href="/">FORMACIÓN</a></li>
-                        <li><a href="/">CONTACTO</a></li>
+                        <li><Link to='/'>INICIO</Link></li>
+                        <li><Link to='/articulos'>BLOG/PROYECTOS</Link></li>
+                        <li><Link to='/'>FORMACIÓN</Link></li>
+                        <li><Link to='/'>CONTACTO</Link></li>
                     </ul>
                 </div>
                 <div id="location">
