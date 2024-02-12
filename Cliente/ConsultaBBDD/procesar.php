@@ -26,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $valores = "Error: " . $conexion->error;
             }
         }
-
     } else {
         $valores = "No vienes del sitio adecuado.";
     }
