@@ -1,4 +1,7 @@
 <?php
+
+// Aqui simplemente hago una consulta de la tabla cursos para traerme el expediente y el nombre del curso, para así mostrarlos en el Select
+
 // cambiar los datos si es necesario
 $HOST = "localhost";
 $USER = "root";
@@ -12,8 +15,7 @@ if ($conexion->connect_errno) {
     exit();
 }
 
-$consulta = "SELECT dni,nombre,apellidos,edad FROM alumnos";
-// $consulta = "SELECT dni,nombre,apellidos,edad,exp_curso FROM alumnos";
+$consulta = "SELECT expediente, nombre FROM cursos";
 $resultado = $conexion->query($consulta);
 $res = $resultado->fetch_all(MYSQLI_ASSOC);
 
