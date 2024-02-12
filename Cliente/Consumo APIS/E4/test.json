@@ -1,0 +1,22 @@
+[
+  {
+    "userId": 1,
+    "id": 1,
+    "title": "delectus aut autem",
+    "movil": {
+      "marca": "Samsung",
+      "modelo": "Galaxy S10"
+    },
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 2,
+    "movil": {
+        "marca": "iPhone",
+        "modelo": "Galaxy S10"
+      },
+    "title": "quis ut nam facilis et officia qui",
+    "completed": false
+  }
+]

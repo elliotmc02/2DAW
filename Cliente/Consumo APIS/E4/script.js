@@ -1,12 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+    mostrarTareas();
 });
 
 const mostrarTareas = () => {
-    fetch('https://jsonplaceholder.typicode.com/todos')
+    // fetch('https://jsonplaceholder.typicode.com/todos')
+    fetch('test.json')
         .then(response => response.json())
         .then(data => {
-            data.forEach()
+            for (const tarea of data) {
+                console.log(tarea);
+                const li = document.createElement('li');
+                li.textContent = tarea;
+                document.querySelector('ul').appendChild(li);
+            }
         })
-        .catch(error => console.log('Error:', error))
+        .catch(error => console.log(`Error:${error}`))
 }
+
