@@ -1,23 +1,23 @@
 <?php
 //header('Content-Type: application/json; charset=utf-8');
 
-if (isset($_POST['nombre']) && isset($_POST['clave'])){
+if (isset($_POST['nombre']) && isset($_POST['clave'])) {
+    $dni = $_POST['dni'];
     $nombre = $_POST['nombre'];
-    $clave = $_POST['clave'];
+    $apellidos = $_POST['apellidos'];
+    
 
 
-    if ($nombre === "" || $clave === ""){
+    if ($nombre === "" || $clave === "") {
         $valores = "Rellena todos los campos";
-    }
-    else{
+    } else {
         $nombre = utf8_encode(strtoupper($nombre));
         $clave = utf8_encode(strtoupper($clave));
 
-        $valores = array($nombre,$clave);   
+        $valores = array($nombre, $clave);
     }
 
-}
-else{
+} else {
     $valores = "No vienes del sitio adecuado.";
 }
 
