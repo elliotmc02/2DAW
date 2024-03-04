@@ -15,14 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const mostrarDatos = (usuario) => {
-    const { name, dob, picture } = usuario;
+    // const { name, dob, picture } = usuario;
     const article = document.createElement('article');
     article.className = 'usuario'
     const span = document.createElement('span');
-    span.textContent = `${name.first} ${name.last}: ${dob.age} años`;
+    span.textContent = `${usuario.name.first} ${usuario.name.last}: ${usuario.dob.age} años`;
 
     const img = document.createElement('img');
-    img.setAttribute('src', picture.medium);
+    img.setAttribute('src', usuario.picture.medium);
     article.appendChild(span);
     article.appendChild(img);
     document.querySelector('div').appendChild(article);
